@@ -6,8 +6,8 @@ use quizzone;
 create table domande
 (
 	id int primary key auto_increment,
-    q varchar(100),
-    punti int
+  	q varchar(100),
+    	punti int
 );
 
 --insert into domande
