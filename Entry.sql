@@ -1,1 +1,0 @@
-## File per Vincenzo
