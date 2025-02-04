@@ -5,17 +5,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import com.generation.dao.Database;
+import com.generation.quiz.dao.DaoUtenti;
+import com.generation.quiz.dao.Database;
 import com.generation.quiz.entities.Entity;
 import com.generation.quiz.entities.Utente;
+
 
 @Configuration
 public class Context {
 	
-	@Bean 
+	@Bean
 	public Database db()
 	{
-		return Database.GETINSTANCE();
+		System.out.println("cristo morto");
+		return new Database();
 	}
 	
 	@Bean

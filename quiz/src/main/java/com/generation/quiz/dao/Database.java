@@ -1,11 +1,15 @@
-package com.generation.dao;
+package com.generation.quiz.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.stereotype.Component;
 
 public class Database
 {
@@ -14,19 +18,9 @@ public class Database
 	private String username = "root";
 	private String password = "root";
 	
-	private static Database INSTANCE;
-	
-	private Database()
+	public Database()
 	{
-		
-	}
-	
-	public static Database GETINSTANCE() {
-		
-		if(INSTANCE == null)
-			INSTANCE = new Database();
-		
-		return INSTANCE;
+		System.out.println("oggetto creato");
 	}
 	
 	public Connection getC()
@@ -53,12 +47,25 @@ public class Database
 		}
 	}
 	
+	public void chiudiConnessione() {
+		
+		try {
+			c.close();
+		}catch(Exception err){
+			System.out.println("La connessione non riesce a chiudersi.");
+			err.printStackTrace();
+		}
+		
+	}
+	
 	public List<Map<String,String>> rows(String query, String... params)
 	{
 		List<Map<String,String>> ris = new ArrayList<Map<String,String>>();
 		PreparedStatement ps = null;
 		try
 		{
+			apriConnessione();
+			
 			ps = c.prepareStatement(query);
 			for(int i = 0; i < params.length; i++)
 			{
@@ -76,11 +83,14 @@ public class Database
 				}
 				ris.add(riga);
 			}
+			ps.close();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Problema nel metodo rows() di Database.");
 			e.printStackTrace();
+		}finally {
+			chiudiConnessione();
 		}
 		return ris;
 	}//Fine di rows()
@@ -103,12 +113,14 @@ public class Database
 	{
 		try
 		{
+			apriConnessione();
 			PreparedStatement ps = c.prepareStatement(query);
 			for(int i = 0; i < params.length; i++)
 			{
 				ps.setString(i + 1, params[i]);
 			}
 			ps.executeUpdate();
+			ps.close();
 			return true;
 		}
 		catch(Exception e)
@@ -116,6 +128,8 @@ public class Database
 			System.out.println("Problema nel metodo update() di Database.");
 			e.printStackTrace();
 			return false;
+		}finally {
+			chiudiConnessione();
 		}
 	}//Fine di update()
 }
