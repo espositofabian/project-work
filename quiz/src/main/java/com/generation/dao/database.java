@@ -33,7 +33,7 @@ public class Database
 		}
 		catch(ClassNotFoundException e)
 		{
-			System.out.println("Controlla di aver importato le librerie.");
+			System.out.println("Controlla di aver importato le librerie correttamente.");
 			e.printStackTrace();
 		}
 		catch(Exception e)
