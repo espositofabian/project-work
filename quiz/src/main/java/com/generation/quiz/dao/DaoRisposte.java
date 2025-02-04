@@ -21,10 +21,17 @@ public class DaoRisposte
 		return db.rows(query);
 	}
 	
+	/* PROBLEM -> devi mostrare 4 risposte, tra cui quella giusta, ma devi capire qual è quella giusta
 	public List<Map<String,String>> leggiRispostePerDomanda(int idDomanda){
 		
-		String query = "";
+		
+		SELECT 
+		ris1,
+		ris2,
+        ris3,
+        ris4,
+        risok,
 		
 	}
-	
+	*/
 }
