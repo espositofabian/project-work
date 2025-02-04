@@ -10,17 +10,17 @@ create table domande
     punti int
 );
 
-insert into domande
-(id,q,punti)
-values
-(1,"Come si chiama lo stregone amico degli Hobbit ne Il signore degli anelli?",5),
-(2,"Chi interpreta l'agente Rick Deckard in Blade Runner?",4);
+--insert into domande
+--(id,q,punti,argomento)
+--values
+--(1,"Come si chiama lo stregone amico degli Hobbit ne Il signore degli anelli?",5),
+--(2,"Chi interpreta l'agente Rick Deckard in Blade Runner?",4);
 
-insert into domande
-(id,q,punti)
-values
-(3,"Come si chiama il protagonista di Matrix prima di diventare Neo?",5),
-(4,"Come si chiama il villain in Ready Player One?",5);
+--insert into domande
+--(id,q,punti)
+--values
+--(3,"Come si chiama il protagonista di Matrix prima di diventare Neo?",5),
+--(4,"Come si chiama il villain in Ready Player One?",5);
 
 -- La tabella risposte contiene un id identificativo per le risposte,
 -- 4 possibili opzioni di risposta, la risposta corretta e idDomanda
@@ -38,24 +38,24 @@ create table risposte
     ris4 varchar(100),
     risok varchar(100),
     idDomanda int,
-	foreign key(idDomanda)
+foreign key(idDomanda)
     references domande(id)
     on delete cascade
     on update cascade
 );
 
 -- Query per conoscere tutti i componenti della domanda/risposta
-insert into risposte
-(id,ris1,ris2,ris3,ris4,risok,idDomanda)
-values
-(1,"Gandalf","Saruman","Radagast","Sauron","Gandalf",1),
-(2,"Keanu Reeves","Matt Damon","Christian Bale","Harrison Ford","Harrison Ford",2);
+--insert into risposte
+--(id,ris1,ris2,ris3,ris4,risok,idDomanda)
+--values
+--(1,"Gandalf","Saruman","Radagast","Sauron","Gandalf",1),
+--(2,"Keanu Reeves","Matt Damon","Christian Bale","Harrison Ford","Harrison Ford",2);
 
-insert into risposte
-(id,ris1,ris2,ris3,ris4,risok,idDomanda)
-values
-(3,"Anderson","Moore","Black","Eastman","Anderson",3),
-(4,"Nolan Sorrento","Ricky Cunningham","Carrol Shelby","Bane","Nolan Sorrento",4);
+--insert into risposte
+--(id,ris1,ris2,ris3,ris4,risok,idDomanda)
+--values
+--(3,"Anderson","Moore","Black","Eastman","Anderson",3),
+--(4,"Nolan Sorrento","Ricky Cunningham","Carrol Shelby","Bane","Nolan Sorrento",4);
 
 select	*
 from	domande inner join risposte
