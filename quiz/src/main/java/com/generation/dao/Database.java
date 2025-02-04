@@ -14,9 +14,19 @@ public class Database
 	private String username = "root";
 	private String password = "root";
 	
-	public Database()
+	private static Database INSTANCE;
+	
+	private Database()
 	{
-		apriConnessione();
+		
+	}
+	
+	public static Database GETINSTANCE() {
+		
+		if(INSTANCE == null)
+			INSTANCE = new Database();
+		
+		return INSTANCE;
 	}
 	
 	public Connection getC()

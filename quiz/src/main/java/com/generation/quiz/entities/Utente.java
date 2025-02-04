@@ -18,6 +18,11 @@ public class Utente extends Entity {
 			return false;
 	}
 	
+	public Utente()
+	{
+		super();
+	}
+	
 	public Utente(int id, String username, String password) 
 	{
 		super(id);

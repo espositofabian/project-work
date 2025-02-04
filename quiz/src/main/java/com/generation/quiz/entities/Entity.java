@@ -12,6 +12,11 @@ public abstract class Entity {
 			return false;
 	}
 	
+	public Entity()
+	{
+		
+	}
+	
 	public Entity(int id)
 	{
 		setId(id);
