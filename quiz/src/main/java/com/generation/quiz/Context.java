@@ -15,7 +15,7 @@ public class Context {
 	@Bean 
 	public Database db()
 	{
-		return new Database();
+		return Database.GETINSTANCE();
 	}
 	
 	@Bean
