@@ -17,6 +17,16 @@ public class Vik {
 		return check;
 	}
 	
+	public static boolean checkStringLength(String titolo)
+	{
+		boolean check = false;
+		
+		if(titolo.length() >= 7)
+			check = true;
+		
+		return check;
+	}
+	
 	public static boolean checkBoolean(String bool) {
 		boolean check = false;
 		
