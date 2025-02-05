@@ -39,6 +39,7 @@ public class Context {
 			Utente u = (Utente) e;
 			u.setUsername(mappa.get("username"));
 			u.setPassword(mappa.get("password"));
+			u.setPunteggio(Integer.parseInt(mappa.get("punteggio")));
 		}
 
 		return e;
@@ -54,6 +55,7 @@ public class Context {
 		u.setId(0);
 		u.setUsername(username);
 		u.setPassword(password);
+		u.setPunteggio(Integer.parseInt(("punteggio")));
 		
 		return u;
 	}

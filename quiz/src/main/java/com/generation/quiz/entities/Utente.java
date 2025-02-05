@@ -6,6 +6,7 @@ public class Utente extends Entity {
 
 	private String username;
 	private String password;
+	private int punteggio;
 	
 	public static boolean isUtente(int id, String username, String password)
 	{
@@ -23,11 +24,12 @@ public class Utente extends Entity {
 		super();
 	}
 	
-	public Utente(int id, String username, String password) 
+	public Utente(int id, String username, String password,int punteggio) 
 	{
 		super(id);
 		setUsername(username);
 		setPassword(password);
+		setPunteggio(punteggio);
 	}
 
 	public String getUsername() 
@@ -50,11 +52,22 @@ public class Utente extends Entity {
 		this.password = password;
 	}
 	
+	public int getPunteggio()
+	{
+		return punteggio;
+	}
+	
+	public void setPunteggio(int punteggio)
+	{
+		this.punteggio = punteggio;
+	}
+	
 	public String toString()
 	{
 		return super.toString() + 
-				"Username: " + username + "\n" + 
-				"Password: " + password + "\n" ;
+				"Username: " + username  + "\n" + 
+				"Password: " + password  + "\n" +
+				"Punti: "    + punteggio + "\n" ;
 	}
 	
 	
