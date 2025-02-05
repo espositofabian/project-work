@@ -20,7 +20,7 @@ public class Database
 	
 	public Database()
 	{
-		System.out.println("oggetto creato");
+		System.out.println("oggetto DB creato");
 	}
 	
 	public Connection getC()
@@ -49,9 +49,12 @@ public class Database
 	
 	public void chiudiConnessione() {
 		
-		try {
+		try 
+		{
 			c.close();
-		}catch(Exception err){
+		}
+		catch(Exception err)
+		{
 			System.out.println("La connessione non riesce a chiudersi.");
 			err.printStackTrace();
 		}
@@ -89,11 +92,15 @@ public class Database
 		{
 			System.out.println("Problema nel metodo rows() di Database.");
 			e.printStackTrace();
-		}finally {
+		}
+		finally 
+		{
 			chiudiConnessione();
 		}
 		return ris;
-	}//Fine di rows()
+	}
+	
+	//Fine di rows()
 	
 	public Map<String,String> row(String query, String... params)
 	{
@@ -107,7 +114,9 @@ public class Database
 			e.printStackTrace();
 			return null;
 		}
-	}//Fine di row()
+	}
+	
+	//Fine di row()
 	
 	public boolean update(String query, String... params)
 	{
@@ -128,8 +137,12 @@ public class Database
 			System.out.println("Problema nel metodo update() di Database.");
 			e.printStackTrace();
 			return false;
-		}finally {
+		}
+		finally 
+		{
 			chiudiConnessione();
 		}
-	}//Fine di update()
+	}
+	
+	//Fine di update()
 }

@@ -87,12 +87,12 @@ create table utenti
     password varchar(100)
 );
 
-insert into utenti
-(id,username,password)
-values
-(1,"Anthony Stark","PepperLover"),
-(2,"Bruce Banner","OhMyGreenIreland"),
-(3,"Ororo Monroe","LetTheStormDescendUponU");
+-- insert into utenti
+-- (id,username,password)
+-- values
+-- (1,"Anthony Stark","PepperLover"),
+-- (2,"Bruce Banner","OhMyGreenIreland"),
+-- (3,"Ororo Monroe","LetTheStormDescendUponU");
 
 -- La tabella quiz ASSOCIA le tutte le tabelle:
 -- Il quiz rappresenta il momento in cui l'utente sostiene la domanda o le domande.

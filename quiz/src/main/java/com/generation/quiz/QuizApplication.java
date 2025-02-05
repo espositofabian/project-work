@@ -11,7 +11,7 @@ public class QuizApplication {
 	public static void main(String[] args) {
 		
 		DaoUtenti du = new DaoUtenti();
-		System.out.println(du.cercaUtente("anna", "annaanna"));
+		System.out.println(du.cercaUtente("Anna", "annaanna"));
 		
 		SpringApplication.run(QuizApplication.class, args);
 	}
