@@ -44,7 +44,7 @@ public class DaoDomande
 		return db.row(query, idDomanda + "");
 	}
 	
-	public List<Map<String,String>> leggiRispostePerDomanda(int idDomanda){
+	public Map<String,String> leggiRispostePerDomanda(int idDomanda){
 		
 		String query = "SELECT ris1,\r\n"
 				+ "		ris2,\r\n"
@@ -55,7 +55,7 @@ public class DaoDomande
 				+ "WHERE	domande.id = ?";
 
 		
-		return db.rows(query, idDomanda + "");		
+		return db.row(query, idDomanda + "");		
 	}
 
 	

@@ -60,5 +60,15 @@ public class Quiz
 		return (int)(Math.random() * max);
 	}
 	
+	public String aiutoPubblico(Map<String,String> domanda)
+	{
+		System.out.println(domanda);
+		int idDomanda = Integer.parseInt(domanda.get("id"));
+		
+		Map<String,String> ris = dd.leggiRispostePerDomanda(idDomanda);
+		
+		return ris.get("ris" + numeroRandom(4, 1));
+	}
+	
 }
 
