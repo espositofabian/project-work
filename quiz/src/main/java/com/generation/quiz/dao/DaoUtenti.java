@@ -62,11 +62,11 @@ public class DaoUtenti
 		return db.update(query, ut.getUsername(), ut.getPassword(), ut.getId() + "");
 	}
 	
-	public boolean updatePunteggi(Utente ut, int punteggi) {
+	public boolean updatePunteggi(Utente ut, int punteggio) {
 		
-		String query = "UPDATE utenti SET punteggio = punteggi + ? WHERE id = ?";
+		String query = "UPDATE utenti SET punteggio = punteggio + ? WHERE id = ?";
 		
-		return db.update(query, punteggi + "", ut.getId() + "");
+		return db.update(query, punteggio + "", ut.getId() + "");
 	}
 	
 	public boolean delete(int id) {
