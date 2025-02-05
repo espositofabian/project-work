@@ -18,7 +18,7 @@ public class Quiz
 	private int livello = 1;
 	private int maxLivello = 15;
 	// pessimo nome lol
-	private int maxDimensione = 5;
+	private int maxDimensione = 4;
 	private int minDimensione = 0;
 	private List<Map<String,String>> elencoDomande = new ArrayList<Map<String,String>>(); 
 
