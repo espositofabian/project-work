@@ -1,5 +1,6 @@
 package com.generation.quiz.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +49,24 @@ public class DaoUtenti
 		return db.rows(query);
 	}
 	
+	public List<Utente> leggiUtenti(){
+		
+		List<Map<String,String>> mappe = leggiTutto();
+		
+		List<Utente> utenti = new ArrayList<Utente>();
+		Utente ut;
+		
+		for(Map<String,String> m : mappe) {
+			
+			ut = (Utente) context.getBean("oggettoUtente", m);
+			
+			utenti.add(ut);
+		}
+		
+		
+		return utenti;
+	}
+	
 	public boolean create(Utente ut) {
 		
 		String query = "INSERT INTO utenti (username,password) values (?,?)";
@@ -74,6 +93,24 @@ public class DaoUtenti
 		String query = "DELETE FROM utenti WHERE id = ?";
 		
 		return db.update(query, id + "");
+	}
+	
+	public List<Utente> classificaUtenti(){
+		
+		List<Utente> utenti = leggiUtenti();
+		
+		for(int i = 0; i < utenti.size(); i++) {
+			
+			for(int j = i + 1; j < utenti.size(); j++) {
+				
+				if(utenti.get(i).getPunteggio() < utenti.get(j).getPunteggio()) {
+					Utente ut = utenti.get(i);
+					utenti.set(i, utenti.get(j));
+					utenti.set(j, ut);
+				}	
+			}	
+		}
+		return utenti;
 	}
 
 }

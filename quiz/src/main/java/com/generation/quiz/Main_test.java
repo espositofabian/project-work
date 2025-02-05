@@ -4,8 +4,8 @@ package com.generation.quiz;
 
 import java.util.Map;
 
-import com.generation.quiz.dao.DaoDomande;
-import com.generation.quiz.entities.Quiz;
+import com.generation.quiz.dao.DaoUtenti;
+import com.generation.quiz.entities.Utente;
 
 public class Main_test {
 	
@@ -42,6 +42,7 @@ public class Main_test {
 			System.out.println(m.toString());
 		}*/
 		
+		/*
 		Quiz q = new Quiz();
 		
 		DaoDomande dd = new DaoDomande();
@@ -50,9 +51,20 @@ public class Main_test {
 			System.out.println(m.toString());
 		}
 		*/
+		/*
 		System.out.println(dd.risposte(1));
 		System.out.println(dd.isGiusta(1, "Torino"));
 		
+		*/
+		
+		DaoUtenti ut = new DaoUtenti();
+	
+		
+		
+		for(Utente m : ut.classificaUtenti()) {
+			System.out.println(m.toString());
+		}
 	}
+	
 
 }
