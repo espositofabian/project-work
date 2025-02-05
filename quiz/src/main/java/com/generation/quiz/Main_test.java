@@ -45,11 +45,13 @@ public class Main_test {
 		Quiz q = new Quiz();
 		
 		DaoDomande dd = new DaoDomande();
-		
-		for(Map<String,String> m : q.estrazioneDomande()) {
+		/*
+		for(Map<String,String> m : q.elencoDomande()) {
 			System.out.println(m.toString());
 		}
-			
+		*/
+		System.out.println(dd.risposte(1));
+		System.out.println(dd.isGiusta(1, "Torino"));
 		
 	}
 
