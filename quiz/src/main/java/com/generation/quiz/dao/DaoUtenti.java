@@ -64,7 +64,7 @@ public class DaoUtenti
 	
 	public boolean updatePunteggi(Utente ut, int punteggi) {
 		
-		String query = "UPDATE utenti SET punteggi = punteggi + ? WHERE id = ?";
+		String query = "UPDATE utenti SET punteggio = punteggi + ? WHERE id = ?";
 		
 		return db.update(query, punteggi + "", ut.getId() + "");
 	}
