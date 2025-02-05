@@ -115,6 +115,10 @@ public class Vik {
 		return check;
 	}
 	
+	public static int numeroRandom(int min, int max) {
+		return (int) ((Math.random() * (max - min)) + min);
+	}
+	
 	public static boolean containElement(String element, String...params) {
 		boolean check = false;
 		

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.generation.quiz.dao.DaoDomande;
+import com.generation.quiz.utilities.Vik;
 
 public class Quiz
 {
@@ -18,47 +19,38 @@ public class Quiz
 	// pessimo nome lol
 	private int maxDimensione = 5;
 	private int minDimensione = 0;
-	private ArrayList<Map<String,String>> elencoDomande; 
-	
-	
-	//ArrayList<Map<String,String>>
-	public List<Map<String,String>> estrazioneDomande(){
-		
+	private List<Map<String,String>> elencoDomande = new ArrayList<Map<String,String>>(); 
+
+	public void estrazioneDomande(){
+
 		String query = "";
-		List<Map<String,String>> ris = new ArrayList<Map<String,String>>();
+
 		while(livello <= maxLivello) {
-			
+			// aggiorno query per selezionare le domande con livello di difficoltà 
+			// successivo
 			query = "SELECT * FROM domande WHERE punti = " + livello;
-			System.out.println(query);
-			
+
+			// dd.leggi() recupera le domande con un certo livello di difficoltà
 			List<Map<String,String>> listaMappeDB = dd.leggi(query);
-						
+
+			// recupero da quelle domande una domanda randomizzata
+			Map<String,String> mappaRandomizzata = listaMappeDB.get(Vik.numeroRandom(minDimensione,
+																					maxDimensione));
 			
-			for(int i = 0; i < listaMappeDB.size(); i++) {
-				Map<String,String> mappaRandomizzata = listaMappeDB.get(numeroRandom(2,maxDimensione));
-				ris.add(mappaRandomizzata);
-			}
-			
+			elencoDomande.add(mappaRandomizzata);
 			livello++;
 		}
-		
-		
-		
-		//for(Map<String,String> m : dd.leggi(query))
-			//System.out.println(m.toString());
-		
-		return ris;
-		
-	}
-	
-	public int numeroRandom(int min, int max) {
-		int randomNumber = (int) ((Math.random() * (max - min)) + min);
-		return randomNumber;
+
 	}
 
-	public int numeroRandom(int max) {
-		return (int)(Math.random() * max);
-	}
 	
+	
+
+	public List<Map<String,String>> elencoDomande(){
+		estrazioneDomande();
+		return this.elencoDomande;
+	}
+
+
 }
 
