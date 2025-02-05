@@ -7,20 +7,21 @@ create table domande
 (
 	id int primary key auto_increment,
   	q varchar(100),
-    	punti int
+	punti int,
+    argomento varchar(100)
 );
 
---insert into domande
---(id,q,punti,argomento)
---values
---(1,"Come si chiama lo stregone amico degli Hobbit ne Il signore degli anelli?",5),
---(2,"Chi interpreta l'agente Rick Deckard in Blade Runner?",4);
+-- insert into domande
+-- (id,q,punti,argomento)
+-- values
+-- (1,"Come si chiama lo stregone amico degli Hobbit ne Il signore degli anelli?",5),
+-- (2,"Chi interpreta l'agente Rick Deckard in Blade Runner?",4);
 
---insert into domande
---(id,q,punti)
---values
---(3,"Come si chiama il protagonista di Matrix prima di diventare Neo?",5),
---(4,"Come si chiama il villain in Ready Player One?",5);
+-- insert into domande
+-- (id,q,punti)
+-- values
+-- (3,"Come si chiama il protagonista di Matrix prima di diventare Neo?",5),
+-- (4,"Come si chiama il villain in Ready Player One?",5);
 
 -- La tabella risposte contiene un id identificativo per le risposte,
 -- 4 possibili opzioni di risposta, la risposta corretta e idDomanda
@@ -29,6 +30,7 @@ create table domande
 -- Eliminando o modificando l'id della domanda all'interno della tabella domande
 -- viene eliminata o modificato l'id della risposta relativa nella tabella risposte.
 -- NOTA BENE: eliminando la domanda, si eliminano le risposte collegate ad essa.
+
 create table risposte
 (
 	id int primary key auto_increment,
@@ -38,24 +40,24 @@ create table risposte
     ris4 varchar(100),
     risok varchar(100),
     idDomanda int,
-foreign key(idDomanda)
+	foreign key(idDomanda)
     references domande(id)
     on delete cascade
     on update cascade
 );
 
 -- Query per conoscere tutti i componenti della domanda/risposta
---insert into risposte
---(id,ris1,ris2,ris3,ris4,risok,idDomanda)
---values
---(1,"Gandalf","Saruman","Radagast","Sauron","Gandalf",1),
---(2,"Keanu Reeves","Matt Damon","Christian Bale","Harrison Ford","Harrison Ford",2);
+-- insert into risposte
+-- (id,ris1,ris2,ris3,ris4,risok,idDomanda)
+-- values
+-- (1,"Gandalf","Saruman","Radagast","Sauron","Gandalf",1),
+-- (2,"Keanu Reeves","Matt Damon","Christian Bale","Harrison Ford","Harrison Ford",2);
 
---insert into risposte
---(id,ris1,ris2,ris3,ris4,risok,idDomanda)
---values
---(3,"Anderson","Moore","Black","Eastman","Anderson",3),
---(4,"Nolan Sorrento","Ricky Cunningham","Carrol Shelby","Bane","Nolan Sorrento",4);
+-- insert into risposte
+-- (id,ris1,ris2,ris3,ris4,risok,idDomanda)
+-- values
+-- (3,"Anderson","Moore","Black","Eastman","Anderson",3),
+-- (4,"Nolan Sorrento","Ricky Cunningham","Carrol Shelby","Bane","Nolan Sorrento",4);
 
 select	*
 from	domande inner join risposte
@@ -102,6 +104,7 @@ values
 -- 5 - RISPOSTA DELL'UTENTE
 -- Grazie a questi dati è possibile incrociare tutte le tabelle per ottenere
 -- il riepilogo del quiz e contemporaneamente il suo andamento: risp corretta o meno.
+
 create table quiz
 (
 	id int primary key auto_increment,
