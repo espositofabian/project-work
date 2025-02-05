@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import com.generation.quiz.dao.DaoDomande;
 import com.generation.quiz.dao.DaoUtenti;
 import com.generation.quiz.dao.Database;
 import com.generation.quiz.entities.Entity;
@@ -25,6 +26,12 @@ public class Context {
 	public DaoUtenti du()
 	{
 		return new DaoUtenti();
+	}
+	
+	@Bean
+	public DaoDomande dd()
+	{
+		return new DaoDomande();
 	}
 	
 	@Bean

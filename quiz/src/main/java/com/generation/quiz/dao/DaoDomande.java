@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class DaoDomande
 {	
 	@Autowired
-	public Database db;
+	public Database db = new Database();
 	
 	public DaoDomande() {
-		
+		System.out.println("dd viene creato.");
 	}
 	
 	
@@ -23,6 +23,10 @@ public class DaoDomande
 	public List<Map<String,String>> leggiTutto(){
 		String query = "SELECT * FROM domande";
 		return db.rows(query);
+	}
+	
+	public Map<String,String> leggiSingoloRecord(String query, String... params){
+		return db.row(query, params);
 	}
 	
 	public Map<String,String> cercaPerId(int id){

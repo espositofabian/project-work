@@ -1,6 +1,7 @@
 create database quizzone;
 use quizzone;
 
+
 -- La tabella domande contiene un id che identifica la singola domanda,
 -- la domanda e i punti ovvero il valore della stessa.
 create table domande
@@ -105,7 +106,6 @@ create table utenti
 -- 5 - RISPOSTA DELL'UTENTE
 -- Grazie a questi dati è possibile incrociare tutte le tabelle per ottenere
 -- il riepilogo del quiz e contemporaneamente il suo andamento: risp corretta o meno.
-
 create table quiz
 (
 	id int primary key auto_increment,
