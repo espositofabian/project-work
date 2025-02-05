@@ -15,7 +15,7 @@ public class DaoUtenti
 {
 		
 	@Autowired
-	public Database db = new Database();
+	public Database db;
 
 	@Autowired
 	private ApplicationContext context;

@@ -3,9 +3,12 @@ package com.generation.quiz.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class DaoRisposte
 {
-	public Database db = new Database();
+	@Autowired
+	public Database db;
 	
 	public DaoRisposte() {
 		
