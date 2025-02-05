@@ -1,6 +1,7 @@
 package com.generation.quiz.entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -60,22 +61,37 @@ public class Quiz
 		return (int)(Math.random() * max);
 	}
 	
-	public String aiutoPubblico(Map<String,String> domanda)
+	public String aiutoPubblico(int idDomanda)
 	{
-		System.out.println(domanda);
-		int idDomanda = Integer.parseInt(domanda.get("id"));
-		
 		Map<String,String> ris = dd.leggiRispostePerDomanda(idDomanda);
 		
 		return ris.get("ris" + numeroRandom(4, 1));
 	}
 	
-	public String aiutoDaCasa(Map<String,String> domanda)
+	public String aiutoDaCasa(int idDomanda)
 	{
-		System.out.println(domanda);
-		int idDomanda = Integer.parseInt(domanda.get("id"));
-		
 		return dd.rispostaGiusta(idDomanda);
 	}
+	
+	public Map<String,String> aiuto5050(int idDomanda)
+	{
+		Map<String,String> record = dd.leggiRispostePerDomanda(idDomanda);
+		
+		String risSbagliata;
+		String risOk = dd.rispostaGiusta(idDomanda);
+		
+		do
+		{
+			risSbagliata = record.get("ris" + numeroRandom(4, 1));
+		}
+		while(risSbagliata.equalsIgnoreCase(risOk));
+		
+		Map<String,String> ris = new HashMap<String,String>();
+		ris.put("ris", risSbagliata);
+		ris.put("risok", risOk);
+		
+		return ris;
+	}
+	
 }
 
