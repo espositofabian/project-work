@@ -39,26 +39,19 @@ public class DaoDomande
 		return db.row(query, id + "");
 	}
 
-	// DA AGGIUSTARE
-	public Map<String,String> rispostaGiusta(int idDomanda){
 
-		String query = "SELECT risposte.risok "
-				+ "FROM risposte "
-				+ "WHERE risposte.idDomanda = ?";
+	
+	public String rispostaGiusta(int idDomanda){
 
-		return db.row(query, idDomanda + "");
+		String query = "select risposte.risok\r\n"
+				     + "from   risposte\r\n"
+				     + "where  risposte.idDomanda = ?";
+		
+		return db.row(query, idDomanda + "").get("risok");
 	}
-
-	public String rispostaGiustaStringa(int idDomanda){
-
-		Map<String,String> mappaRisposta = rispostaGiusta(idDomanda);
-
-		return mappaRisposta.get("risok");
-	}
-
-
+	
 	public Map<String,String> leggiRispostePerDomanda(int idDomanda){
-
+		
 		String query = "SELECT ris1,\r\n"
 				+ "		ris2,\r\n"
 				+ "        ris3,\r\n"
@@ -66,7 +59,6 @@ public class DaoDomande
 				+ "FROM	risposte inner join domande\r\n"
 				+ "ON		risposte.idDomanda = domande.id\r\n"
 				+ "WHERE	domande.id = ?";
-
 
 		return db.row(query, idDomanda + "");		
 	}
@@ -97,7 +89,7 @@ public class DaoDomande
 		// controllo della validità della risposta (non vogliamo sia null)
 		if(Vik.checkString(risposta)) {
 			// se la risposta dell'utente equivale a quella giusta!
-			if(risposta.equalsIgnoreCase(rispostaGiustaStringa(idDomanda))) {
+			if(risposta.equalsIgnoreCase(rispostaGiusta(idDomanda))) {
 				return true;
 			}
 		}// fine dell'if

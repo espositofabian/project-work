@@ -42,8 +42,6 @@ public class Quiz
 		}
 
 	}
-
-	
 	
 
 	public List<Map<String,String>> elencoDomande(){
@@ -52,5 +50,22 @@ public class Quiz
 	}
 
 
+	public String aiutoPubblico(Map<String,String> domanda)
+	{
+		System.out.println(domanda);
+		int idDomanda = Integer.parseInt(domanda.get("id"));
+		
+		Map<String,String> ris = dd.leggiRispostePerDomanda(idDomanda);
+		
+		return ris.get("ris" + Vik.numeroRandom(4, 1));
+	}
+	
+	public String aiutoDaCasa(Map<String,String> domanda)
+	{
+		System.out.println(domanda);
+		int idDomanda = Integer.parseInt(domanda.get("id"));
+		
+		return dd.rispostaGiusta(idDomanda);
+	}
 }
 
