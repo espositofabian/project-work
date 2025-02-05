@@ -1,6 +1,5 @@
 package com.generation.quiz.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +8,6 @@ import org.springframework.context.ApplicationContext;
 
 import com.generation.quiz.entities.Utente;
 
-import jakarta.annotation.PostConstruct;
 
 public class DaoUtenti
 {
@@ -31,7 +29,6 @@ public class DaoUtenti
 	 * @param password
 	 * @return l'utente sotto forma di mappa oppure null se non trova nulla
 	 */
-	@PostConstruct
 	public Map<String,String> cercaUtente(String username, String password){
 
 		String query = "SELECT * FROM utenti WHERE username = ? AND password = ?";
