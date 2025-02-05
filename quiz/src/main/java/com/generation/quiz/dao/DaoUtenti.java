@@ -58,12 +58,11 @@ public class DaoUtenti
 		
 		for(Map<String,String> m : mappe) {
 			
+			// creo l'Utente attraverso Context e poi valorizzo con la mappa
 			ut = (Utente) context.getBean("oggettoUtente", m);
 			
 			utenti.add(ut);
 		}
-		
-		
 		return utenti;
 	}
 	
