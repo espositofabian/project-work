@@ -49,11 +49,6 @@ public class Quiz
 		estrazioneDomande();
 		return this.elencoDomande;
 	}
-
-
-	public int numeroRandom(int max) {
-		return (int)(Math.random() * max);
-	}
 	
 	public String aiutoPubblico(int idDomanda)
 	{

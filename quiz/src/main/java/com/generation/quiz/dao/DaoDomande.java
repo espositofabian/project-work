@@ -11,7 +11,7 @@ import com.generation.quiz.utilities.Vik;
 public class DaoDomande
 {	
 	@Autowired
-	public Database db = new Database();
+	public Database db;
 
 	private ArrayList<String> risposte;
 
@@ -78,6 +78,7 @@ public class DaoDomande
 	}
 
 	public ArrayList<String> risposte(int idDomanda){
+		
 		// evoco leggiRisposte per inizializzare e valorizzare l'array
 		leggiRisposte(idDomanda);
 		// lo restituisco

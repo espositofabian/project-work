@@ -92,10 +92,6 @@ public class Database
 			System.out.println("Problema nel metodo rows() di Database.");
 			e.printStackTrace();
 		}
-		finally 
-		{
-			chiudiConnessione();
-		}
 		return ris;
 	}
 	
@@ -136,10 +132,6 @@ public class Database
 			System.out.println("Problema nel metodo update() di Database.");
 			e.printStackTrace();
 			return false;
-		}
-		finally 
-		{
-			chiudiConnessione();
 		}
 	}
 	
