@@ -28,7 +28,7 @@ public class DaoDomande
 		return db.row(query, id + "");
 	}
 	
-	// La mappa come record della risposta? o solo come Stringa?
+	// DA AGGIUSTARE
 	public Map<String,String> rispostaGiusta(int idDomanda){
 		
 		String query = "SELECT risposte.risok as 'Risposta' "
@@ -37,4 +37,18 @@ public class DaoDomande
 		
 		return db.row(query, idDomanda + "");
 	}
+	
+	public List<Map<String,String>> leggiRispostePerDomanda(int idDomanda){
+		
+		String query = "SELECT ris1,\r\n"
+				+ "		ris2,\r\n"
+				+ "        ris3,\r\n"
+				+ "        ris4\r\n"
+				+ "FROM	risposte inner join domande\r\n"
+				+ "ON		risposte.idDomanda = domande.id\r\n"
+				+ "WHERE	domande.id = ?";
+		return db.rows(query, idDomanda + "");		
+	}
+
+	
 }

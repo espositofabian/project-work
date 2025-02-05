@@ -5,8 +5,6 @@ package com.generation.quiz;
 import java.util.Map;
 
 import com.generation.quiz.dao.DaoDomande;
-import com.generation.quiz.dao.DaoUtenti;
-import com.generation.quiz.entities.Utente;
 
 public class Main_test {
 	
@@ -36,8 +34,11 @@ public class Main_test {
 		}
 		*/
 		DaoDomande dd = new DaoDomande();
-		System.out.println(dd.rispostaGiusta(1));
+		System.out.println(dd.toString());
 		
+		for(Map<String,String> m : dd.leggiRispostePerDomanda(1)) {
+			System.out.println(m.toString());
+		}
 		
 	}
 

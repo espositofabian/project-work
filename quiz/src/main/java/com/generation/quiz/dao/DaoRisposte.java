@@ -22,16 +22,4 @@ public class DaoRisposte
 	}
 	
 	
-	public Map<String,String> leggiRispostePerDomanda(int idDomanda){
-		
-		String query = "SELECT ris1,\r\n"
-				+ "		ris2,\r\n"
-				+ "        ris3,\r\n"
-				+ "        ris4\r\n"
-				+ "FROM	risposte inner join domande\r\n"
-				+ "ON		risposte.idDomanda = domande.id\r\n"
-				+ "WHERE	domande.id = ?";
-		return db.row(query, idDomanda + "");		
-	}
-	
 }
