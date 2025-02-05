@@ -5,8 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
-
+import org.springframework.context.ApplicationContext;
 import com.generation.quiz.dao.DaoUtenti;
+import com.generation.quiz.entities.Utente;
 
 /**
  * Controller che gestisce tutte le operazioni relative all'autenticazione degli utenti:
@@ -20,6 +21,9 @@ public class LoginController
 	 */
 	@Autowired
 	private DaoUtenti du;
+
+	@Autowired
+	private ApplicationContext context;
 	
 	/**
 	 * Gestisce la richiesta GET per visualizzare il form di login
@@ -95,19 +99,19 @@ public class LoginController
 	 * @return redirect al form di login se la registrazione ha successo,
 	 *         altrimenti torna al form di registrazione
 	 */
-    /* 
+     
 	@GetMapping("nuovoutente")
 	public String registranuovoutente(@RequestParam("user") String nuovoUser,
 									@RequestParam("pass") String nuovaPass)
 	{
-		
-        
-		if(du.create(oggettoUtenteCheCreeremo))
+		Utente newuser = (Utente) context.getBean("oggettoUtente", nuovoUser, nuovaPass);
+
+		if(du.create(newuser))
 			return "redirect:formlogin";
 		else
 			return "redirect:formregistrati";
 		
 	}
-            */
+            
 }
     
