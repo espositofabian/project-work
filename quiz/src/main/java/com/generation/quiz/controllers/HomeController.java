@@ -17,6 +17,10 @@ public class HomeController
 		return "home.html";
 	}
 	
+	@GetMapping("game")
+	public String game() {
+		return "game.jsp";
+	}
 	
   
 }
