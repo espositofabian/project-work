@@ -70,5 +70,12 @@ public class Quiz
 		return ris.get("ris" + numeroRandom(4, 1));
 	}
 	
+	public String aiutoDaCasa(Map<String,String> domanda)
+	{
+		System.out.println(domanda);
+		int idDomanda = Integer.parseInt(domanda.get("id"));
+		
+		return dd.rispostaGiusta(idDomanda);
+	}
 }
 

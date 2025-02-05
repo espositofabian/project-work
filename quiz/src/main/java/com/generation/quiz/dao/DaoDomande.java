@@ -34,14 +34,13 @@ public class DaoDomande
 		return db.row(query, id + "");
 	}
 	
-	// DA AGGIUSTARE
-	public Map<String,String> rispostaGiusta(int idDomanda){
+	public String rispostaGiusta(int idDomanda){
+
+		String query = "select risposte.risok\r\n"
+				     + "from   risposte\r\n"
+				     + "where  risposte.idDomanda = ?";
 		
-		String query = "SELECT risposte.risok as 'Risposta' "
-					+ "FROM risposte "
-					+ "WHERE risposte.idDomanda = ?";
-		
-		return db.row(query, idDomanda + "");
+		return db.row(query, idDomanda + "").get("risok");
 	}
 	
 	public Map<String,String> leggiRispostePerDomanda(int idDomanda){
