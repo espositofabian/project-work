@@ -18,7 +18,7 @@ public class Context {
 	@Bean
 	public Database db()
 	{
-		System.out.println("cristo morto");
+		System.out.println("Cristo è morto --- Cit. Probabilmente F. Nietzsche");
 		return new Database();
 	}
 	
