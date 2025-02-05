@@ -84,7 +84,8 @@ create table utenti
 (
 	id int primary key auto_increment,
     username varchar(100),
-    password varchar(100)
+    password varchar(100),
+    punteggio INT DEFAULT 0
 );
 
 -- insert into utenti
