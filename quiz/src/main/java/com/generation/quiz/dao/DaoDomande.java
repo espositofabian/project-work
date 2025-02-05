@@ -53,6 +53,8 @@ public class DaoDomande
 				+ "FROM	risposte inner join domande\r\n"
 				+ "ON		risposte.idDomanda = domande.id\r\n"
 				+ "WHERE	domande.id = ?";
+
+		
 		return db.rows(query, idDomanda + "");		
 	}
 

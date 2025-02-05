@@ -15,6 +15,9 @@ public class Quiz
 
 	private int livello = 1;
 	private int maxLivello = 15;
+	// pessimo nome lol
+	private int maxDimensione = 5;
+	private int minDimensione = 0;
 	private ArrayList<Map<String,String>> elencoDomande; 
 	
 	
@@ -25,13 +28,16 @@ public class Quiz
 		List<Map<String,String>> ris = new ArrayList<Map<String,String>>();
 		while(livello <= maxLivello) {
 			
-			query = "SELECT * FROM domande WHERE punti = 1";// + livello;
+			query = "SELECT * FROM domande WHERE punti = " + livello;
 			System.out.println(query);
 			
-			List<Map<String,String>> list = dd.leggi(query);
+			List<Map<String,String>> listaMappeDB = dd.leggi(query);
+						
 			
-			ris.add(list.get(numeroRandom()));
-			
+			for(int i = 0; i < listaMappeDB.size(); i++) {
+				Map<String,String> mappaRandomizzata = listaMappeDB.get(numeroRandom(2,maxDimensione));
+				ris.add(mappaRandomizzata);
+			}
 			
 			livello++;
 		}
@@ -44,10 +50,14 @@ public class Quiz
 		return ris;
 		
 	}
+	
+	public int numeroRandom(int min, int max) {
+		int randomNumber = (int) ((Math.random() * (max - min)) + min);
+		return randomNumber;
+	}
 
-	public int numeroRandom() {
-		int random = (int)(Math.random() * 4 + 0);
-		return random;
+	public int numeroRandom(int max) {
+		return (int)(Math.random() * max);
 	}
 	
 }

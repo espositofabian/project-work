@@ -4,6 +4,7 @@ package com.generation.quiz;
 
 import java.util.Map;
 
+import com.generation.quiz.dao.DaoDomande;
 import com.generation.quiz.entities.Quiz;
 
 public class Main_test {
@@ -42,6 +43,8 @@ public class Main_test {
 		}*/
 		
 		Quiz q = new Quiz();
+		
+		DaoDomande dd = new DaoDomande();
 		
 		for(Map<String,String> m : q.estrazioneDomande()) {
 			System.out.println(m.toString());
