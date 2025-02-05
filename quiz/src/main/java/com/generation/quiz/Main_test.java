@@ -50,7 +50,7 @@ public class Main_test {
 			System.out.println(m.toString());
 		}
 		*/
-		System.out.println(dd.getRisposte(1));
+		System.out.println(dd.risposte(1));
 		System.out.println(dd.isGiusta(1, "Torino"));
 		
 	}

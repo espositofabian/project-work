@@ -77,7 +77,7 @@ public class DaoDomande
 
 	}
 
-	public ArrayList<String> getRisposte(int idDomanda){
+	public ArrayList<String> risposte(int idDomanda){
 		// evoco leggiRisposte per inizializzare e valorizzare l'array
 		leggiRisposte(idDomanda);
 		// lo restituisco
