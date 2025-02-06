@@ -26,11 +26,27 @@ html{
 }
 
 .text{
+    margin: 40px;
     font-variant: arial;
+    
+}
+
+h1{
+    background: radial-gradient( 100% 100% at 100% 0%, #b443f6 0%, #6273f6 100% );
+    border-radius: 10px;
+    margin: 2px;
     text-align: center;
+    color: #fff;
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+}
+
+text, p, ul, li {
+    margin: 10px;
+    color: #fff;
 }
 
 .container2 {
+    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +57,6 @@ html{
     display: block;
     margin: 10px auto; 
     padding:  10px;
-    
 }
 
 .container {
@@ -50,7 +65,7 @@ html{
     justify-content: space-around;
     margin: auto;
     padding: 10px;
-    border: 2px solid #0d21f8d6;
+    
     background: radial-gradient( 100% 100% at 100% 0%, #ae26fcd4 0%, #4056f9d6 100% );
     box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
 }
