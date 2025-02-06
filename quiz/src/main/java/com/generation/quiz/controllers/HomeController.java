@@ -35,7 +35,6 @@ public class HomeController
 	public String classifica(Model model) {
 		List<Utente> utenti = du.classificaUtenti();
 		model.addAttribute("classificautenti", utenti);
-		System.out.println("qui qui");
 		return "classifica.jsp";
 	}
 	
