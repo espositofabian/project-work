@@ -14,10 +14,19 @@
 	<body>
 		<h1>CLASSIFICA</h1>
 		<table class="tabellaelenco">
+		<thead>
+            <tr>
+            <th>Posizione</th>
+            <th>Giocatore</th>
+            <th>Punti</th>
+            </tr>
+        </thead>
 			<% for(Utente e : utenti) {%>
-					<%= e.getUsername() %> 
+			<p>qui</p>
+					<%= e.getUsername() %> <p>qui</p>
 					<%= e.getPunteggio() %>
 				<%} %>
+				
 		</table>
 	</body>
 </html>
