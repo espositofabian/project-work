@@ -41,25 +41,8 @@ public class HomeController
 
 		// PROVA
 		List<Map<String,String>> domande = dd.elencoDomande();
+
 		DaoDomande dd = new DaoDomande();
-		
-		for(Map<String,String> m : domande) {
-			
-			// tira fuori testo domande
-			System.out.println(m.get("q"));
-			
-			for(String risp : dd.risposte(Integer.parseInt(m.get("id")))){
-				// tutte le risposte della singola domanda
-				System.out.println(risp);
-			}
-			
-			// condizione di stop
-			//if(utente non ha clicclato)
-				//pausa
-		}
-		
-		
-		
 		
 		model.addAttribute("elencodomande", domande);
 		model.addAttribute("daodomande", dd);

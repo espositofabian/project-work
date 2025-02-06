@@ -39,7 +39,6 @@ public class DaoDomande
 		return db.row(query, id + "");
 	}
 
-
 	
 	public String rispostaGiusta(int idDomanda){
 
@@ -85,6 +84,18 @@ public class DaoDomande
 		return risposte;
 	}
 
+	public int indexRispostaGiusta(int idDomanda) {
+		
+		int indexCorretto = 0;
+		for(int i = 0; i < risposte.size(); i++) {
+			if(risposte.get(i).equalsIgnoreCase(rispostaGiusta(idDomanda))) {
+				indexCorretto = i;
+				break;
+			}
+		}
+		return indexCorretto;
+	}
+	
 	public boolean isGiusta(int idDomanda, String risposta) {
 
 		// controllo della validità della risposta (non vogliamo sia null)
@@ -114,7 +125,7 @@ public class DaoDomande
 	public void estrazioneDomande(){
 
 		String query = "";
-
+		
 		while(livello <= maxLivello) {
 			// aggiorno query per selezionare le domande con livello di difficoltà 
 			// successivo

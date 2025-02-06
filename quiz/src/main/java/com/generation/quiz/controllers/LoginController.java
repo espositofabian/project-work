@@ -105,7 +105,9 @@ public class LoginController
 									@RequestParam("pass") String nuovaPass)
 	{
 		Utente newuser = (Utente) context.getBean("oggettoUtente", nuovoUser, nuovaPass);
-
+		
+		System.out.println(newuser.toString());
+		
 		if(du.create(newuser))
 			return "redirect:formlogin";
 		else
