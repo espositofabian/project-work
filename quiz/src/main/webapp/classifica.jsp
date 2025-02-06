@@ -26,13 +26,15 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 			</thead>
 			<tbody>
 				<%
+			    int numero = 1;
 				for (Utente e : utenti) {
 				%>
 				<tr>
-					<td>Numero?</td>
+					<td><%= numero %>° Posizione</td>
 					<td><%=e.getUsername()%></td>
 					<td><%=e.getPunteggio()%></td>
 					<%
+				    numero++;
 					}
 					%>
 				</tr>
