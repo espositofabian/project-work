@@ -239,9 +239,16 @@ create table utenti
 insert into utenti
 (id,username,password)
 values
-(1,"Anna","annaanna"),
-(2,"Luca","Garmin"),
-(3,"Manuel","Unity");
+(1,"Anna","annaanna",0),
+(2,"Luca","Garmin",100),
+(3,"Manuel","Unity",10),
+(4,"Lucian","George",50),
+(5,"Andrea","Macerata",25),
+(6,"Giordano","Zuppli",5),
+(7,"Dylan","SSNapoli1926",300),
+(8,"Vincent","javaaaaaaaaaaaaaaaaaa",5),
+(9,"DJFalco","CostaRica",5),
+(10,"Gulshan","SonoUnIndianoMalefico",5);
 
 -- da qui in poi tutte query utili più o meno, Luca è l'essere perfetto
 select	* from	domande;
