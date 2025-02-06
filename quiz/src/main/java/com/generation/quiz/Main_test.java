@@ -2,10 +2,10 @@ package com.generation.quiz;
 
 
 
+import java.util.List;
 import java.util.Map;
 
-import com.generation.quiz.dao.DaoUtenti;
-import com.generation.quiz.entities.Utente;
+import com.generation.quiz.dao.DaoDomande;
 
 public class Main_test {
 	
@@ -56,14 +56,22 @@ public class Main_test {
 		System.out.println(dd.isGiusta(1, "Torino"));
 		
 		*/
+		DaoDomande dd = new DaoDomande();
 		
-		DaoUtenti ut = new DaoUtenti();
-	
-		
-		
-		for(Utente m : ut.classificaUtenti()) {
-			System.out.println(m.toString());
+		// PROVA
+		List<Map<String,String>> domande = dd.elencoDomande();
+		for(Map<String,String> m : domande) {
+			
+			// tira fuori testo domande
+			System.out.println(m.get("q"));
+			
+			for(String risp : dd.risposte(Integer.parseInt(m.get("id")))){
+				// tutte le risposte della singola domanda
+				System.out.println(risp);
+			}
+			
 		}
+		
 	}
 	
 

@@ -1,3 +1,11 @@
+<%@ page language="java"
+	contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="com.generation.quiz.entities.*" %>
+<%@ page import="com.generation.quiz.dao.*" %>
+<%	List<Map<String,String>> domande = (List<Map<String,String>>)request.getAttribute("elencodomande");%>
+<%	DaoDomande dd = (DaoDomande) request.getAttribute("daodomande"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,15 +198,16 @@
     <!-- Centered Quiz Content -->
     <div class="main-content">
         <div class="question-box" id="question-box">
-            What is the capital of France?
+        	<% 	for(Map<String,String> m : domande) { %>
+        	<%=	m.get("q") %>
         </div>
 
         <div class="answers">
-            <button class="answer-btn" onclick="nextQuestion()">A) Berlin</button>
-            <button class="answer-btn" onclick="nextQuestion()">B) Madrid</button>
-            <button class="answer-btn" onclick="nextQuestion()">C) Paris</button>
-            <button class="answer-btn" onclick="nextQuestion()">D) Rome</button>
+        	<%for(String risp : dd.risposte(Integer.parseInt(m.get("id")))) {%>
+            	<button class="answer-btn" onclick="nextQuestion()"><%= risp %> </button>
+            <%} %>
         </div>
+        <%} %>
     </div>
 
     <!-- Right-Side Question Counter -->

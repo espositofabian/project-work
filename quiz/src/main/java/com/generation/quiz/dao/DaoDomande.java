@@ -11,7 +11,7 @@ import com.generation.quiz.utilities.Vik;
 public class DaoDomande
 {	
 	@Autowired
-	public Database db;
+	public Database db = new Database();
 
 	private ArrayList<String> risposte;
 
@@ -96,6 +96,47 @@ public class DaoDomande
 		}// fine dell'if
 
 		return false;
+	}
+	
+	// vediamo-------------------------------------------
+	
+	private int livello = 1;
+	private int maxLivello = 15;
+	// pessimo nome lol
+	private int maxDimensione = 4;
+	private int minDimensione = 0;
+	private List<Map<String,String>> elencoDomande = new ArrayList<Map<String,String>>(); 
+
+	/**estrazioneDomande() estrea 15 domande di difficoltà diversa e le inserisce nella lista
+	 * elencoDomande()
+	 * @return void
+	 * */
+	public void estrazioneDomande(){
+
+		String query = "";
+
+		while(livello <= maxLivello) {
+			// aggiorno query per selezionare le domande con livello di difficoltà 
+			// successivo
+			query = "SELECT * FROM domande WHERE punti = " + livello;
+
+			// dd.leggi() recupera le domande con un certo livello di difficoltà
+			List<Map<String,String>> listaMappeDB = leggi(query);
+
+			// recupero da quelle domande una domanda randomizzata
+			Map<String,String> mappaRandomizzata = listaMappeDB.get(Vik.numeroRandom(minDimensione,
+																					maxDimensione));
+			
+			elencoDomande.add(mappaRandomizzata);
+			livello++;
+		}
+
+	}
+	
+
+	public List<Map<String,String>> elencoDomande(){
+		estrazioneDomande();
+		return this.elencoDomande;
 	}
 
 

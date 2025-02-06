@@ -1,14 +1,17 @@
 package com.generation.quiz.controllers;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
+import com.generation.quiz.dao.DaoDomande;
 import com.generation.quiz.dao.DaoUtenti;
+import com.generation.quiz.entities.Quiz;
 import com.generation.quiz.entities.Utente;
 
 
@@ -19,17 +22,50 @@ public class HomeController
 	private DaoUtenti du;
 	
 	@Autowired
+	private DaoDomande dd;
+	
+	@Autowired
+	private Quiz quiz;
+	
+	@Autowired
 	private ApplicationContext context;
 	
 	@GetMapping("")
 	public String home() {
+		
 		return "home.html";
 	}
 	
 	@GetMapping("game")
-	public String game() {
+	public String game(Model model) {
+
+		// PROVA
+		List<Map<String,String>> domande = dd.elencoDomande();
+		DaoDomande dd = new DaoDomande();
+		
+		for(Map<String,String> m : domande) {
+			
+			// tira fuori testo domande
+			System.out.println(m.get("q"));
+			
+			for(String risp : dd.risposte(Integer.parseInt(m.get("id")))){
+				// tutte le risposte della singola domanda
+				System.out.println(risp);
+			}
+			
+			// condizione di stop
+			//if(utente non ha clicclato)
+				//pausa
+		}
+		
+		
+		
+		
+		model.addAttribute("elencodomande", domande);
+		model.addAttribute("daodomande", dd);
 		return "game.jsp";
 	}
+	
 	
 	@GetMapping("classifica")
 	public String classifica(Model model) {

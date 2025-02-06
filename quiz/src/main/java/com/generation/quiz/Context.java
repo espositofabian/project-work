@@ -9,6 +9,7 @@ import com.generation.quiz.dao.DaoDomande;
 import com.generation.quiz.dao.DaoUtenti;
 import com.generation.quiz.dao.Database;
 import com.generation.quiz.entities.Entity;
+import com.generation.quiz.entities.Quiz;
 import com.generation.quiz.entities.Utente;
 
 
@@ -32,6 +33,11 @@ public class Context {
 	public DaoDomande dd()
 	{
 		return new DaoDomande();
+	}
+	
+	@Bean
+	public Quiz quiz() {
+		return new Quiz();
 	}
 	
 	@Bean

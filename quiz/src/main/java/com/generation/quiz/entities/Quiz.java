@@ -22,6 +22,10 @@ public class Quiz
 	private int minDimensione = 0;
 	private List<Map<String,String>> elencoDomande = new ArrayList<Map<String,String>>(); 
 
+	/**estrazioneDomande() estrea 15 domande di difficoltà diversa e le inserisce nella lista
+	 * elencoDomande()
+	 * @return void
+	 * */
 	public void estrazioneDomande(){
 
 		String query = "";
