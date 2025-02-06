@@ -60,19 +60,20 @@ public class Main_test {
 		
 		// PROVA
 		List<Map<String,String>> domande = dd.elencoDomande();
-		for(Map<String,String> m : domande) {
-			
-			// tira fuori testo domande
-			System.out.println(m.get("q"));
-			
-			for(String risp : dd.risposte(Integer.parseInt(m.get("id")))){
-				// tutte le risposte della singola domanda
-				System.out.println(risp);
-			}
-			
-		}
+//		for(Map<String,String> m : domande) {
+//			
+//			// tira fuori testo domande
+//			System.out.println(m.get("q"));
+//			
+//			for(String risp : dd.risposte(Integer.parseInt(m.get("id")))){
+//				// tutte le risposte della singola domanda
+//				System.out.println(risp);
+//				dd.rispostaGiusta(Integer.parseInt(m.get("id")));
+//				dd.indexRispostaGiusta(Integer.parseInt(m.get("id")));
+//			}
+//			
+//		}
 		
 	}
-	
 
 }
