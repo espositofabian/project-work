@@ -57,9 +57,9 @@ public class DaoUtenti
 		Utente ut;
 		
 		for(Map<String,String> m : mappe) {
-			
+			System.out.println(m.toString());
 			// creo l'Utente attraverso Context e poi valorizzo con la mappa
-			ut = (Utente) context.getBean("oggettoUtente", m);
+			ut = (Utente) context.getBean("mappaUtente", m);
 			
 			utenti.add(ut);
 		}

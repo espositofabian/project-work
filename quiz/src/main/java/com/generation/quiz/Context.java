@@ -36,7 +36,7 @@ public class Context {
 	
 	@Bean
 	@Scope("prototype")
-	public Entity mappaUtente(Map<String,String> mappa)
+	public Entity mappaEntity(Map<String,String> mappa)
 	{
 		Entity e = new Utente();
 
@@ -52,6 +52,7 @@ public class Context {
 		return e;
 	}
 	
+	
 	// Per creare oggetti Utente dal sito 
 	@Bean
 	@Scope("prototype")
@@ -63,6 +64,21 @@ public class Context {
 		u.setUsername(username);
 		u.setPassword(password);
 		u.setPunteggio(Integer.parseInt(("punteggio")));
+		
+		return u;
+	}
+	
+	// Per creare oggetti Utente dal sito 
+	@Bean
+	@Scope("prototype")
+	public Utente mappaUtente(Map<String,String> m)
+	{
+		Utente u = new Utente();
+		
+		u.setId(Integer.parseInt(m.get("id")));
+		u.setUsername(m.get("username"));
+		u.setPassword(m.get("password"));
+		u.setPunteggio(Integer.parseInt(m.get("punteggio")));
 		
 		return u;
 	}
