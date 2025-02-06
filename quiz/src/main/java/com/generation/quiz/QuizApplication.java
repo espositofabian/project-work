@@ -3,8 +3,6 @@ package com.generation.quiz;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.generation.quiz.dao.DaoUtenti;
-
 @SpringBootApplication
 public class QuizApplication {
 
