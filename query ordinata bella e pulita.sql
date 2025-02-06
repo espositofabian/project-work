@@ -237,7 +237,7 @@ create table utenti
 
 -- insert degli utenti iniziali 
 insert into utenti
-(id,username,password)
+(id,username,password,punteggio)
 values
 (1,"Anna","annaanna",0),
 (2,"Luca","Garmin",100),
