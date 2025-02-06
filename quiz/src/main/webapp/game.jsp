@@ -8,6 +8,7 @@
 <% 
     List<Map<String, String>> domande = (List<Map<String, String>>) request.getAttribute("elencodomande");
     DaoDomande dd = (DaoDomande) request.getAttribute("daodomande"); 
+    Quiz q = (Quiz) request.getAttribute("quiz"); 
 %>
 
 <!DOCTYPE html>
@@ -49,10 +50,10 @@
 
     <!-- Lifeline Buttons -->
     <div class="lifelines">
-        <button class="lifeline-btn">Chiamata</button>
+        <button class="lifeline-btn" onclick="showPopup('popupCasa')">Chiamata</button>
         <button class="lifeline-btn">50/50</button>
-        <button class="lifeline-btn">Aiuto dal pubblico</button>
-        <button class="lifeline-btn" onclick="showPopup()">&#9889; Aiuto da Luca</button>
+        <button class="lifeline-btn" onclick="showPopup('popupPubblico')">Aiuto dal pubblico</button>
+        <button class="lifeline-btn" onclick="showPopup('popupLuca')">&#9889; Aiuto da Luca</button>
     </div>
 
     <!-- Quiz Content -->
@@ -86,9 +87,19 @@
     <button class="question-counter" id="question-counter">Sei arrivato alla domanda: 1</button>
 
     <!-- Popup for Aiuto da Luca -->
-    <div class="popup" id="popup">
+    <div class="popup" id="popupCasa">
+         <%= q.aiutoDaCasa(idDomanda) %>
+        <button class="close-popup" onclick="closePopup('popupCasa')">Chiudi</button>
+    </div>
+    <!-- Popup for Aiuto da Luca -->
+    <div class="popup" id="popupPubblico">
+        <%= q.aiutoPubblico(5) %>
+        <button class="close-popup" onclick="closePopup('popupPubblico')">Chiudi</button>
+    </div>
+    <!-- Popup for Aiuto da Luca -->
+    <div class="popup" id="popupLuca">
         Nessuna delle precedenti!
-        <button class="close-popup" onclick="closePopup()">Chiudi</button>
+        <button class="close-popup" onclick="closePopup('popupLuca')">Chiudi</button>
     </div>
 
     <script>
@@ -133,12 +144,12 @@
             }
         }
 
-        function showPopup() {
-            document.getElementById('popup').style.display = 'block';
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
         }
 
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
         }
     </script>
 

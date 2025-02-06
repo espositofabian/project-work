@@ -43,9 +43,11 @@ public class HomeController
 		List<Map<String,String>> domande = dd.elencoDomande();
 
 		DaoDomande dd = new DaoDomande();
+		Quiz q = new Quiz();
 		
 		model.addAttribute("elencodomande", domande);
 		model.addAttribute("daodomande", dd);
+		model.addAttribute("quiz", q);
 		return "game.jsp";
 	}
 	
