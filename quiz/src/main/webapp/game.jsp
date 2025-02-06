@@ -69,8 +69,10 @@
                 <%
                     List<String> risposte = dd.risposte(Integer.parseInt(m.get("id")));
                     for (int i = 0; i < risposte.size(); i++) { 
+                    	int correctAnswerIndex = dd.indexRispostaGiusta(Integer.parseInt(m.get("id")));
+                    	System.out.println(correctAnswerIndex);
                 %>
-                    <button class="answer-btn" onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>)">
+                    <button class="answer-btn" onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
                         <%= risposte.get(i) %>
                     </button>
                 <% } %>
@@ -121,8 +123,8 @@
             }
         }
 
-        function checkAnswer(button, index, questionIdx) {
-            let correctIndex = 0; // Adjust this to fetch from DB
+        function checkAnswer(button, index, questionIdx, mammt) {
+            let correctIndex = mammt; // Adjust this to fetch from DB
             if (index === correctIndex) {
                 button.classList.add("correct");
                 setTimeout(nextQuestion, 1000);
@@ -142,5 +144,3 @@
 
 </body>
 </html>
-
-<!-- MAPPING DEL LOGOUT: "logout" -->
