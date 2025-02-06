@@ -39,12 +39,14 @@ public class LoginController
 	 * Gestisce il processo di login
 	 * @param username nome utente inserito nel form
 	 * @param password password inserita nel form
+	 * @param remember indica se l'utente vuole una sessione persistente
 	 * @param session oggetto HttpSession per gestire la sessione utente
 	 * @return redirect alla home se il login ha successo, altrimenti torna al form di login
 	 */
 	@GetMapping("login")
 	public String login(@RequestParam("user") String username,
 						@RequestParam("pass") String password,
+						@RequestParam(value = "remember", required = false) String remember,
 						HttpSession session)
 	{
 		Map<String,String> utenteloggato;
@@ -63,6 +65,9 @@ public class LoginController
 		{
 			session.setAttribute("loggato", "ok");
 			session.setAttribute("utente", utenteloggato);
+			if(remember != null) {
+				session.setMaxInactiveInterval(-1); // sessione persistente
+			}
 			return "redirect:/";
 		}
 	}
