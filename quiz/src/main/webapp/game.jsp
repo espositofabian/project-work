@@ -122,7 +122,6 @@
         }
 
         function checkAnswer(button, index, questionIdx) {
-        	<%  %>
             let correctIndex = 0; // Adjust this to fetch from DB
             if (index === correctIndex) {
                 button.classList.add("correct");
@@ -143,3 +142,5 @@
 
 </body>
 </html>
+
+<!-- MAPPING DEL LOGOUT: "logout" -->
