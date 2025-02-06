@@ -86,12 +86,12 @@
     <!-- Question Counter -->
     <button class="question-counter" id="question-counter">Sei arrivato alla domanda: 1</button>
 
-    <!-- Popup for Aiuto da Luca -->
+    <!-- Popup for Aiuto da casa-->
     <div class="popup" id="popupCasa">
-         <%= q.aiutoDaCasa(idDomanda) %>
+         <%= q.aiutoDaCasa(1) %>
         <button class="close-popup" onclick="closePopup('popupCasa')">Chiudi</button>
     </div>
-    <!-- Popup for Aiuto da Luca -->
+    <!-- Popup for Aiuto dal pubblico -->
     <div class="popup" id="popupPubblico">
         <%= q.aiutoPubblico(5) %>
         <button class="close-popup" onclick="closePopup('popupPubblico')">Chiudi</button>
