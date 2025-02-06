@@ -105,6 +105,8 @@ public class Database
 		}
 		catch(Exception e)
 		{
+			System.out.println(query);
+			System.out.println(params[0]);
 			System.out.println("Problema nel metodo row() di Database.");
 			e.printStackTrace();
 			return null;
