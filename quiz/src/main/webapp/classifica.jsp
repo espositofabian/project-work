@@ -1,33 +1,43 @@
-<%@ page language="java"
-	contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
-<%@ page import="com.generation.quiz.entities.*" %>
-<%	List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti"); %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.generation.quiz.entities.*"%>
+<%
+List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
+%>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-   	 	<meta charset="UTF-8">
-   	 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<title>Classifica</title>
-    </head>
-	<body>
-		<h1>CLASSIFICA</h1>
-		<table class="tabellaelenco">
-		<thead>
-            <tr>
-            <th>Posizione</th>
-            <th>Giocatore</th>
-            <th>Punti</th>
-            </tr>
-        </thead>
-			<% for(Utente e : utenti) {%>
-			<p>qui</p>
-					<%= e.getUsername() %> <p>qui</p>
-					<%= e.getPunteggio() %>
-				<%} %>
-				
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="classifica.css">
+<title>Classifica</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Classifica Giocatori</h1>
+		<table class="classifica">
+			<thead>
+				<tr>
+					<th>Posizione</th>
+					<th>Giocatore</th>
+					<th>Punti</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+				for (Utente e : utenti) {
+				%>
+				<tr>
+					<td>Numero?</td>
+					<td><%=e.getUsername()%></td>
+					<td><%=e.getPunteggio()%></td>
+					<%
+					}
+					%>
+				</tr>
+			</tbody>
 		</table>
-	</body>
+	</div>
+</body>
 </html>
-    
