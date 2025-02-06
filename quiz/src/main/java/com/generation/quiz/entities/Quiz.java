@@ -70,18 +70,20 @@ public class Quiz
 	{
 		Map<String,String> record = dd.leggiRispostePerDomanda(idDomanda);
 		
-		String risSbagliata;
+		String risSbagliata1;
+		String risSbagliata2;
 		String risOk = dd.rispostaGiusta(idDomanda);
 		
 		do
 		{
-			risSbagliata = record.get("ris" + Vik.numeroRandom(4, 1));
+			risSbagliata1 = record.get("ris" + Vik.numeroRandom(4, 1));
+			risSbagliata2 = record.get("ris" + Vik.numeroRandom(4, 1));
 		}
-		while(risSbagliata.equalsIgnoreCase(risOk));
+		while(risSbagliata1.equalsIgnoreCase(risOk) || risSbagliata2.equalsIgnoreCase(risOk) || risSbagliata1.equalsIgnoreCase(risSbagliata2));
 		
 		Map<String,String> ris = new HashMap<String,String>();
-		ris.put("ris", risSbagliata);
-		ris.put("risok", risOk);
+		ris.put("ris1", risSbagliata1);
+		ris.put("ris2", risSbagliata2);
 		
 		return ris;
 	}
