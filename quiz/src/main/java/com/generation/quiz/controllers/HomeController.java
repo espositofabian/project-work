@@ -18,7 +18,7 @@ import com.generation.quiz.entities.Utente;
 @Controller
 public class HomeController
 {
-	int livello = 0;
+	int livello = 1;
 
 	@Autowired
 	private DaoUtenti du;
@@ -38,18 +38,16 @@ public class HomeController
 		return "home.html";
 	}
 
-	// game2 va
+	// game va
 	@GetMapping("game")
 	public String game(Model model) {
 		// aumenta livello, ma loop è infinito
 		System.out.println("livello nel mapping: " + livello);
 		while(livello <= 15) {
-			livello++;
 			// metodo che estra una domanda di una CERTA difficoltà
 			// difficoltà come parametro
 			// arriva a 16
-			if(livello <= 15) {
-				
+
 			Map<String,String> domanda = dd.mappaRandom(livello);
 
 			// da togliere una volta finiti i test
@@ -64,14 +62,15 @@ public class HomeController
 			model.addAttribute("quiz",q);
 			System.out.println("livello: " + livello);
 
+			livello++;
 			System.out.println("ritorno al game");
 			return "game.jsp";
-		
+
 			// SE le domande sono <=15
 			// return "game.jsp"
 			// ELSE
 			// vai a pagina result
-			}
+
 		}
 		return "home.html";
 	}

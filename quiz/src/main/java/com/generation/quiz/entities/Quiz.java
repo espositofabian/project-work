@@ -82,6 +82,7 @@ public class Quiz
 		}
 		while(risSbagliata1.equalsIgnoreCase(risOk) || risSbagliata2.equalsIgnoreCase(risOk) || risSbagliata1.equalsIgnoreCase(risSbagliata2));
 		
+
 		Map<String,String> ris = new HashMap<String,String>();
 		ris.put("ris1", risSbagliata1);
 		ris.put("ris2", risSbagliata2);
