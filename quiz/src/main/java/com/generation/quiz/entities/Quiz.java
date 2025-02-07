@@ -20,6 +20,7 @@ public class Quiz
 	// pessimo nome lol
 	private int maxDimensione = 4;
 	private int minDimensione = 0;
+	// magari non dichiarare immediatamente
 	private List<Map<String,String>> elencoDomande = new ArrayList<Map<String,String>>(); 
 
 	/**estrazioneDomande() estrea 15 domande di difficoltà diversa e le inserisce nella lista

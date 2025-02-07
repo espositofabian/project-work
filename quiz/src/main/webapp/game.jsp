@@ -84,8 +84,7 @@
     </div>
 
     <!-- Question Counter -->
-    <button class="question-counter" id="question-counter">Sei arrivato alla domanda: 1</button>
-
+    <button class="question-counter" id="question-counter">Sei arrivato alla domanda: </button>
     <!-- Popup for Aiuto da casa-->
     <div class="popup" id="popupCasa">
          <%= q.aiutoDaCasa(1) %>

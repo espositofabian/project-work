@@ -42,6 +42,7 @@ public class HomeController
 		// PROVA
 		List<Map<String,String>> domande = dd.elencoDomande();
 
+		// da togliere una volta finiti i test
 		DaoDomande dd = new DaoDomande();
 		Quiz q = new Quiz();
 		
