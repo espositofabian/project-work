@@ -39,7 +39,7 @@ public class HomeController
 	}
 
 	// game2 va
-	@GetMapping("game2")
+	@GetMapping("game")
 	public String game(Model model) {
 		// aumenta livello, ma loop è infinito
 		System.out.println("livello nel mapping: " + livello);

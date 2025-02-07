@@ -72,9 +72,9 @@
                     for (int i = 0; i < risposte.size(); i++) { 
                     	int correctAnswerIndex = dd.indexRispostaGiusta(Integer.parseInt(domanda.get("id")));
                 %>
-                    <a href="game2"><button class="answer-btn" onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
+                    <button class="answer-btn" onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
                         <%= risposte.get(i) %>
-                    </button></a>
+                    </button>
                     
                 <% } %>
                     <div class="popup" id="popupCasa">
@@ -138,8 +138,12 @@
             if (index === correctIndex) {
                 button.classList.add("correct");
                 setTimeout(nextQuestion, 1000);
+                // Redirect to a new page if the password is correct
+                window.location.href = "game";
             } else {
                 button.classList.add("wrong");
+                window.location.href = "home";
+
             }
         }
 
