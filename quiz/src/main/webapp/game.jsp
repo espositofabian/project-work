@@ -91,7 +91,7 @@
     <!-- Popup for Aiuto da casa-->
     <!-- Popup for Aiuto dal pubblico -->
     <div class="popup" id="popupPubblico">
-        <%= q.aiutoPubblico(5) %>
+        <%= q.aiutoPubblico(Integer.parseInt(domanda.get("id"))) %>
         <button class="close-popup" onclick="closePopup('popupPubblico')">Chiudi</button>
     </div>
     <!-- Popup for Aiuto da Luca -->
