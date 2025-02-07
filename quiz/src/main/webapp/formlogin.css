@@ -113,3 +113,30 @@ body {
 .regster-link p a:hover {
     text-decoration: underline;
 }
+
+/* Stile per il pulsante Torna alla Home */
+.btn-home {
+    margin-top: 15px;
+    background: transparent;
+    border: 2px solid #ff0202;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.btn-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 2, 2, 0.3);
+}
+
+.home-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+}
