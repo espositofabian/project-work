@@ -42,7 +42,9 @@ public class HomeController
 	// game va
 	@GetMapping("game")
 	public String game(Model model, HttpSession session) {
-
+		if(session.getAttribute("loggato") == null) 
+			return "redirect:formlogin";
+		
 		System.out.println("livello nel mapping: " + livello);
 		while(livello <= 15) {
 			
