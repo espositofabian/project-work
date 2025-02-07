@@ -38,9 +38,10 @@
         </div>
 
         <div class="profile-actions">
-            <a href="" class="btn">Torna alla Home</a>
+            <a href="/" class="btn-home">Torna alla Home</a>
             <a href="logout" class="btn btn-logout">Logout</a>
         </div>
     </div>
 </body>
-</html> 
+</html>
+ 

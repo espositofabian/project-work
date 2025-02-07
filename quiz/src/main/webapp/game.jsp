@@ -168,7 +168,7 @@ body, html {
 	<!-- Lifeline Buttons -->
 	<div class="lifelines">
 		<button class="lifeline-btn" onclick="showPopup('popupCasa')">Chiamata</button>
-		<button class="lifeline-btn" onclick="disableButtons()">50/50</button>
+		<button class="lifeline-btn" onclick="showPopup('popup50')">50/50</button>
 		<button class="lifeline-btn" onclick="showPopup('popupPubblico')">Aiuto dal pubblico</button>
 		<button class="lifeline-btn" onclick="showPopup('popupLuca')">&#9889;Aiuto da Luca</button>
 	</div>
@@ -180,7 +180,6 @@ body, html {
         %>
 		<div class="question-box" id="question-box">
 			<%= domanda.get("q")%>
-		<% int idDomanda = Integer.parseInt(domanda.get("id")); %>
 		</div>
 
 		<div class="answers">
@@ -189,6 +188,9 @@ body, html {
 				String[] disableButtonNames1 = q.aiuto5050(idDomanda); // Creates an array with two slots
 					for (int i = 0; i < risposte.size(); i++) { 
                     	int correctAnswerIndex = dd.indexRispostaGiusta(idDomanda);
+                List<String> risposte = dd.risposte(Integer.parseInt(domanda.get("id")));
+					for (int i = 0; i < risposte.size(); i++) { 
+                    	int correctAnswerIndex = dd.indexRispostaGiusta(Integer.parseInt(domanda.get("id")));
                 %>
 			<button class="option answer-btn"
 				onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
@@ -202,6 +204,9 @@ body, html {
 			</div>
 			<div class="popup" id="popup50">
 				<%=         q.aiuto5050(idDomanda) %>
+				<%=     q.aiuto5050(Integer.parseInt(domanda.get("id")))[0] %>
+				<%= 	q.aiuto5050(Integer.parseInt(domanda.get("id")))[1] %>
+						
 				<button class="close-popup" onclick="closePopup('popup50')"
 					onclick="disableButtons()">Chiudi</button>
 			</div>
@@ -306,6 +311,7 @@ body, html {
             });
         
         };
+       
        </script>
 
 </body>
