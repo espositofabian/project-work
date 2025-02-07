@@ -1,5 +1,4 @@
 package com.generation.quiz.controllers;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +12,8 @@ import com.generation.quiz.dao.DaoDomande;
 import com.generation.quiz.dao.DaoUtenti;
 import com.generation.quiz.entities.Quiz;
 import com.generation.quiz.entities.Utente;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -40,7 +41,7 @@ public class HomeController
 
 	// game va
 	@GetMapping("game")
-	public String game(Model model) {
+	public String game(Model model, HttpSession session) {
 
 		System.out.println("livello nel mapping: " + livello);
 		while(livello <= 15) {
@@ -52,6 +53,19 @@ public class HomeController
 			model.addAttribute("daodomande", dd);
 			model.addAttribute("livello", livello);
 			model.addAttribute("quiz", quiz);
+			model.addAttribute("daoutenti", du);
+			
+			// devi portare anche l'utente
+			//model.addAttribute("utenteLoggato", utenteLoggato);
+			
+			// su game.jsp
+//			if(dd.isGiusta(Integer.parseInt(domanda.get("id")), risposte.get(i)))
+//        	{
+//        		int idUtente = Integer.parseInt(utenteLoggato.get("id"));
+//        		int punteggio = Integer.parseInt(domanda.get("punti"));
+//        		du.updatePunteggi(idUtente, punteggio);
+//        	}
+			
 			System.out.println("livello: " + livello);
 
 			livello++;
