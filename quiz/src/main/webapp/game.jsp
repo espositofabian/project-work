@@ -6,9 +6,10 @@
 <%@ page import="com.generation.quiz.dao.*" %>
 
 <% 
-    List<Map<String, String>> domande = (List<Map<String, String>>) request.getAttribute("elencodomande");
+    Map<String, String> domanda = (Map<String, String>) request.getAttribute("domanda");
     DaoDomande dd = (DaoDomande) request.getAttribute("daodomande"); 
-    Quiz q = (Quiz) request.getAttribute("quiz"); 
+    int livello = (int) request.getAttribute("livello"); 
+    Quiz q = (Quiz)request.getAttribute("quiz");
 %>
 
 <!DOCTYPE html>
@@ -60,36 +61,34 @@
     <div class="main-content">
         <% 
         int questionIndex = 0;
-        for (Map<String, String> m : domande) { 
         %>
             <div class="question-box" id="question-box">
-                <%= m.get("q") %>
+                <%= domanda.get("q")%>
             </div>
 
             <div class="answers">
                 <%
-                    List<String> risposte = dd.risposte(Integer.parseInt(m.get("id")));
+                    List<String> risposte = dd.risposte(Integer.parseInt(domanda.get("id")));
                     for (int i = 0; i < risposte.size(); i++) { 
-                    	int correctAnswerIndex = dd.indexRispostaGiusta(Integer.parseInt(m.get("id")));
-                    	System.out.println(correctAnswerIndex);
+                    	int correctAnswerIndex = dd.indexRispostaGiusta(Integer.parseInt(domanda.get("id")));
                 %>
-                    <button class="answer-btn" onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
+                    <a href="game2"><button class="answer-btn" onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
                         <%= risposte.get(i) %>
-                    </button>
+                    </button></a>
+                    
                 <% } %>
-            </div>
-        <% 
-            questionIndex++; 
-        } %>
+                    <div class="popup" id="popupCasa">
+         <%= q.aiutoDaCasa(Integer.parseInt(domanda.get("id"))) %>
+        <button class="close-popup" onclick="closePopup('popupCasa')">Chiudi</button>
+    </div>
+       	 <% questionIndex++; %>
+       	 <% System.out.println("livello in game: " + livello); %>	 
+    </div>
     </div>
 
     <!-- Question Counter -->
     <button class="question-counter" id="question-counter">Sei arrivato alla domanda: </button>
     <!-- Popup for Aiuto da casa-->
-    <div class="popup" id="popupCasa">
-         <%= q.aiutoDaCasa(1) %>
-        <button class="close-popup" onclick="closePopup('popupCasa')">Chiudi</button>
-    </div>
     <!-- Popup for Aiuto dal pubblico -->
     <div class="popup" id="popupPubblico">
         <%= q.aiutoPubblico(5) %>
@@ -102,6 +101,7 @@
     </div>
 
     <script>
+    	var index = 1;
         let questionNumber = 1;
         let currentIndex = 0;
         let questions = document.querySelectorAll('.question-box');

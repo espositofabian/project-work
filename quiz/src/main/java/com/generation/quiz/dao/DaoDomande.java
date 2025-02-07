@@ -1,6 +1,7 @@
 package com.generation.quiz.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,18 +40,18 @@ public class DaoDomande
 		return db.row(query, id + "");
 	}
 
-	
+
 	public String rispostaGiusta(int idDomanda){
 
 		String query = "select risposte.risok\r\n"
-				     + "from   risposte\r\n"
-				     + "where  risposte.idDomanda = ?";
-		
+				+ "from   risposte\r\n"
+				+ "where  risposte.idDomanda = ?";
+
 		return db.row(query, idDomanda + "").get("risok");
 	}
-	
+
 	public Map<String,String> leggiRispostePerDomanda(int idDomanda){
-		
+
 		String query = "SELECT ris1,\r\n"
 				+ "		ris2,\r\n"
 				+ "        ris3,\r\n"
@@ -77,7 +78,7 @@ public class DaoDomande
 	}
 
 	public ArrayList<String> risposte(int idDomanda){
-		
+
 		// evoco leggiRisposte per inizializzare e valorizzare l'array
 		leggiRisposte(idDomanda);
 		// lo restituisco
@@ -85,7 +86,7 @@ public class DaoDomande
 	}
 
 	public int indexRispostaGiusta(int idDomanda) {
-		
+
 		int indexCorretto = 0;
 		for(int i = 0; i < risposte.size(); i++) {
 			if(risposte.get(i).equalsIgnoreCase(rispostaGiusta(idDomanda))) {
@@ -95,7 +96,7 @@ public class DaoDomande
 		}
 		return indexCorretto;
 	}
-	
+
 	public boolean isGiusta(int idDomanda, String risposta) {
 
 		// controllo della validità della risposta (non vogliamo sia null)
@@ -108,46 +109,37 @@ public class DaoDomande
 
 		return false;
 	}
-	
+
 	// vediamo-------------------------------------------
-	
-	private int livello = 1;
-	private int maxLivello = 15;
-	// pessimo nome lol
+
 	private int maxDimensione = 4;
 	private int minDimensione = 0;
-	private List<Map<String,String>> elencoDomande = new ArrayList<Map<String,String>>(); 
+	private Map<String,String> mappaRandom = new HashMap<String,String>(); 
 
 	/**estrazioneDomande() estrea 15 domande di difficoltà diversa e le inserisce nella lista
 	 * elencoDomande()
 	 * @return void
 	 * */
-	public void estrazioneDomande(){
+	public void estrazioneDomande(int livello){
 
-		String query = "";
 		
-		while(livello <= maxLivello) {
-			// aggiorno query per selezionare le domande con livello di difficoltà 
-			// successivo
-			query = "SELECT * FROM domande WHERE punti = " + livello;
+		String query = "";
 
-			// dd.leggi() recupera le domande con un certo livello di difficoltà
-			List<Map<String,String>> listaMappeDB = leggi(query);
+		query = "SELECT * FROM domande WHERE punti = " + livello;
 
-			// recupero da quelle domande una domanda randomizzata
-			Map<String,String> mappaRandomizzata = listaMappeDB.get(Vik.numeroRandom(minDimensione,
-																					maxDimensione));
-			
-			elencoDomande.add(mappaRandomizzata);
-			livello++;
-		}
+		// dd.leggi() recupera le domande con un certo livello di difficoltà
+		List<Map<String,String>> listaMappeDB = leggi(query);
+
+		// recupero da quelle domande una domanda randomizzata
+		mappaRandom = listaMappeDB.get(Vik.numeroRandom(minDimensione,
+				maxDimensione));
 
 	}
-	
 
-	public List<Map<String,String>> elencoDomande(){
-		estrazioneDomande();
-		return this.elencoDomande;
+
+	public Map<String,String> mappaRandom(int livello){
+		estrazioneDomande(livello);
+		return this.mappaRandom;
 	}
 
 

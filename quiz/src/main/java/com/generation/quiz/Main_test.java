@@ -56,10 +56,12 @@ public class Main_test {
 		System.out.println(dd.isGiusta(1, "Torino"));
 		
 		*/
+		/*
 		DaoDomande dd = new DaoDomande();
 		
 		// PROVA
 		List<Map<String,String>> domande = dd.elencoDomande();
+		*/
 //		for(Map<String,String> m : domande) {
 //			
 //			// tira fuori testo domande
