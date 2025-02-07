@@ -52,7 +52,7 @@
     <!-- Lifeline Buttons -->
     <div class="lifelines">
         <button class="lifeline-btn" onclick="showPopup('popupCasa')">Chiamata</button>
-        <button class="lifeline-btn">50/50</button>
+        <button class="lifeline-btn">50/50</button> <!-- q.aiuto5050(Integer.parseInt(domanda.get("id"))) -->
         <button class="lifeline-btn" onclick="showPopup('popupPubblico')">Aiuto dal pubblico</button>
         <button class="lifeline-btn" onclick="showPopup('popupLuca')">&#9889; Aiuto da Luca</button>
     </div>
@@ -91,7 +91,7 @@
     <!-- Popup for Aiuto da casa-->
     <!-- Popup for Aiuto dal pubblico -->
     <div class="popup" id="popupPubblico">
-        <%= q.aiutoPubblico(5) %>
+        <%= q.aiutoPubblico(Integer.parseInt(domanda.get("id"))) %>
         <button class="close-popup" onclick="closePopup('popupPubblico')">Chiudi</button>
     </div>
     <!-- Popup for Aiuto da Luca -->
