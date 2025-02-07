@@ -177,8 +177,6 @@ INSERT INTO risposte (id, ris1, ris2, ris3, ris4, risok, idDomanda) VALUES
 (19, "2", "3", "4", "5", "4", 19),
 (20, "C++", "Java", "JavaScript", "Python", "JavaScript", 20),
 
--- Inserimento Risposte
-INSERT INTO risposte (id, ris1, ris2, ris3, ris4, risok, idDomanda) VALUES
 -- Difficoltà 5
 (21, "Fe", "F", "I", "Ir", "Fe", 21),
 (22, "start()", "run()", "main()", "execute()", "main()", 22),
