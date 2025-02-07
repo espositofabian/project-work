@@ -6,28 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="formlogin.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script>
-        function validateLogin(event) {
-        event.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const errorMessage = document.getElementById("error-message")
-        //verifica
-        if (username === correctUser && password === correctPass) {
-            alert("Login effettuato con successo!");
-            window.location.href = "home"; // Reindirizza dopo il login
-        } else {
-            errorMessage.textContent = "Username o password errati!";
-            errorMessage.style.display = "block";
-        }
-        }
-    </script>
 </head>
 <body>
     <div class="wrapper">
-        <form action="login" method="get" onsubmit="validateLogin(event)">
+        <form action="login" method="get">
             <h1>Logga o Muori</h1>
-            <div id="error-message" style="color: red; display: none;">Username o password errati!</div>
             <div class="input-box">
                 <input type="text" name="user" placeholder="Username" required>
                 <i class='bx bxs-user'></i>
@@ -49,5 +32,6 @@
             </div>
         </form>
     </div>
+
 </body>
 </html>
