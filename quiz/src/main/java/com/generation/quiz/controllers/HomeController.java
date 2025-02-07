@@ -41,35 +41,23 @@ public class HomeController
 	// game va
 	@GetMapping("game")
 	public String game(Model model) {
-		// aumenta livello, ma loop è infinito
+
 		System.out.println("livello nel mapping: " + livello);
 		while(livello <= 15) {
-			// metodo che estra una domanda di una CERTA difficoltà
-			// difficoltà come parametro
-			// arriva a 16
-
+			
 			Map<String,String> domanda = dd.mappaRandom(livello);
-
-			// da togliere una volta finiti i test
-			DaoDomande dd = new DaoDomande();
-			Quiz q = new Quiz();
-
 
 			// passiamo la domanda singola al model
 			model.addAttribute("domanda", domanda);
 			model.addAttribute("daodomande", dd);
 			model.addAttribute("livello", livello);
-			model.addAttribute("quiz",q);
+			model.addAttribute("quiz", quiz);
 			System.out.println("livello: " + livello);
 
 			livello++;
 			System.out.println("ritorno al game");
+			
 			return "game.jsp";
-
-			// SE le domande sono <=15
-			// return "game.jsp"
-			// ELSE
-			// vai a pagina result
 
 		}
 		return "home.html";
