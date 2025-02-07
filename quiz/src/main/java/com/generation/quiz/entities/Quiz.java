@@ -67,7 +67,7 @@ public class Quiz
 		return dd.rispostaGiusta(idDomanda);
 	}
 	
-	public List<String> aiuto5050(int idDomanda)
+	public String[] aiuto5050(int idDomanda)
 	{
 		Map<String,String> record = dd.leggiRispostePerDomanda(idDomanda);
 		
@@ -81,11 +81,10 @@ public class Quiz
 			risSbagliata2 = record.get("ris" + Vik.numeroRandom(4, 1));
 		}
 		while(risSbagliata1.equalsIgnoreCase(risOk) || risSbagliata2.equalsIgnoreCase(risOk) || risSbagliata1.equalsIgnoreCase(risSbagliata2));
-
-
-		List<String> ris = new ArrayList<String>();
-		ris.add(risSbagliata1);
-		ris.add(risSbagliata2);
+		
+		String[] ris = new String[2];
+		ris[0] = risSbagliata1;
+		ris[1] = risSbagliata2;
 		
 		return ris;
 	}
