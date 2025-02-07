@@ -81,7 +81,8 @@ public class Quiz
 			risSbagliata2 = record.get("ris" + Vik.numeroRandom(4, 1));
 		}
 		while(risSbagliata1.equalsIgnoreCase(risOk) || risSbagliata2.equalsIgnoreCase(risOk) || risSbagliata1.equalsIgnoreCase(risSbagliata2));
-		
+
+
 		List<String> ris = new ArrayList<String>();
 		ris.add(risSbagliata1);
 		ris.add(risSbagliata2);
