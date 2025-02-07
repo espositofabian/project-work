@@ -186,23 +186,22 @@ body, html {
 		<div class="answers">
 			<%
                 List<String> risposte = dd.risposte(idDomanda);
-				String[] disableButtonNames = new String[2]; // Creates an array with two slots
+				String[] disableButtonNames1 = q.aiuto5050(idDomanda); // Creates an array with two slots
 					for (int i = 0; i < risposte.size(); i++) { 
-                    	int correctAnswerIndex = dd.indexRispostaGiusta(Integer.parseInt(domanda.get("id")));
-                    	disableButtonNames = q.aiuto5050(Integer.parseInt(domanda.get("id"))) ;
+                    	int correctAnswerIndex = dd.indexRispostaGiusta(idDomanda);
                 %>
-			<button class="answer-btn"
+			<button class="option answer-btn"
 				onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
 				<%= risposte.get(i) %>
 			</button>
 						    		
 			<% } %>
 			<div class="popup" id="popupCasa">
-				<%= q.aiutoDaCasa(Integer.parseInt(domanda.get("id"))) %>
+				<%= q.aiutoDaCasa(idDomanda) %>
 				<button class="close-popup" onclick="closePopup('popupCasa')">Chiudi</button>
 			</div>
 			<div class="popup" id="popup50">
-				<%=         q.aiuto5050(Integer.parseInt(domanda.get("id"))) %>
+				<%=         q.aiuto5050(idDomanda) %>
 				<button class="close-popup" onclick="closePopup('popup50')"
 					onclick="disableButtons()">Chiudi</button>
 			</div>
@@ -217,7 +216,7 @@ body, html {
 	<!-- Popup for Aiuto da casa-->
 	<!-- Popup for Aiuto dal pubblico -->
 	<div class="popup" id="popupPubblico">
-		<%= q.aiutoPubblico(Integer.parseInt(domanda.get("id"))) %>
+		<%= q.aiutoPubblico(idDomanda) %>
 		<button class="close-popup" onclick="closePopup('popupPubblico')">Chiudi</button>
 	</div>
 	<!-- Popup for Aiuto da Luca -->
@@ -284,7 +283,14 @@ body, html {
         
         function disableButtons() {
             // Convert JSP array to JavaScript array
-            var disableButtonNames = [<%= "\"" + disableButtonNames[0] + "\", \"" + disableButtonNames[1] + "\"" %>];
+            var bottone1 = "<%= disableButtonNames1[0] %>";
+            var bottone2 = "<%= disableButtonNames1[1] %> ";
+            console.log(bottone1); // Debug per vedere cosa contiene
+            console.log(bottone2); 
+            var disableButtonNames = [];
+            disableButtonNames.push(bottone1);
+            disableButtonNames.push(bottone2);
+
 
             // Get all buttons with class "option"
             var buttons = document.querySelectorAll("button.option");
@@ -293,10 +299,12 @@ body, html {
             buttons.forEach(function(button) {
                 if (disableButtonNames.includes(button.textContent.trim())) {
                     button.disabled = true; // Disable the button
+                    button.style.backgroundColor = "gray"; // Cambia colore sfondo
+                    button.style.color = "white";         // Cambia colore testo
+                    button.style.cursor = "not-allowed";  // Cambia il cursore
                 }
             });
         
-        };
         };
        </script>
 
