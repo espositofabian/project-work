@@ -42,6 +42,7 @@ public class HomeController
 	// game va
 	@GetMapping("game")
 	public String game(Model model, HttpSession session) {
+		
 		if(session.getAttribute("loggato") == null) 
 			return "redirect:formlogin";
 		

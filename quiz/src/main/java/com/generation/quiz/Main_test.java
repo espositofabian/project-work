@@ -12,6 +12,11 @@ public class Main_test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		String[] vettore1 = {"miao","gatto"};
+		String[] vettore2 = new String[2];
+		
+		vettore1 = vettore2;
+		
 		/*
 		DaoUtenti du = new DaoUtenti();
 		
@@ -75,6 +80,8 @@ public class Main_test {
 //			}
 //			
 //		}
+		
+		
 		
 	}
 

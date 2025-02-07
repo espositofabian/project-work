@@ -297,13 +297,21 @@ body, html {
 
             // Loop through buttons and disable the ones matching the names in the array
             buttons.forEach(function(button) {
-                if (disableButtonNames.includes(button.textContent.trim())) {
+                if (disableButtonNames[0].includes(button.textContent.trim())) {
+                    console.log("Disabling button:", button.textContent);
                     button.disabled = true; // Disable the button
                     button.style.backgroundColor = "gray"; // Cambia colore sfondo
                     button.style.color = "white";         // Cambia colore testo
                     button.style.cursor = "not-allowed";  // Cambia il cursore
                 }
-            });
+                if (disableButtonNames[1].includes(button.textContent.trim())) {
+                    console.log("Disabling button:", button.textContent);
+                    button.disabled = true; // Disable the button
+                    button.style.backgroundColor = "gray"; // Cambia colore sfondo
+                    button.style.color = "white";         // Cambia colore testo
+                    button.style.cursor = "not-allowed";  // Cambia il cursore
+                }
+             });
         
         };
        </script>
