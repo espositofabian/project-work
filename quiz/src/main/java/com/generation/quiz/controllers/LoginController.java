@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.context.ApplicationContext;
 import com.generation.quiz.dao.DaoUtenti;
 import com.generation.quiz.entities.Utente;
+import org.springframework.ui.Model; // una classe per il profilo
 
 /**
  * Controller che gestisce tutte le operazioni relative all'autenticazione degli utenti:
@@ -119,6 +120,29 @@ public class LoginController
 			return "redirect:formregistrati";
 		
 	}
-            
+
+	//gestisco il profilo non so se sia giusto
+	@GetMapping("profilo")
+	public String profilo(HttpSession session, Model model) {
+		Map<String,String> utenteLoggato = (Map<String,String>) session.getAttribute("utente");
+		
+		if(utenteLoggato == null)
+			return "redirect:formlogin";
+		
+		//recupero la posizione in classifica
+		List<Utente> classifica = du.classificaUtenti();
+		int posizione = 1;
+		
+		for(Utente u : classifica) {
+			if(u.getUsername().equals(utenteLoggato.get("username")))
+				break;
+			posizione++;
+		}
+		
+		model.addAttribute("utente", utenteLoggato);
+		model.addAttribute("posizione", posizione);
+		
+		return "formprofilo.jsp";
+	}
 }
     
