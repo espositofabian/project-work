@@ -17,111 +17,113 @@ create table domande
 -- insert nella tabella domande
 
 -- Inserimento Domande
+
 INSERT INTO domande (id, q, punti, argomento) VALUES
 -- Difficoltà 1
-(1, "Qual è il colore del cielo in una giornata serena?", 1, "generico"),
-(2, "Quanto fa 2 + 2?", 1, "generico"),
-(3, "Quale operatore viene usato per la somma in Java?", 1, "programmazione"),
-(4, "Chi è il protagonista di 'Harry Potter'?", 1, "film"),
-(5, "Qual è il nome del robot dorato in Star Wars?", 1, "film"),
+(1, "Qual è il colore del sole?", 1, "generico"),
+(2, "Qual è il risultato di 5 + 3?", 1, "generico"),
+(3, "Quale keyword si usa per dichiarare una variabile in Java?", 1, "programmazione"),
+(4, "Chi è il protagonista di 'Il Signore degli Anelli'?", 1, "film"),
+(5, "Quanti giorni ci sono in una settimana?", 1, "generico"),
 
 -- Difficoltà 2
-(6, "Qual è il primo mese dell'anno?", 2, "generico"),
-(7, "Quanti giorni ha una settimana?", 2, "generico"),
-(8, "Come si chiama il costrutto usato per i cicli in Java?", 2, "programmazione"),
-(9, "Chi ha diretto il film 'Titanic'?", 2, "film"),
-(10, "Qual è il nome del pianeta natale di Superman?", 2, "film"),
+(6, "Qual è il mare che bagna l'Italia?", 2, "generico"),
+(7, "Quale ciclo in Java esegue almeno una volta il blocco di codice?", 2, "programmazione"),
+(8, "Chi è il regista di 'Titanic'?", 2, "film"),
+(9, "Quanto fa 12 diviso 4?", 2, "generico"),
+(10, "Qual è la capitale della Spagna?", 2, "generico"),
 
 -- Difficoltà 3
-(11, "Chi ha scritto la teoria della relatività?", 3, "generico"),
-(12, "Quale parola chiave è usata per dichiarare una costante in Java?", 3, "programmazione"),
-(13, "In quale film troviamo il personaggio 'Joker'?", 3, "film"),
-(14, "Qual è l’elemento chimico con simbolo O?", 3, "generico"),
-(15, "Chi è l'attore principale in 'Mission Impossible'?", 3, "film"),
+(11, "Quale pianeta è conosciuto come il Pianeta Rosso?", 3, "generico"),
+(12, "Quale è la funzione principale del garbage collector in Java?", 3, "programmazione"),
+(13, "Chi interpreta Iron Man nel Marvel Cinematic Universe?", 3, "film"),
+(14, "Qual è il metallo liquido a temperatura ambiente?", 3, "generico"),
+(15, "Quale operatore logico rappresenta 'AND' in Java?", 3, "programmazione"),
 
 -- Difficoltà 4
-(16, "Qual è la capitale della Francia?", 4, "generico"),
-(17, "Cosa restituisce il metodo length() su una stringa in Java?", 4, "programmazione"),
-(18, "Chi ha interpretato Jack Sparrow in 'Pirati dei Caraibi'?", 4, "film"),
-(19, "Quanti stati ha gli USA?", 4, "generico"),
-(20, "Qual è il vero nome di Batman?", 4, "film"),
+(16, "Qual è il numero atomico dell'ossigeno?", 4, "generico"),
+(17, "Quale struttura dati segue la logica FIFO?", 4, "programmazione"),
+(18, "Chi è il protagonista del film 'Interstellar'?", 4, "film"),
+(19, "Quanti anni ci vogliono per un anno bisestile?", 4, "generico"),
+(20, "Quale linguaggio è usato principalmente per creare pagine web dinamiche?", 4, "programmazione"),
 
 -- Difficoltà 5
-(21, "Qual è il simbolo chimico dell'acqua?", 5, "generico"),
-(22, "Cosa significa HTML?", 5, "programmazione"),
-(23, "Quale film ha vinto l'Oscar come miglior film nel 1994?", 5, "film"),
-(24, "Qual è il valore di π (pi greco) approssimato?", 5, "generico"),
-(25, "Chi ha diretto 'Inception'?", 5, "film"),
+(21, "Qual è il simbolo chimico del ferro?", 5, "generico"),
+(22, "Quale metodo si usa per avviare un programma Java?", 5, "programmazione"),
+(23, "In quale anno è uscito il primo film di Harry Potter?", 5, "film"),
+(24, "Chi ha dipinto la Gioconda?", 5, "generico"),
+(25, "Come si chiama il ciclo che si ripete indefinitamente?", 5, "programmazione"),
 
 -- Difficoltà 6
-(26, "Chi ha scoperto la gravità?", 6, "generico"),
-(27, "Cosa fa il comando 'git clone'?", 6, "programmazione"),
-(28, "Quale attore ha interpretato James Bond più volte?", 6, "film"),
-(29, "Qual è il continente con il maggior numero di paesi?", 6, "generico"),
-(30, "In che anno è uscito il primo film di 'Star Wars'?", 6, "film"),
+(26, "Qual è il pianeta più grande del sistema solare?", 6, "generico"),
+(27, "Qual è il principale vantaggio della programmazione ad oggetti?", 6, "programmazione"),
+(28, "Quale film ha vinto l'Oscar come miglior film nel 1994?", 6, "film"),
+(29, "Qual è il fiume più lungo del mondo?", 6, "generico"),
+(30, "Quale valore restituisce una funzione senza 'return' in Java?", 6, "programmazione"),
 
 -- Difficoltà 7
-(31, "Chi ha scritto 'La Divina Commedia'?", 7, "generico"),
-(32, "Quale valore restituisce un metodo senza return in Java?", 7, "programmazione"),
-(33, "Chi ha composto la colonna sonora di 'Il Gladiatore'?", 7, "film"),
-(34, "Qual è il pianeta più grande del sistema solare?", 7, "generico"),
-(35, "Chi ha interpretato il Joker nel film 'Il Cavaliere Oscuro'?", 7, "film"),
+(31, "Qual è la velocità della luce nel vuoto (km/s)?", 7, "generico"),
+(32, "Quale struttura dati utilizza il principio LIFO?", 7, "programmazione"),
+(33, "Chi ha interpretato il Joker nel film 'Il Cavaliere Oscuro'?", 7, "film"),
+(34, "Qual è la lingua più parlata al mondo?", 7, "generico"),
+(35, "Quale carattere si usa per separare i parametri in una funzione Java?", 7, "programmazione"),
 
 -- Difficoltà 8
-(36, "Qual è l'animale più veloce sulla terra?", 8, "generico"),
-(37, "Cos'è un 'array' in programmazione?", 8, "programmazione"),
-(38, "Quale film ha incassato di più nella storia del cinema?", 8, "film"),
-(39, "Quante ossa ha il corpo umano?", 8, "generico"),
-(40, "Chi ha vinto l'Oscar come miglior attore nel 2020?", 8, "film"),
+(36, "Qual è la capitale del Giappone?", 8, "generico"),
+(37, "Quale tipo di dati in Java è usato per valori booleani?", 8, "programmazione"),
+(38, "Quale film di animazione Pixar ha come protagonista un robot?", 8, "film"),
+(39, "Quale gas viene usato per gonfiare i palloncini?", 8, "generico"),
+(40, "Quale operatore in Java è usato per la moltiplicazione?", 8, "programmazione"),
 
 -- Difficoltà 9
-(41, "Qual è l'elemento chimico più leggero?", 9, "generico"),
-(42, "Cos'è un 'framework'?", 9, "programmazione"),
-(43, "In quale film compare il personaggio di Hannibal Lecter?", 9, "film"),
-(44, "Quale paese ha la maggiore popolazione al mondo?", 9, "generico"),
-(45, "Qual è il nome del regista della trilogia 'Il Signore degli Anelli'?", 9, "film"),
+(41, "Quanti stati ci sono negli Stati Uniti?", 9, "generico"),
+(42, "Quale parola chiave in Java impedisce la modifica di una variabile?", 9, "programmazione"),
+(43, "Chi è il regista della saga 'Il Signore degli Anelli'?", 9, "film"),
+(44, "Quale città è conosciuta come 'la Grande Mela'?", 9, "generico"),
+(45, "Qual è il tipo di dati usato per numeri decimali in Java?", 9, "programmazione"),
 
 -- Difficoltà 10
-(46, "Quanti pianeti ci sono nel sistema solare?", 10, "generico"),
-(47, "Cos'è il paradigma OOP?", 10, "programmazione"),
-(48, "Quale attore ha vinto più Oscar come miglior attore protagonista?", 10, "film"),
-(49, "Qual è la montagna più alta del mondo?", 10, "generico"),
-(50, "Chi ha composto la colonna sonora di 'Star Wars'?", 10, "film"),
+(46, "Qual è la formula chimica dell'acqua?", 10, "generico"),
+(47, "Quale struttura dati è più adatta per una coda di priorità?", 10, "programmazione"),
+(48, "Quale attore ha interpretato Jack Dawson in 'Titanic'?", 10, "film"),
+(49, "Chi ha scritto 'La teoria della relatività'?", 10, "generico"),
+(50, "Quale ciclo viene usato per iterare un array in Java?", 10, "programmazione"),
 
 -- Difficoltà 11
-(51, "Quale paese ha inventato la pizza?", 11, "generico"),
-(52, "Cos'è il linguaggio SQL?", 11, "programmazione"),
-(53, "Quale regista ha vinto più Oscar?", 11, "film"),
-(54, "Qual è il deserto più grande del mondo?", 11, "generico"),
-(55, "Chi ha interpretato Forrest Gump?", 11, "film"),
+(51, "Qual è il numero di bit in un byte?", 11, "generico"),
+(52, "Quale operatore in Java confronta due valori?", 11, "programmazione"),
+(53, "Chi è il protagonista di 'Ritorno al Futuro'?", 11, "film"),
+(54, "In quale anno è caduto il Muro di Berlino?", 11, "generico"),
+(55, "Quale parola chiave si usa per creare una classe in Java?", 11, "programmazione"),
 
 -- Difficoltà 12
-(56, "Cos'è la velocità della luce nel vuoto?", 12, "generico"),
-(57, "Cos'è il principio DRY in programmazione?", 12, "programmazione"),
-(58, "Quale film ha vinto più Oscar in assoluto?", 12, "film"),
-(59, "Qual è il lago più profondo del mondo?", 12, "generico"),
-(60, "Chi ha diretto 'Il Padrino'?", 12, "film"),
+(56, "Quale elemento chimico ha simbolo 'Au'?", 12, "generico"),
+(57, "Quale struttura dati si utilizza per implementare una pila?", 12, "programmazione"),
+(58, "Qual è il nome del robot in 'Star Wars' dorato e umanoide?", 12, "film"),
+(59, "Qual è il monte più alto del mondo?", 12, "generico"),
+(60, "Qual è il modificatore di accesso predefinito in Java?", 12, "programmazione"),
 
 -- Difficoltà 13
-(61, "Chi ha sviluppato la teoria quantistica?", 13, "generico"),
-(62, "Cosa fa il comando 'chmod' in Linux?", 13, "programmazione"),
-(63, "Qual è il film con il più alto punteggio su IMDb?", 13, "film"),
-(64, "Qual è il gas più abbondante nell'atmosfera terrestre?", 13, "generico"),
-(65, "Chi ha diretto 'Interstellar'?", 13, "film"),
+(61, "Quanti lati ha un dodecagono?", 13, "generico"),
+(62, "Qual è il tipo di dati predefinito per i numeri decimali in Java?", 13, "programmazione"),
+(63, "Chi ha diretto il film 'Inception'?", 13, "film"),
+(64, "Qual è il paese più grande del mondo per superficie?", 13, "generico"),
+(65, "Quale interfaccia Java rappresenta una lista?", 13, "programmazione"),
 
 -- Difficoltà 14
-(66, "Cos'è la teoria delle stringhe?", 14, "generico"),
-(67, "Cos'è il principio SOLID in programmazione?", 14, "programmazione"),
-(68, "Chi ha interpretato il protagonista in 'Shutter Island'?", 14, "film"),
-(69, "Qual è l'organo più grande del corpo umano?", 14, "generico"),
-(70, "Chi ha scritto la colonna sonora di 'Titanic'?", 14, "film"),
+(66, "Qual è il simbolo chimico dell'ossigeno?", 14, "generico"),
+(67, "Quale ciclo è più efficiente quando il numero di iterazioni è noto?", 14, "programmazione"),
+(68, "Chi ha interpretato Iron Man nel MCU?", 14, "film"),
+(69, "Qual è il deserto più grande del mondo?", 14, "generico"),
+(70, "Come si chiama il metodo che viene eseguito all'avvio di una classe Java?", 14, "programmazione"),
 
 -- Difficoltà 15
-(71, "Qual è la radice quadrata di 289?", 15, "generico"),
-(72, "Qual è la differenza tra HTTP e HTTPS?", 15, "programmazione"),
-(73, "Quale film è considerato il migliore di sempre?", 15, "film"),
-(74, "Qual è il numero primo più piccolo?", 15, "generico"),
-(75, "Quale regista ha vinto più premi Oscar?", 15, "film");
+(71, "Qual è il più grande oceano della Terra?", 15, "generico"),
+(72, "Quale metodo viene usato per chiudere un file in Java?", 15, "programmazione"),
+(73, "Chi ha interpretato Neo in 'Matrix'?", 15, "film"),
+(74, "Quale città ospita la Torre Eiffel?", 15, "generico"),
+(75, "Quale parola chiave si usa per ereditare una classe in Java?", 15, "programmazione");
+
 
 -- creo la tabella domande
 
@@ -145,113 +147,114 @@ create table risposte
 -- insert nella tabella risposte
 
 -- Inserimento Risposte
+
 INSERT INTO risposte (id, ris1, ris2, ris3, ris4, risok, idDomanda) VALUES
 -- Difficoltà 1
-(1, "Blu", "Verde", "Rosso", "Giallo", "Blu", 1),
-(2, "3", "4", "5", "6", "4", 2),
-(3, "+", "-", "*", "/", "+", 3),
-(4, "Harry Potter", "Frodo", "Luke", "Neo", "Harry Potter", 4),
-(5, "C-3PO", "R2-D2", "BB-8", "D-0", "C-3PO", 5),
+(1, "Giallo", "Blu", "Rosso", "Verde", "Giallo", 1),
+(2, "7", "8", "9", "10", "8", 2),
+(3, "var", "let", "int", "String", "int", 3),
+(4, "Frodo", "Gandalf", "Legolas", "Aragorn", "Frodo", 4),
+(5, "5", "6", "7", "8", "7", 5),
 
 -- Difficoltà 2
-(6, "Gennaio", "Febbraio", "Marzo", "Aprile", "Gennaio", 6),
-(7, "5", "6", "7", "8", "7", 7),
-(8, "for", "if", "switch", "case", "for", 8),
-(9, "James Cameron", "Steven Spielberg", "Christopher Nolan", "Ridley Scott", "James Cameron", 9),
-(10, "Krypton", "Tatooine", "Vulcano", "Asgard", "Krypton", 10),
+(6, "Mar Nero", "Mar Mediterraneo", "Oceano Atlantico", "Mar Rosso", "Mar Mediterraneo", 6),
+(7, "for", "while", "do-while", "foreach", "do-while", 7),
+(8, "Steven Spielberg", "James Cameron", "Christopher Nolan", "Quentin Tarantino", "James Cameron", 8),
+(9, "2", "3", "4", "6", "3", 9),
+(10, "Lisbona", "Parigi", "Madrid", "Berlino", "Madrid", 10),
 
 -- Difficoltà 3
-(11, "Einstein", "Newton", "Tesla", "Galileo", "Einstein", 11),
-(12, "final", "const", "static", "var", "final", 12),
-(13, "Il Cavaliere Oscuro", "Joker", "Batman Begins", "Suicide Squad", "Joker", 13),
-(14, "Ossigeno", "Idrogeno", "Elio", "Azoto", "Ossigeno", 14),
-(15, "Tom Cruise", "Brad Pitt", "Leonardo DiCaprio", "Keanu Reeves", "Tom Cruise", 15),
+(11, "Giove", "Marte", "Venere", "Saturno", "Marte", 11),
+(12, "Allocare memoria", "Eliminare oggetti non utilizzati", "Ottimizzare il codice", "Gestire variabili globali", "Eliminare oggetti non utilizzati", 12),
+(13, "Chris Evans", "Robert Downey Jr.", "Mark Ruffalo", "Chris Hemsworth", "Robert Downey Jr.", 13),
+(14, "Ferro", "Argento", "Mercurio", "Oro", "Mercurio", 14),
+(15, "&", "&&", "|", "||", "&&", 15),
 
 -- Difficoltà 4
-(16, "Parigi", "Roma", "Madrid", "Londra", "Parigi", 16),
-(17, "Numero di caratteri", "Primo carattere", "Ultimo carattere", "Tipo della stringa", "Numero di caratteri", 17),
-(18, "Johnny Depp", "Orlando Bloom", "Brad Pitt", "Matt Damon", "Johnny Depp", 18),
-(19, "50", "51", "52", "53", "50", 19),
-(20, "Bruce Wayne", "Clark Kent", "Tony Stark", "Peter Parker", "Bruce Wayne", 20),
+(16, "6", "8", "10", "12", "8", 16),
+(17, "Stack", "Queue", "LinkedList", "ArrayList", "Queue", 17),
+(18, "Leonardo DiCaprio", "Matthew McConaughey", "Brad Pitt", "Tom Hardy", "Matthew McConaughey", 18),
+(19, "2", "3", "4", "5", "4", 19),
+(20, "C++", "Java", "JavaScript", "Python", "JavaScript", 20),
 
+-- Inserimento Risposte
+INSERT INTO risposte (id, ris1, ris2, ris3, ris4, risok, idDomanda) VALUES
 -- Difficoltà 5
-(21, "H2O", "O2", "CO2", "N2", "H2O", 21),
-(22, "HyperText Markup Language", "High Tech Modern Language", "Home Tool Multi Language", "Hyper Transfer Main Link", "HyperText Markup Language", 22),
-(23, "Forrest Gump", "Pulp Fiction", "Titanic", "Il Re Leone", "Forrest Gump", 23),
-(24, "3.14", "3.41", "2.71", "1.61", "3.14", 24),
-(25, "Christopher Nolan", "James Cameron", "Steven Spielberg", "Ridley Scott", "Christopher Nolan", 25),
+(21, "Fe", "F", "I", "Ir", "Fe", 21),
+(22, "start()", "run()", "main()", "execute()", "main()", 22),
+(23, "1999", "2001", "2004", "1997", "2001", 23),
+(24, "Pablo Picasso", "Leonardo Da Vinci", "Michelangelo", "Van Gogh", "Leonardo Da Vinci", 24),
+(25, "for", "while", "do-while", "infinito", "while", 25),
 
 -- Difficoltà 6
-(26, "Newton", "Einstein", "Galileo", "Tesla", "Newton", 26),
-(27, "Copia un repository", "Elimina un repository", "Esegue un commit", "Rinomina un branch", "Copia un repository", 27),
-(28, "Sean Connery", "Roger Moore", "Daniel Craig", "Pierce Brosnan", "Sean Connery", 28),
-(29, "Africa", "Asia", "Europa", "America", "Africa", 29),
-(30, "1977", "1980", "1983", "1990", "1977", 30),
+(26, "Terra", "Saturno", "Giove", "Nettuno", "Giove", 26),
+(27, "Velocità", "Sicurezza", "Riutilizzabilità", "Compatibilità", "Riutilizzabilità", 27),
+(28, "Forrest Gump", "Pulp Fiction", "Braveheart", "Titanic", "Forrest Gump", 28),
+(29, "Amazzoni", "Mississippi", "Gange", "Nilo", "Nilo", 29),
+(30, "null", "0", "void", "undefined", "void", 30),
 
 -- Difficoltà 7
-(31, "Dante Alighieri", "Manzoni", "Leopardi", "Boccaccio", "Dante Alighieri", 31),
-(32, "void", "null", "undefined", "empty", "void", 32),
-(33, "Hans Zimmer", "John Williams", "Ennio Morricone", "Howard Shore", "Hans Zimmer", 33),
-(34, "Giove", "Saturno", "Marte", "Terra", "Giove", 34),
-(35, "Heath Ledger", "Joaquin Phoenix", "Jack Nicholson", "Jared Leto", "Heath Ledger", 35),
+(31, "300,000", "299,792", "150,000", "330,000", "299,792", 31),
+(32, "Queue", "Stack", "Array", "LinkedList", "Stack", 32),
+(33, "Joaquin Phoenix", "Heath Ledger", "Jack Nicholson", "Jared Leto", "Heath Ledger", 33),
+(34, "Inglese", "Spagnolo", "Cinese", "Francese", "Cinese", 34),
+(35, ";", ",", ":", ".", ",", 35),
 
 -- Difficoltà 8
-(36, "Ghepardo", "Leone", "Falco", "Cavallo", "Ghepardo", 36),
-(37, "Una collezione di elementi", "Una variabile", "Un metodo", "Un ciclo", "Una collezione di elementi", 37),
-(38, "Avatar", "Titanic", "Avengers: Endgame", "Star Wars", "Avatar", 38),
-(39, "206", "207", "208", "209", "206", 39),
-(40, "Joaquin Phoenix", "Leonardo DiCaprio", "Brad Pitt", "Tom Hanks", "Joaquin Phoenix", 40),
+(36, "Pechino", "Seoul", "Tokyo", "Bangkok", "Tokyo", 36),
+(37, "boolean", "Boolean", "bool", "bit", "boolean", 37),
+(38, "Ratatouille", "WALL-E", "Inside Out", "Toy Story", "WALL-E", 38),
+(39, "Ossigeno", "Idrogeno", "Elio", "Azoto", "Elio", 39),
+(40, "+", "-", "*", "/", "*", 40),
 
 -- Difficoltà 9
-(41, "Idrogeno", "Elio", "Ossigeno", "Azoto", "Idrogeno", 41),
-(42, "Un insieme di strumenti di sviluppo", "Un linguaggio", "Un database", "Un sistema operativo", "Un insieme di strumenti di sviluppo", 42),
-(43, "Il silenzio degli innocenti", "Psycho", "Shining", "American Psycho", "Il silenzio degli innocenti", 43),
-(44, "Cina", "India", "USA", "Brasile", "Cina", 44),
-(45, "Peter Jackson", "Steven Spielberg", "James Cameron", "George Lucas", "Peter Jackson", 45),
+(41, "50", "48", "52", "51", "50", 41),
+(42, "final", "const", "static", "immutable", "final", 42),
+(43, "Steven Spielberg", "Peter Jackson", "Christopher Nolan", "James Cameron", "Peter Jackson", 43),
+(44, "Los Angeles", "Miami", "New York", "Chicago", "New York", 44),
+(45, "int", "float", "double", "long", "double", 45),
 
 -- Difficoltà 10
-(46, "8", "9", "10", "11", "8", 46),
-(47, "Programmazione a oggetti", "Un linguaggio", "Un framework", "Un database", "Programmazione a oggetti", 47),
-(48, "Daniel Day-Lewis", "Jack Nicholson", "Robert De Niro", "Al Pacino", "Daniel Day-Lewis", 48),
-(49, "Everest", "K2", "Monte Bianco", "Kilimangiaro", "Everest", 49),
-(50, "John Williams", "Hans Zimmer", "Ennio Morricone", "Danny Elfman", "John Williams", 50),
+(46, "CO2", "H2O", "O2", "CH4", "H2O", 46),
+(47, "ArrayList", "Stack", "Heap", "PriorityQueue", "PriorityQueue", 47),
+(48, "Brad Pitt", "Tom Cruise", "Leonardo DiCaprio", "Matt Damon", "Leonardo DiCaprio", 48),
+(49, "Newton", "Einstein", "Galileo", "Tesla", "Einstein", 49),
+(50, "while", "for-each", "do-while", "switch", "for-each", 50),
 
 -- Difficoltà 11
-(51, "Platone", "Aristotele", "Socrate", "Epicuro", "Platone", 51),
-(52, "OOP", "Functional", "Procedural", "Logical", "OOP", 52),
-(53, "The Godfather", "Scarface", "Goodfellas", "Casino", "The Godfather", 53),
-(54, "1879", "1905", "1912", "1930", "1879", 54),
-(55, "Woody Allen", "Martin Scorsese", "Quentin Tarantino", "Stanley Kubrick", "Woody Allen", 55),
+(51, "8", "16", "32", "64", "8", 51),
+(52, "=", "==", "!=", "equals", "==", 52),
+(53, "Marty McFly", "Doc Brown", "Biff Tannen", "George McFly", "Marty McFly", 53),
+(54, "1987", "1989", "1991", "1993", "1989", 54),
+(55, "function", "define", "class", "public", "class", 55),
 
 -- Difficoltà 12
-(56, "Venere", "Marte", "Mercurio", "Nettuno", "Venere", 56),
-(57, "try-catch", "if-else", "switch-case", "for-loop", "try-catch", 57),
-(58, "Blade Runner", "Dune", "2001: Odissea nello spazio", "Interstellar", "Blade Runner", 58),
-(59, "3", "4", "5", "6", "4", 59),
-(60, "Francis Ford Coppola", "Stanley Kubrick", "Steven Spielberg", "Ridley Scott", "Francis Ford Coppola", 60),
+(56, "Argento", "Platino", "Oro", "Rame", "Oro", 56),
+(57, "Array", "Stack", "Queue", "HashMap", "Stack", 57),
+(58, "R2-D2", "C-3PO", "BB-8", "IG-11", "C-3PO", 58),
+(59, "Monte Bianco", "Everest", "K2", "Annapurna", "Everest", 59),
+(60, "private", "public", "protected", "default", "default", 60),
 
 -- Difficoltà 13
-(61, "Asia", "Africa", "Europa", "America", "Asia", 61),
-(62, "HashMap", "TreeMap", "LinkedList", "ArrayList", "HashMap", 62),
-(63, "Star Wars", "Blade Runner", "Alien", "Matrix", "Matrix", 63),
-(64, "1914", "1939", "1945", "1950", "1939", 64),
-(65, "Alfred Hitchcock", "David Lynch", "Stanley Kubrick", "Quentin Tarantino", "Alfred Hitchcock", 65),
+(61, "8", "10", "12", "14", "12", 61),
+(62, "int", "float", "double", "long", "double", 62),
+(63, "Steven Spielberg", "James Cameron", "Christopher Nolan", "Ridley Scott", "Christopher Nolan", 63),
+(64, "Russia", "Canada", "Cina", "USA", "Russia", 64),
+(65, "Collection", "List", "Set", "Queue", "List", 65),
 
 -- Difficoltà 14
-(66, "42", "24", "12", "36", "42", 66),
-(67, "Virtual Machine", "Interpreter", "Compiler", "Debugger", "Virtual Machine", 67),
-(68, "Citizen Kane", "Casablanca", "Gone with the Wind", "Pulp Fiction", "Citizen Kane", 68),
-(69, "DNA", "RNA", "Proteina", "Zucchero", "DNA", 69),
-(70, "Charlie Chaplin", "Buster Keaton", "Stan Laurel", "Harold Lloyd", "Charlie Chaplin", 70),
+(66, "O", "O2", "Ox", "Oz", "O", 66),
+(67, "for", "while", "do-while", "switch", "for", 67),
+(68, "Chris Hemsworth", "Robert Downey Jr.", "Mark Ruffalo", "Chris Evans", "Robert Downey Jr.", 68),
+(69, "Sahara", "Gobi", "Antartide", "Kalahari", "Antartide", 69),
+(70, "init", "main", "constructor", "startup", "constructor", 70),
 
 -- Difficoltà 15
-(71, "Elettrone", "Protone", "Neutrone", "Quark", "Quark", 71),
-(72, "Lambda Expressions", "Threads", "Streams", "Recursion", "Streams", 72),
-(73, "Apocalypse Now", "The Deer Hunter", "Full Metal Jacket", "Platoon", "Apocalypse Now", 73),
-(74, "Leonardo Da Vinci", "Michelangelo", "Raffaello", "Caravaggio", "Leonardo Da Vinci", 74),
-(75, "Akira Kurosawa", "Ingmar Bergman", "Federico Fellini", "Orson Welles", "Akira Kurosawa", 75);
-
-
+(71, "Atlantico", "Pacifico", "Indiano", "Artico", "Pacifico", 71),
+(72, "close()", "exit()", "shutdown()", "terminate()", "close()", 72),
+(73, "Brad Pitt", "Tom Cruise", "Keanu Reeves", "Leonardo DiCaprio", "Keanu Reeves", 73),
+(74, "Londra", "New York", "Parigi", "Roma", "Parigi", 74),
+(75, "implements", "extends", "inherits", "derives", "extends", 75);
 
 -- creo la tabella utenti
 create table utenti
