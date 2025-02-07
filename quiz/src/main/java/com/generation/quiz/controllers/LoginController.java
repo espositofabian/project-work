@@ -98,6 +98,7 @@ public class LoginController
 		return "formregistrati.html";
 	}
 	
+	
 	/**
 	 * Gestisce il processo di registrazione di un nuovo utente
 	 * @param nuovoUser nome utente del nuovo account
