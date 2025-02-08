@@ -86,7 +86,7 @@ public class HomeController
 
 		}
 		
-		// ho cambiato io (AlessioResetto livello e quiz quando finisce il gioco
+		// ho cambiato io (Alessio) Resetto livello e quiz quando finisce il gioco
 		livello = 1;
 		quiz = context.getBean(Quiz.class);
 		return "redirect:/";
