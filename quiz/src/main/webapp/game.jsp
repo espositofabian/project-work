@@ -252,9 +252,7 @@ body, html {
                 questions[currentIndex].style.display = "block";
                 answerGroups[currentIndex].style.display = "grid";
                 document.getElementById('question-counter').innerText = `Sei arrivato alla domanda: ${questionNumber}`;
-            } else {
-                alert("Quiz completato!");
-            }
+            } 
         }
 
         function checkAnswer(button, index, questionIdx, mammt) {
@@ -262,13 +260,22 @@ body, html {
             if (index === correctIndex) {
                 button.classList.add("correct");
                 setTimeout(nextQuestion, 1000);
+                console.log(<%= livello %>);
                 // Redirect to a new page if the password is correct
+                if( <%= livello %> == '15')
+                	{
+                	  alert("Quiz completato!");
+                      localStorage.clear();
+                      window.location.href = "home.html";
+                	}
                 window.location.href = "game";
             } else {
                 button.classList.add("wrong");
-                window.location.href = "home";
-
+                window.location.href = "home.html";
+                localStorage.clear();
             }
+            
+            
         }
 
         function showPopup(id) {
