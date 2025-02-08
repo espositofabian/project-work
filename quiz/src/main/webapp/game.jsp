@@ -167,9 +167,9 @@ body, html {
 
 	<!-- Lifeline Buttons -->
 	<div class="lifelines">
-		<button class="lifeline-btn" onclick="showPopup('popupCasa')">Chiamata</button>
-		<button class="lifeline-btn" onclick="disableButtons()">50/50</button>
-		<button class="lifeline-btn" onclick="showPopup('popupPubblico')">Aiuto dal pubblico</button>
+		<button id="casa" class="lifeline-btn" onclick="showPopup('popupCasa')">Chiamata</button>
+		<button id="5050" class="lifeline-btn" onclick="showPopup('popup50'); disableButtons();">50/50</button>
+		<button id="pubblico" class="lifeline-btn" onclick="showPopup('popupPubblico')">Aiuto dal pubblico</button>
 		<button class="lifeline-btn" onclick="showPopup('popupLuca')">&#9889;Aiuto da Luca</button>
 	</div>
 
@@ -198,12 +198,11 @@ body, html {
 			<% } %>
 			<div class="popup" id="popupCasa">
 				<%= q.aiutoDaCasa(idDomanda) %>
-				<button class="close-popup" onclick="closePopup('popupCasa')">Chiudi</button>
+				<button class="close-popup" onclick="closePopup('popupCasa', 'casa')">Chiudi</button>
 			</div>
 			<div class="popup" id="popup50">
-				<%=         q.aiuto5050(idDomanda) %>
-				<button class="close-popup" onclick="closePopup('popup50')"
-					onclick="disableButtons()">Chiudi</button>
+			     Hai usato l'aiuto 50/50!
+				<button class="close-popup" onclick="closePopup('popup50', '5050')">Chiudi</button>
 			</div>
 
 			<% questionIndex++; %>
@@ -217,11 +216,11 @@ body, html {
 	<!-- Popup for Aiuto dal pubblico -->
 	<div class="popup" id="popupPubblico">
 		<%= q.aiutoPubblico(idDomanda) %>
-		<button class="close-popup" onclick="closePopup('popupPubblico')">Chiudi</button>
+		<button class="close-popup" onclick="closePopup('popupPubblico', 'pubblico')">Chiudi</button>
 	</div>
 	<!-- Popup for Aiuto da Luca -->
 	<div class="popup" id="popupLuca">
-		Nessuna delle precedenti!
+		<p>Nessuna delle precedenti!</p>
 		<button class="close-popup" onclick="closePopup('popupLuca')">Chiudi</button>
 	</div>
 
@@ -276,22 +275,40 @@ body, html {
             document.getElementById(id).style.display = 'block';
         }
 
-        function closePopup(id) {
+        function closePopup(id, idBottone) {
             document.getElementById(id).style.display = 'none';
+            
+            let button =  document.getElementById(idBottone);
+            button.disabled = true; // Disable the button
+            button.style.backgroundColor = "gray"; // Cambia colore sfondo
+            button.style.color = "white";         // Cambia colore testo
+            button.style.cursor = "not-allowed"; 
+            
+            localStorage.setItem(idBottone, "disabled");
         }
         
+        function restoreButtonState() {
+            let buttons = ["casa", "5050", "pubblico"];
+
+            buttons.forEach(buttonId => {
+                if (localStorage.getItem(buttonId) === "disabled") {
+                    let button = document.getElementById(buttonId);
+                        button.disabled = true;
+                        button.style.backgroundColor = "gray";
+                        button.style.color = "white";
+                        button.style.cursor = "not-allowed";
+                }
+            });
+        }
+        
+        window.onload = restoreButtonState;
         
         function disableButtons() {
             // Convert JSP array to JavaScript array
             var bottone1 = "<%= disableButtonNames1[0] %>";
             var bottone2 = "<%= disableButtonNames1[1] %> ";
-            console.log(bottone1); // Debug per vedere cosa contiene
-            console.log(bottone2); 
-            var disableButtonNames = [];
-            disableButtonNames.push(bottone1);
-            disableButtonNames.push(bottone2);
-
-
+            var disableButtonNames = [bottone1,bottone2];
+            
             // Get all buttons with class "option"
             var buttons = document.querySelectorAll("button.option");
 
