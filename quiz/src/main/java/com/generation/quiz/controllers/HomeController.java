@@ -46,6 +46,14 @@ public class HomeController
 		if(session.getAttribute("loggato") == null) 
 			return "redirect:formlogin";
 		
+		//ho cambiato io (Alessio) Resetto livello e quiz se il gioco è finito
+		if(livello > 15) {
+			livello = 1;
+			// Creiamo una nuova istanza di Quiz dal context per avere domande fresche
+			quiz = context.getBean(Quiz.class);
+			return "redirect:/";
+		}
+		
 		System.out.println("livello nel mapping: " + livello);
 		while(livello <= 15) {
 			
@@ -77,7 +85,11 @@ public class HomeController
 			return "game.jsp";
 
 		}
-		return "home.html";
+		
+		// ho cambiato io (AlessioResetto livello e quiz quando finisce il gioco
+		livello = 1;
+		quiz = context.getBean(Quiz.class);
+		return "redirect:/";
 	}
 
 
