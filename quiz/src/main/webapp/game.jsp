@@ -205,10 +205,12 @@ body, html {
 			</button>
 						    		
 			<% } %>
+	        <!-- Popup for Aiuto da casa-->
 			<div class="popup" id="popupCasa">
 				<%= q.aiutoDaCasa(idDomanda) %>
 				<button class="close-popup" onclick="closePopup('popupCasa', 'casa')">Chiudi</button>
 			</div>
+		    <!-- Popup for Aiuto 50/50-->
 			<div class="popup" id="popup50">
 			     Hai usato l'aiuto 50/50!
 				<button class="close-popup" onclick="closePopup('popup50', '5050')">Chiudi</button>
@@ -221,7 +223,6 @@ body, html {
 
 	<!-- Question Counter -->
 	<button class="question-counter" id="question-counter">Sei arrivato alla domanda: <%= livello %></button>
-	<!-- Popup for Aiuto da casa-->
 	<!-- Popup for Aiuto dal pubblico -->
 	<div class="popup" id="popupPubblico">
 		<%= q.aiutoPubblico(idDomanda) %>
@@ -291,6 +292,7 @@ body, html {
                 	}
                 window.location.href = "game";
             } else {
+            	alert("Sbagliato!");
                 button.classList.add("wrong");
                 window.location.href = "home.html";
                 localStorage.clear();
