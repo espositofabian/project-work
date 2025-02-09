@@ -193,9 +193,11 @@ body, html {
 				String[] disableButtonNames1 = q.aiuto5050(idDomanda); // Creates an array with two slots
 					for (int i = 0; i < risposte.size(); i++) { 
                     	correctAnswerIndex = dd.indexRispostaGiusta(idDomanda);
+                    	System.out.println("-----------");
                     	System.out.println("index: " + i);
                     	System.out.println("questionIndex: " + questionIndex);
                     	System.out.println("correctAnswerIndex(ex mamt): " + correctAnswerIndex);
+                    	System.out.println("-----------");
                 %>
 			<button class="option answer-btn"
 				onclick="checkAnswer(this, 	<%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
@@ -265,14 +267,20 @@ body, html {
         // evidentemente al primo giro questa condizione risulta vera
         function checkAnswer(button, index, questionIdx, correctIndexAnswer) {
             let correctIndex = correctIndexAnswer; // Adjust this to fetch from DB
+            
             if (index === correctIndex) {
                 button.classList.add("correct");
                 setTimeout(nextQuestion, 1000);
                 console.log(<%= livello %>);
                 
-                <%  System.out.println("livello: " + livello);%>
-          		<%	System.out.println("punti " + livello * 10);%>
-                <% du.updatePunteggi(utente.getId(), livello * 10);%>
+                <%if( livello != 1)
+                {
+                	System.out.println("livello: " + livello);
+          			System.out.println("punti " + livello * 10);
+                	du.updatePunteggi(utente.getId(), livello * 10);
+                	
+                }%>
+                
                 
                 // Redirect to a new page if the password is correct
                 if( <%= livello %> == '15')
