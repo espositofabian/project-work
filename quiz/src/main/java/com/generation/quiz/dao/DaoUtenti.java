@@ -30,12 +30,13 @@ public class DaoUtenti
 	 * @param password
 	 * @return l'utente sotto forma di mappa oppure null se non trova nulla
 	 */
-	public Map<String,String> cercaUtente(String username, String password){
+	public Utente cercaUtente(String username, String password){
 
 		String query = "SELECT * FROM utenti WHERE username = ? AND password = ?";
 		Map<String,String> map = db.row(query, username,password);
-
-		return (map == null) ? null : map;
+		Utente ut = (Utente) context.getBean("mappaUtente",map);
+		
+		return (ut == null) ? null : ut;
 
 	}
 	

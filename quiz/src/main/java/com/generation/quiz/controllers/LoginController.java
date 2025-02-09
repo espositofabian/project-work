@@ -50,7 +50,7 @@ public class LoginController
 						@RequestParam(value = "remember", required = false) String remember,
 						HttpSession session)
 	{
-		Map<String,String> utenteloggato;
+		Utente utenteloggato;
 		try
 		{
 			utenteloggato = du.cercaUtente(username, password);

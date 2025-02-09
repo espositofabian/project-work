@@ -39,12 +39,14 @@ public class HomeController
 		return "home.html";
 	}
 
-	// game va
 	@GetMapping("game")
 	public String game(Model model, HttpSession session) {
 		
 		if(session.getAttribute("loggato") == null) 
 			return "redirect:formlogin";
+		
+		Utente ut = (Utente) session.getAttribute("utente");
+		System.out.println(session.getAttribute("utente"));
 		
 		//ho cambiato io (Alessio) Resetto livello e quiz se il gioco è finito
 		if(livello > 15) {
@@ -64,18 +66,8 @@ public class HomeController
 			model.addAttribute("daodomande", dd);
 			model.addAttribute("livello", livello);
 			model.addAttribute("quiz", quiz);
-			model.addAttribute("daoutenti", du);
-			
-			// devi portare anche l'utente
-			//model.addAttribute("utenteLoggato", utenteLoggato);
-			
-			// su game.jsp
-//			if(dd.isGiusta(Integer.parseInt(domanda.get("id")), risposte.get(i)))
-//        	{
-//        		int idUtente = Integer.parseInt(utenteLoggato.get("id"));
-//        		int punteggio = Integer.parseInt(domanda.get("punti"));
-//        		du.updatePunteggi(idUtente, punteggio);
-//        	}
+			model.addAttribute("utente", ut);
+			model.addAttribute("daoutenti",du);
 			
 			System.out.println("livello: " + livello);
 

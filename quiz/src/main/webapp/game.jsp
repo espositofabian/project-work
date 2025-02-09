@@ -9,6 +9,8 @@
     DaoDomande dd = (DaoDomande) request.getAttribute("daodomande"); 
     int livello = (int) request.getAttribute("livello"); 
     Quiz q = (Quiz)request.getAttribute("quiz");
+    Utente utente = (Utente)request.getAttribute("utente");
+    DaoUtenti du = (DaoUtenti)request.getAttribute("daoutenti");
 %>
 
 <!DOCTYPE html>
@@ -177,6 +179,8 @@ body, html {
 	<div class="main-content">
 		<% 
         int questionIndex = 0;
+		int punteggio = 0;
+		int correctAnswerIndex = 0;
         %>
 		<div class="question-box" id="question-box">
 			<%= domanda.get("q")%>
@@ -188,10 +192,13 @@ body, html {
                 List<String> risposte = dd.risposte(idDomanda);
 				String[] disableButtonNames1 = q.aiuto5050(idDomanda); // Creates an array with two slots
 					for (int i = 0; i < risposte.size(); i++) { 
-                    	int correctAnswerIndex = dd.indexRispostaGiusta(idDomanda);
+                    	correctAnswerIndex = dd.indexRispostaGiusta(idDomanda);
+                    	System.out.println("index: " + i);
+                    	System.out.println("questionIndex: " + questionIndex);
+                    	System.out.println("correctAnswerIndex(ex mamt): " + correctAnswerIndex);
                 %>
 			<button class="option answer-btn"
-				onclick="checkAnswer(this, <%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
+				onclick="checkAnswer(this, 	<%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
 				<%= risposte.get(i) %>
 			</button>
 						    		
@@ -211,7 +218,7 @@ body, html {
 	</div>
 
 	<!-- Question Counter -->
-	<button class="question-counter" id="question-counter">Sei arrivato alla domanda:</button>
+	<button class="question-counter" id="question-counter">Sei arrivato alla domanda: <%= livello %></button>
 	<!-- Popup for Aiuto da casa-->
 	<!-- Popup for Aiuto dal pubblico -->
 	<div class="popup" id="popupPubblico">
@@ -255,12 +262,18 @@ body, html {
             } 
         }
 
-        function checkAnswer(button, index, questionIdx, mammt) {
-            let correctIndex = mammt; // Adjust this to fetch from DB
+        // evidentemente al primo giro questa condizione risulta vera
+        function checkAnswer(button, index, questionIdx, correctIndexAnswer) {
+            let correctIndex = correctIndexAnswer; // Adjust this to fetch from DB
             if (index === correctIndex) {
                 button.classList.add("correct");
                 setTimeout(nextQuestion, 1000);
                 console.log(<%= livello %>);
+                
+                <%  System.out.println("livello: " + livello);%>
+          		<%	System.out.println("punti " + livello * 10);%>
+                <% du.updatePunteggi(utente.getId(), livello * 10);%>
+                
                 // Redirect to a new page if the password is correct
                 if( <%= livello %> == '15')
                 	{
