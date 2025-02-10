@@ -13,6 +13,7 @@
     DaoUtenti du = (DaoUtenti)request.getAttribute("daoutenti");
     boolean uscito = (boolean)request.getAttribute("uscito");
     int punteggio = (int) request.getAttribute("punteggio");
+    String argomento = (String) request.getAttribute("argomento");
 %>
 
 <!DOCTYPE html>
@@ -145,7 +146,7 @@
             <% System.out.println("sono in check answer");%>
             if (index === correctIndex) {
                 button.classList.add("correct");
-                setTimeout(nextQuestion, 1000);
+                setTimeout(nextQuestion, 100000);
                 
                 
                 // ho risolto così (per ora)
@@ -156,9 +157,7 @@
               	System.out.println("punteggio: " + punteggio);
           		System.out.println("punteggio assegnato " + punteggio * 10);
                	du.updatePunteggi(utente.getId(), punteggio * 10);%>
-                	
-                
-                
+               	console.log("<%= argomento%>");
                 
                 // Redirect to a new page if the password is correct
                 if( <%= livello %> == '15')
@@ -166,7 +165,7 @@
                 	  showPopup('popupVittoria');
                 	}
                 else
-                    window.location.href = "game";
+                    window.location.href = "game?argomento=<%= argomento %>";
             } else {
             	showPopup('popupSconfitta');
                 button.classList.add("wrong");

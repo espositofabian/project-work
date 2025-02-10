@@ -43,20 +43,20 @@ public class HomeController
 	}
 
 	@GetMapping("game")
-	public String game(@RequestParam(name = "resetLivello", defaultValue = "0") int resetLivello, Model model, HttpSession session) {
+	public String game(@RequestParam(name = "resetLivello", defaultValue = "0") int resetLivello, @RequestParam(name = "argomento", defaultValue = "generico") String argomento, Model model, HttpSession session) {
 		
 		if(session.getAttribute("loggato") == null) 
 			return "redirect:formlogin";
 		
 		Utente ut = (Utente) session.getAttribute("utente");
 		System.out.println(session.getAttribute("utente"));
-
+        
 		//ho cambiato io (Alessio) Resetto livello e quiz se il gioco è finito
 		if(livello > 15) {
 			livello = 1;
 			// Creiamo una nuova istanza di Quiz dal context per avere domande fresche
 			quiz = context.getBean(Quiz.class);
-			dd.estrazioneDomande(livello);
+			dd.estrazioneDomande(livello, argomento);
 			
 			return "redirect:/";
 		}
@@ -69,7 +69,8 @@ public class HomeController
 				livello = 1;
 				punteggio = 0;
 			}
-			Map<String,String> domanda = dd.mappaRandom(livello);
+			Map<String,String> domanda = dd.mappaRandom(livello, argomento);
+			System.out.println("Argomento " + argomento);
 
 			// passiamo la domanda singola al model
 			model.addAttribute("domanda", domanda);
@@ -80,6 +81,7 @@ public class HomeController
 			model.addAttribute("daoutenti",du);
 			model.addAttribute("uscito", uscito);
 			model.addAttribute("punteggio", punteggio);
+			model.addAttribute("argomento", argomento);
 			
 			System.out.println("livello: " + livello);
 
