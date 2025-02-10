@@ -176,7 +176,7 @@ public class LoginController
 								HttpSession session) {
 		
 		System.out.println("elimina " + du.delete(idUser));
-		logout(session);
+		logout(session); // per sicurezza
 		
 		return "formlogin";
 	}
