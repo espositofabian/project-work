@@ -40,6 +40,9 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 				</tr>
 			</tbody>
 		</table>
+		<div class="home-button-container">
+			<a href="/" class="home-button">Torna alla Home</a>
+		</div>
 	</div>
 </body>
 </html>
