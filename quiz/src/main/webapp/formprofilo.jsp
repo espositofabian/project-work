@@ -27,7 +27,7 @@
             	  fotoProfilo = "/images/tipo1.jpg";
             	  break;
               default: 
-            	  fotoProfilo = "/images/GerryScotty.png";
+            	  fotoProfilo = "/images/GerryMeme.jpg";
             	  break;
              }
               
