@@ -24,12 +24,12 @@
         <div class="profile-info">
             <div class="info-box">
 	                <label>Username</label>
-	                USERNAME <input type="text" name="user" value="<%= ((Utente)session.getAttribute("utente")).getUsername() %>"><br>
+	                <input type="text" name="user" value="<%= ((Utente)session.getAttribute("utente")).getUsername() %>"><br>
             </div>
             
             <div class="info-box">
             		<label>Password</label>
-            		PASSWORD <input type="text" name="pass" value="<%= ((Utente)session.getAttribute("utente")).getPassword() %>"><br>
+            		<input type="text" name="pass" value="<%= ((Utente)session.getAttribute("utente")).getPassword() %>"><br>
             </div>
             		<input type="hidden" name="id" value=" <%= ((Utente)session.getAttribute("utente")).getId() %> ">
             <div class="info-box">
