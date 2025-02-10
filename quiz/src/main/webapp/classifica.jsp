@@ -28,8 +28,11 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 				<%
 			    int numero = 1;
 				for (Utente e : utenti) {
+					// Verifichiamo se c'è un utente in sessione prima di fare il confronto
+					boolean isUtenteLoggato = session.getAttribute("utente") != null && 
+											 e.getUsername().equals(((Utente)session.getAttribute("utente")).getUsername());
 				%>
-				<tr>
+				<tr class="<%= isUtenteLoggato ? "utente-loggato" : "" %>">
 					<td><%= numero %>° Posizione</td>
 					<td><%=e.getUsername()%></td>
 					<td><%=e.getPunteggio()%></td>
