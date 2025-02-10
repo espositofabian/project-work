@@ -6,10 +6,30 @@
     <title>Document</title>
     <link rel="stylesheet" href="formlogin.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+            
+            // Simulazione verifica credenziali
+            if (username !== "admin" || password !== "1234") {
+                errorMessage.textContent = "Username o password errati!";
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+                alert("Login riuscito!");
+                // Simulazione di redirezione
+                window.location.href = "home.html";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="wrapper">
-        <form action="login" method="get">
+        <form action="login" method="get" onsubmit="validateLogin(event)">
             <h1>Logga o Muori</h1>
             <div class="input-box">
                 <input type="text" name="user" placeholder="Username" required>
