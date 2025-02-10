@@ -141,7 +141,6 @@ public class LoginController
 		// Recupero l'utente aggiornato dal database
 		Utente utenteAggiornato = daoUtenti.cercaUtentePerId(utenteLoggato.getId());
 		
-		
 		//recupero la posizione in classifica
 		List<Utente> classifica = daoUtenti.classificaUtenti();
 		int posizione = 1;
@@ -170,15 +169,6 @@ public class LoginController
 		du.update(ut);
 		
 		return "login";
-	}
-	
-	@GetMapping("eliminautente")
-	public String eliminautente(@RequestParam("id") int iUser, HttpSession session) {
-		
-		System.out.println("eliminazione " + du.delete(iUser));
-		logout(session);
-		
-		return "formlogin";
 	}
 }
     
