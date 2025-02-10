@@ -127,7 +127,7 @@ public class LoginController
 	//gestisco il profilo non so se sia giusto
 	@GetMapping("profilo")
 	public String profilo(HttpSession session, Model model) {
-		Map<String,String> utenteLoggato = (Map<String,String>) session.getAttribute("utente");
+		Utente utenteLoggato = (Utente) session.getAttribute("utente");
 		
 		if(utenteLoggato == null)
 			return "redirect:formlogin";
@@ -137,7 +137,7 @@ public class LoginController
 		int posizione = 1;
 		
 		for(Utente u : classifica) {
-			if(u.getUsername().equals(utenteLoggato.get("username")))
+			if(u.getUsername().equals(utenteLoggato.getUsername()))
 				break;
 			posizione++;
 		}

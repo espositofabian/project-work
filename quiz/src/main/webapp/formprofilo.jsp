@@ -23,12 +23,12 @@
         <div class="profile-info">
             <div class="info-box">
                 <label>Username</label>
-                <p><%= ((Map<String,String>)session.getAttribute("utente")).get("username") %></p>
+                <p><%= ((Utente)session.getAttribute("utente")).getUsername() %></p>
             </div>
             
             <div class="info-box">
                 <label>Punteggio Totale</label>
-                <p><%= ((Map<String,String>)session.getAttribute("utente")).get("punteggio") %> punti</p>
+                <p><%= ((Utente)session.getAttribute("utente")).getPunteggio() %> punti</p>
             </div>
             
             <div class="info-box">
