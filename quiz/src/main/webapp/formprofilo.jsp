@@ -14,18 +14,22 @@
 </head>
 <body>
     <div class="wrapper">
-             <% int id = ((Utente)session.getAttribute("utente")).getId();
-             System.out.println(id);
+             <% String nome = ((Utente)session.getAttribute("utente")).getUsername();
              String fotoProfilo = "";
              
-              switch(id)
+              switch(nome.toLowerCase())
              {
-              case 1:
+              case "anna":
             	  fotoProfilo = "/images/tipo2.jpg";
             	  break;
-              case 2:
-            	  fotoProfilo = "/images/tipo1.jpg";
+              case "luca":
+            	  fotoProfilo = "/images/1L.png";
             	  break;
+              case "manuel":
+            	  fotoProfilo = "/images/2M.png";
+            	  break;
+              case "alberto":
+            	  fotoProfilo = "/images/3A.png";
               default: 
             	  fotoProfilo = "/images/GerryMeme.jpg";
             	  break;
