@@ -42,7 +42,7 @@ public class HomeController
 	}
 
 	@GetMapping("game")
-	public String game(Model model, HttpSession session) {
+	public String game(@RequestParam(name = "resetLivello", defaultValue = "0") int resetLivello, Model model, HttpSession session) {
 		
 		if(session.getAttribute("loggato") == null) 
 			return "redirect:formlogin";
@@ -63,7 +63,9 @@ public class HomeController
 		
 		System.out.println("livello nel mapping: " + livello);
 		while(livello <= 15) {
-
+            System.out.println("Livello: " + livello + "resetLivello: " + resetLivello);
+			if(resetLivello != 0)
+				livello = 1;
 			Map<String,String> domanda = dd.mappaRandom(livello);
 
 			// passiamo la domanda singola al model
@@ -92,7 +94,8 @@ public class HomeController
 
 
 	@GetMapping("classifica")
-	public String classifica(Model model) {
+	public String classifica(Model model) 
+	{
 		List<Utente> utenti = du.classificaUtenti();
 		model.addAttribute("classificautenti", utenti);
 		return "classifica.jsp";
