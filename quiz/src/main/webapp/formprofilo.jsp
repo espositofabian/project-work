@@ -67,6 +67,7 @@
             </div>
         </div>
         <input type="submit" value="Aggiorna" />
+        <a href="eliminautente?id=<%= ((Utente)session.getAttribute("utente")).getId() %>">ELIMINA</a>
         </form>
         <div class="profile-actions">
             <a href="/" class="btn-home">Torna alla Home</a>
