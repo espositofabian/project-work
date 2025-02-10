@@ -1,3 +1,4 @@
+<%@page import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="com.generation.quiz.entities.*" %>
@@ -13,10 +14,33 @@
 </head>
 <body>
     <div class="wrapper">
+             <% int id = ((Utente)session.getAttribute("utente")).getId();
+             System.out.println(id);
+             String fotoProfilo = "";
+             
+              switch(id)
+             {
+              case 1:
+            	  fotoProfilo = "/images/tipo2.jpg";
+            	  break;
+              case 2:
+            	  fotoProfilo = "/images/tipo1.jpg";
+            	  break;
+              default: 
+            	  fotoProfilo = "/images/GerryScotty.png";
+            	  break;
+             }
+              
+              %>
+              <!-- Aggiungi il codice JavaScript per memorizzare il valore in localStorage -->
+        <script>
+            sessionStorage.setItem('fotoProfilo', "<%=fotoProfilo%>");
+        </script>
+           
         <div class="profile-header">
             <h1>Il Tuo Profilo</h1>
             <div class="profile-avatar">
-                <img src="/images/GerryMeme.jpg" alt="Gerry Scotti">
+                <img src="<%=fotoProfilo%>" alt="Immagine Profilo">
             </div>
         </div>
         
@@ -44,10 +68,9 @@
         </div>
         <input type="submit" value="Aggiorna" />
         </form>
-
         <div class="profile-actions">
             <a href="/" class="btn-home">Torna alla Home</a>
-            <a href="logout" class="btn btn-logout">Logout</a>
+            <a href="logout" class="btn btn-logout" onclick="sessionStorage.clear();">Logout</a>
         </div>
     </div>
 </body>
