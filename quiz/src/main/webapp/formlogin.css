@@ -51,7 +51,7 @@ body {
     padding: 20px 45px 20px 20px;
 }
 
-.input-box input input::placeholder {
+.input-box input::placeholder {
     color: #fff;
 }
 
