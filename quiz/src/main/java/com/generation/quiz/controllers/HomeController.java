@@ -36,8 +36,9 @@ public class HomeController
 	private ApplicationContext context;
 
 	@GetMapping("")
-	public String home() {
+	public String home( @RequestParam("uscito") boolean uscitoFront) {
 
+		System.out.println("uscito nell'home" + uscitoFront);
 		return "home.html";
 	}
 
