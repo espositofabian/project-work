@@ -71,7 +71,7 @@ public class LoginController
 			if(remember != null) {
 				session.setMaxInactiveInterval(-1); // sessione persistente
 			}
-			return "redirect:/";
+			return "profilo";
 		}
 	}
 	
