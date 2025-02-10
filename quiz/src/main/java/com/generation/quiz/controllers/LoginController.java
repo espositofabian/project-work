@@ -21,9 +21,6 @@ public class LoginController
 	 * Istanza del DAO utenti iniettata automaticamente da Spring
 	 */
 	@Autowired
-	private DaoUtenti du;
-
-	@Autowired
 	private ApplicationContext context;
 	
 	/**
@@ -53,6 +50,7 @@ public class LoginController
 		Utente utenteloggato;
 		try
 		{
+			DaoUtenti du = (DaoUtenti) context.getBean("du");
 			utenteloggato = du.cercaUtente(username, password);
 		}
 		catch(NullPointerException e)
@@ -117,6 +115,8 @@ public class LoginController
 		
 		System.out.println(newuser.toString());
 		
+		DaoUtenti du = (DaoUtenti) context.getBean("du");
+		
 		if(du.create(newuser))
 			return "redirect:formlogin";
 		else
@@ -132,17 +132,24 @@ public class LoginController
 		if(utenteLoggato == null)
 			return "redirect:formlogin";
 		
+		// Recupero il DaoUtenti dal context invece di usare l'autowired
+		DaoUtenti daoUtenti = (DaoUtenti) context.getBean("du");
+		
+		// Recupero l'utente aggiornato dal database
+		Utente utenteAggiornato = daoUtenti.cercaUtentePerId(utenteLoggato.getId());
+		
 		//recupero la posizione in classifica
-		List<Utente> classifica = du.classificaUtenti();
+		List<Utente> classifica = daoUtenti.classificaUtenti();
 		int posizione = 1;
 		
 		for(Utente u : classifica) {
-			if(u.getUsername().equals(utenteLoggato.getUsername()))
+			if(u.getUsername().equals(utenteAggiornato.getUsername()))
 				break;
 			posizione++;
 		}
 		
-		model.addAttribute("utente", utenteLoggato);
+		session.setAttribute("utente", utenteAggiornato);
+		model.addAttribute("utente", utenteAggiornato);
 		model.addAttribute("posizione", posizione);
 		
 		return "formprofilo.jsp";

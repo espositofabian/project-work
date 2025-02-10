@@ -129,3 +129,34 @@ h1 {
     box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
     transform: translateY(0px);
 }
+
+.utente-loggato {
+    background-color: rgba(255, 0, 0, 0.4) !important;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.utente-loggato td {
+    color: #ffffff !important;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes glow {
+    from {
+        box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.4),
+                    0 0 5px rgba(255, 0, 0, 0.4);
+    }
+    to {
+        box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.6),
+                    0 0 20px rgba(255, 0, 0, 0.6);
+    }
+}
+
+.classifica tbody tr.utente-loggato:nth-child(even),
+.classifica tbody tr.utente-loggato:nth-child(odd) {
+    background-color: rgba(255, 0, 0, 0.4) !important;
+}
+
+.classifica tbody tr.utente-loggato:hover {
+    background-color: rgba(255, 0, 0, 0.5) !important;
+}
