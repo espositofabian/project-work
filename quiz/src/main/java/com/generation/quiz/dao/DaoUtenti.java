@@ -113,4 +113,12 @@ public class DaoUtenti
 		return utenti;
 	}
 
+	public Utente cercaUtentePerId(int id) {
+		String query = "SELECT * FROM utenti WHERE id = ?";
+		Map<String,String> map = db.row(query, id + "");
+		Utente ut = (Utente) context.getBean("mappaUtente", map);
+		
+		return (ut == null) ? null : ut;
+	}
+
 }
