@@ -233,7 +233,16 @@ body, html {
 		<p>Nessuna delle precedenti!</p>
 		<button class="close-popup" onclick="closePopup('popupLuca')">Chiudi</button>
 	</div>
-
+    <!-- Popup for Vittoria-->
+	<div class="popup" id="popupVittoria">
+		<p>Quiz completato!</p>
+		<button class="close-popup" onclick="closePopup('popupVittoria')">Chiudi</button>
+	</div>
+	<!-- Popup for Sconfitta-->
+	<div class="popup" id="popupSconfitta">
+		<p>Sbagliato!</p>
+		<button class="close-popup" onclick="closePopup('popupSconfitta')">Chiudi</button>
+	</div>
 	<script>
     	var index = 1;
         let questionNumber = 1;
@@ -286,16 +295,13 @@ body, html {
                 // Redirect to a new page if the password is correct
                 if( <%= livello %> == '15')
                 	{
-                	  alert("Quiz completato!");
-                      localStorage.clear();
-                      window.location.href = "home.html";
+                	  showPopup('popupVittoria');
                 	}
-                window.location.href = "game";
+                else
+                    window.location.href = "game";
             } else {
-            	alert("Sbagliato!");
+            	showPopup('popupSconfitta');
                 button.classList.add("wrong");
-                window.location.href = "home.html";
-                localStorage.clear();
             }
             
             
@@ -307,14 +313,29 @@ body, html {
 
         function closePopup(id, idBottone) {
             document.getElementById(id).style.display = 'none';
+            console.log(id);
             
-            let button =  document.getElementById(idBottone);
-            button.disabled = true; // Disable the button
-            button.style.backgroundColor = "gray"; // Cambia colore sfondo
-            button.style.color = "white";         // Cambia colore testo
-            button.style.cursor = "not-allowed"; 
+            if(id == "popupVittoria")
+      	  {
+               localStorage.clear();
+               window.location.href = "home.html";
+      	  }
+          else if(id == "popupSconfitta")
+      	  {
+              localStorage.clear();
+              window.location.href = "home.html";
+     	  }
+          else 
+          {
+               let button =  document.getElementById(idBottone);
+               button.disabled = true; // Disable the button
+               button.style.backgroundColor = "gray"; // Cambia colore sfondo
+               button.style.color = "white";         // Cambia colore testo
+               button.style.cursor = "not-allowed"; 
             
-            localStorage.setItem(idBottone, "disabled");
+               localStorage.setItem(idBottone, "disabled");
+            	
+           }
         }
         
         function restoreButtonState() {
