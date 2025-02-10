@@ -108,7 +108,7 @@ public class Database
 			System.out.println(query);
 			System.out.println(params[0]);
 			System.out.println("Problema nel metodo row() di Database.");
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 	}

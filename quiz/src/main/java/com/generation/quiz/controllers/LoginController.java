@@ -58,6 +58,8 @@ public class LoginController
 		catch(NullPointerException e)
 		{
 			utenteloggato = null;
+		}catch(Exception e) {
+			utenteloggato = null;
 		}
 		
 		if(utenteloggato == null)

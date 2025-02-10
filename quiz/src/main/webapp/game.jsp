@@ -309,10 +309,7 @@ body, html {
                 // per ricordarsi che sei uscito
                 <% uscito = true; %>
                 <% System.out.println("uscito quando esci: " + uscito);%>
-          
             }
-            
-            
         }
 
         function showPopup(id) {
