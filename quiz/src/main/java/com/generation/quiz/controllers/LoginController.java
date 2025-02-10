@@ -170,5 +170,16 @@ public class LoginController
 		
 		return "login";
 	}
+	
+	@GetMapping("eliminautente")
+	public String eliminautente(@RequestParam("id") int idUser,
+								HttpSession session) {
+		
+		System.out.println("elimina " + du.delete(idUser));
+		logout(session);
+		
+		return "formlogin";
+	}
+	
 }
     
