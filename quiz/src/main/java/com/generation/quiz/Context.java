@@ -65,7 +65,6 @@ public class Context {
 	public Utente oggettoUtente(String username,String password)
 	{
 		Utente u = new Utente();
-		System.out.println("vai al context");
 		u.setId(0);
 		u.setUsername(username);
 		u.setPassword(password);

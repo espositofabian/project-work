@@ -23,6 +23,9 @@ public class LoginController
 	@Autowired
 	private ApplicationContext context;
 	
+	@Autowired
+	private DaoUtenti du;
+	
 	/**
 	 * Gestisce la richiesta GET per visualizzare il form di login
 	 * @return il nome della vista del form di login
@@ -50,7 +53,7 @@ public class LoginController
 		Utente utenteloggato;
 		try
 		{
-			DaoUtenti du = (DaoUtenti) context.getBean("du");
+			//DaoUtenti du = (DaoUtenti) context.getBean("du");
 			utenteloggato = du.cercaUtente(username, password);
 		}
 		catch(NullPointerException e)
@@ -153,6 +156,19 @@ public class LoginController
 		model.addAttribute("posizione", posizione);
 		
 		return "formprofilo.jsp";
+	}
+	
+	@GetMapping("modificautente")
+	public String modificautente(@RequestParam("user") String nuovoUser,
+								@RequestParam("pass") String nuovaPass,
+								@RequestParam("id") int idUser,
+								HttpSession session) {
+		Utente ut = du.cercaUtentePerId(idUser);
+		ut.setUsername(nuovoUser);
+		ut.setPassword(nuovaPass);
+		du.update(ut);
+		
+		return "login";
 	}
 }
     

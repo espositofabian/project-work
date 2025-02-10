@@ -20,12 +20,18 @@
             </div>
         </div>
         
+       <form action="modificautente" method="get">
         <div class="profile-info">
             <div class="info-box">
-                <label>Username</label>
-                <p><%= ((Utente)session.getAttribute("utente")).getUsername() %></p>
+	                <label>Username</label>
+	                USERNAME <input type="text" name="user" value="<%= ((Utente)session.getAttribute("utente")).getUsername() %>"><br>
             </div>
             
+            <div class="info-box">
+            		<label>Password</label>
+            		PASSWORD <input type="text" name="pass" value="<%= ((Utente)session.getAttribute("utente")).getPassword() %>"><br>
+            </div>
+            		<input type="hidden" name="id" value=" <%= ((Utente)session.getAttribute("utente")).getId() %> ">
             <div class="info-box">
                 <label>Punteggio Totale</label>
                 <p><%= ((Utente)session.getAttribute("utente")).getPunteggio() %> punti</p>
@@ -36,6 +42,8 @@
                 <p><%= request.getAttribute("posizione") %>° posto</p>
             </div>
         </div>
+        <input type="submit" value="Aggiorna" />
+        </form>
 
         <div class="profile-actions">
             <a href="/" class="btn-home">Torna alla Home</a>
