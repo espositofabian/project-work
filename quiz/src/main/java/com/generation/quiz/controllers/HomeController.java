@@ -36,9 +36,8 @@ public class HomeController
 	private ApplicationContext context;
 
 	@GetMapping("")
-	public String home( @RequestParam("uscito") boolean uscitoFront) {
+	public String home() {
 
-		System.out.println("uscito nell'home" + uscitoFront);
 		return "home.html";
 	}
 
@@ -52,12 +51,12 @@ public class HomeController
 		System.out.println(session.getAttribute("utente"));
 
 		//ho cambiato io (Alessio) Resetto livello e quiz se il gioco è finito
-		System.out.println("uscito in backend: " + uscito);
-		if(livello > 15 || uscito == true) {
+		if(livello > 15) {
 			livello = 1;
 			// Creiamo una nuova istanza di Quiz dal context per avere domande fresche
 			quiz = context.getBean(Quiz.class);
 			dd.estrazioneDomande(livello);
+			
 			return "redirect:/";
 		}
 		// TODO: se esci dal gioco, RIPARTI dall'inizio
