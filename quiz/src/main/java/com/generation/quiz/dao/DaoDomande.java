@@ -120,24 +120,25 @@ public class DaoDomande
 	 * elencoDomande()
 	 * @return void
 	 * */
-	public void estrazioneDomande(int livello, String argomento){
+	public void estrazioneDomande(int livello){
 
 		
-		 String query = "SELECT * FROM domande WHERE punti = ? AND argomento = ?";
+		String query = "";
 
-		    // Eseguiamo la query con i parametri in modo sicuro
-		    List<Map<String, String>> listaMappeDB = leggi(query, livello + "", argomento);
+		query = "SELECT * FROM domande WHERE punti = " + livello;
 
-		    // Recupero una domanda randomizzata
-		    int randomIndex = Vik.numeroRandom(0, listaMappeDB.size() - 1);
-		    mappaRandom = listaMappeDB.get(randomIndex);
-		    
+		// dd.leggi() recupera le domande con un certo livello di difficoltà
+		List<Map<String,String>> listaMappeDB = leggi(query);
+
+		// recupero da quelle domande una domanda randomizzata
+		mappaRandom = listaMappeDB.get(Vik.numeroRandom(minDimensione,
+				maxDimensione));
 
 	}
 
 
-	public Map<String,String> mappaRandom(int livello, String argomento){
-		estrazioneDomande(livello, argomento);
+	public Map<String,String> mappaRandom(int livello){
+		estrazioneDomande(livello);
 		return this.mappaRandom;
 	}
 
