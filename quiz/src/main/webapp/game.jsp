@@ -155,7 +155,7 @@
               	<%System.out.println("livello in checkAnswer: " + livello);
               	System.out.println("punteggio: " + punteggio);
           		System.out.println("punteggio assegnato " + punteggio * 10);
-               	du.updatePunteggi(utente.getId(), punteggio * 10);%>
+               	du.updatePunteggi(utente.getId(), punteggio * 100);%>
                 	
                 
                 
