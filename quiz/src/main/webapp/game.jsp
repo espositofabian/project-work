@@ -25,6 +25,9 @@
 </head>
 <body>
 
+    <!-- Aggiungi questo codice subito dopo l'apertura del body -->
+    <a href="/" class="exit-button">Esci dal gioco</a>
+
 	<!-- Lifeline Buttons -->
 	<div class="lifelines">
 		<button id="casa" class="lifeline-btn" onclick="showPopup('popupCasa')">Chiamata</button>

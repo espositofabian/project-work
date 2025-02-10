@@ -141,3 +141,44 @@ body, html {
 	font-size: 1.2rem;
 	cursor: pointer;
 }
+
+.exit-button {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	font-family: Arial, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	background: linear-gradient(to bottom, #0044cc, #002288);
+	border: 3px solid grey;
+	padding: 15px 40px;
+	text-transform: uppercase;
+	cursor: pointer;
+	text-decoration: none;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
+	clip-path: polygon(0% 50%, 15% 5%, 85% 5%, 100% 50%, 85% 95%, 15% 95%);
+	z-index: 1000;
+}
+
+.exit-button:hover {
+	background: linear-gradient(to bottom, #0055ff, #0033aa);
+	box-shadow: 0px 6px 10px rgba(255, 215, 0, 0.5);
+	border-color: orange;
+	text-decoration: none;
+}
+
+.exit-button:active {
+	animation: flashing 2s infinite;
+	border-color: #ffcc00;
+	box-shadow: 0px 6px 10px rgba(255, 140, 0, 0.5);
+	text-decoration: none;
+}
+
+@keyframes flashing {
+	0% { background: linear-gradient(to bottom, #ff8800, #cc6600); }
+	50% { background: linear-gradient(to bottom, #ff8800, #cc6600); }
+	51% { background: linear-gradient(to bottom, #00cc00, #008800); }
+	100% { background: linear-gradient(to bottom, #00cc00, #008800); }
+}
