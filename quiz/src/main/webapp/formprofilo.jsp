@@ -16,7 +16,7 @@
         <div class="profile-header">
             <h1>Il Tuo Profilo</h1>
             <div class="profile-avatar">
-                <img src="GerryMeme.jpg" alt="Gerry Scotti">
+                <img src="/images/GerryMeme.jpg" alt="Gerry Scotti">
             </div>
         </div>
         
