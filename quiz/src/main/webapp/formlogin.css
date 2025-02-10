@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
 .wrapper {
     width: 420px;
     background: transparent;
-    border: 2px solid rgba(255, 0, 0, 0.2);
+    border: 2px solid #002260;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: #fff;
@@ -44,7 +44,7 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(255, 0, 0, 0.2);
+    border: 2px solid #002260;
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
@@ -84,10 +84,10 @@ body {
     text-decoration: underline;
 }
 
-.wrapper .btn {
+.btn, .btn-home {
     width: 100%;
     height: 45px;
-    background: #ff0202;
+    background: #002260;
     border: none;
     outline: none;
     border-radius: 40px;
@@ -96,9 +96,23 @@ body {
     font-size: 16px;
     color: #fff;
     font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    
 }
 
-.wrapper .regster-link {
+.btn:hover, .btn-home:hover {
+    background: rgb(255, 117, 11);
+}
+
+.btn:active, .btn-home:active {
+    background: rgb(0, 102, 0);
+}
+
+.regster-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
@@ -110,33 +124,9 @@ body {
     font-weight: 600;
 }
 
-.regster-link p a:hover {
-    text-decoration: underline;
-}
-
-/* Stile per il pulsante Torna alla Home */
-.btn-home {
-    margin-top: 15px;
-    background: transparent;
-    border: 2px solid #ff0202;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-}
-
-.btn-home:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 2, 2, 0.3);
-}
-
 .home-link {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
 }
 
-.home-link:hover {
-    text-decoration: underline;
-}
