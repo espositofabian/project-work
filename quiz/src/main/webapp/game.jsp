@@ -27,7 +27,7 @@
 <body>
 
     <!-- Aggiungi questo codice subito dopo l'apertura del body -->
-    <a href="/" class="exit-button">Esci dal gioco</a>
+    <a href="/" class="exit-button" onclick="localStorage.clear();">Esci dal gioco</a>
 
 	<!-- Lifeline Buttons -->
 	<div class="lifelines">
