@@ -12,6 +12,7 @@
     Utente utente = (Utente)request.getAttribute("utente");
     DaoUtenti du = (DaoUtenti)request.getAttribute("daoutenti");
     boolean uscito = (boolean)request.getAttribute("uscito");
+    int punteggio = (int) request.getAttribute("punteggio");
 %>
 
 <!DOCTYPE html>
@@ -180,7 +181,6 @@ body, html {
 	<div class="main-content">
 		<% 
         int questionIndex = 0;
-		int punteggioDaAssegnare = 0;
 		int correctAnswerIndex = 0;
         %>
 		<div class="question-box" id="question-box">
@@ -192,20 +192,22 @@ body, html {
 			<%
                 List<String> risposte = dd.risposte(idDomanda);
 				String[] disableButtonNames1 = q.aiuto5050(idDomanda); // Creates an array with two slots
+                 correctAnswerIndex = dd.indexRispostaGiusta(idDomanda);
 					for (int i = 0; i < risposte.size(); i++) { 
-                    	correctAnswerIndex = dd.indexRispostaGiusta(idDomanda);
                     	System.out.println("-----------");
                     	System.out.println("index: " + i);
                     	System.out.println("questionIndex: " + questionIndex);
                     	System.out.println("correctAnswerIndex(ex mamt): " + correctAnswerIndex);
                     	System.out.println("-----------");
+                    	System.out.println("livello " + livello);
                 %>
 			<button class="option answer-btn"
 				onclick="checkAnswer(this, 	<%= i %>, <%= questionIndex %>, <%=  correctAnswerIndex %>);">
 				<%= risposte.get(i) %>
 			</button>
 						    		
-			<% } %>
+			<% } 
+			%>
 	        <!-- Popup for Aiuto da casa-->
 			<div class="popup" id="popupCasa">
 				<%= q.aiutoDaCasa(idDomanda) %>
@@ -274,26 +276,29 @@ body, html {
                 document.getElementById('question-counter').innerText = `Sei arrivato alla domanda: ${questionNumber}`;
             } 
         }
-
+        
         // PROBLEMA PUNTI IMMERITATI: index e correctIndexAnswer risultano 
         // uguali al carimento della pagina
         function checkAnswer(button, index, questionIdx, correctIndexAnswer) {
+        	
+        	 event.preventDefault();
             let correctIndex = correctIndexAnswer; // Adjust this to fetch from DB
-            
+            <% System.out.println("sono in check answer");%>
             if (index === correctIndex) {
                 button.classList.add("correct");
                 setTimeout(nextQuestion, 1000);
-                console.log(<%= livello %>);
+                
                 
                 // ho risolto così (per ora)
                 // però cosi assegna 20 alla prima risposta giusta
-                <%if( livello != 1)
-                {
-                	System.out.println("livello: " + livello);
-          			System.out.println("punti " + livello * 10);
-                	du.updatePunteggi(utente.getId(), livello * 10);
+                //if( livello != 1)%>
+                
+              	<%System.out.println("livello in checkAnswer: " + livello);
+              	System.out.println("punteggio: " + punteggio);
+          		System.out.println("punteggio assegnato " + punteggio * 10);
+               	du.updatePunteggi(utente.getId(), punteggio * 10);%>
                 	
-                }%>
+                
                 
                 
                 // Redirect to a new page if the password is correct

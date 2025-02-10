@@ -21,6 +21,7 @@ import jakarta.servlet.http.HttpSession;
 public class HomeController
 {
 	int livello = 1;
+	int punteggio = 0;
 	boolean uscito = false;
 	
 	@Autowired
@@ -64,8 +65,10 @@ public class HomeController
 		System.out.println("livello nel mapping: " + livello);
 		while(livello <= 15) {
             System.out.println("Livello: " + livello + "resetLivello: " + resetLivello);
-			if(resetLivello != 0)
+			if(resetLivello != 0) {
 				livello = 1;
+				punteggio = 0;
+			}
 			Map<String,String> domanda = dd.mappaRandom(livello);
 
 			// passiamo la domanda singola al model
@@ -76,9 +79,11 @@ public class HomeController
 			model.addAttribute("utente", ut);
 			model.addAttribute("daoutenti",du);
 			model.addAttribute("uscito", uscito);
+			model.addAttribute("punteggio", punteggio);
 			
 			System.out.println("livello: " + livello);
 
+			punteggio++;
 			livello++;
 			System.out.println("ritorno al game");
 			
