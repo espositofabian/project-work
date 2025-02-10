@@ -11,6 +11,7 @@
     Quiz q = (Quiz)request.getAttribute("quiz");
     Utente utente = (Utente)request.getAttribute("utente");
     DaoUtenti du = (DaoUtenti)request.getAttribute("daoutenti");
+    boolean uscito = (boolean)request.getAttribute("uscito");
 %>
 
 <!DOCTYPE html>
@@ -179,7 +180,7 @@ body, html {
 	<div class="main-content">
 		<% 
         int questionIndex = 0;
-		int punteggio = 0;
+		int punteggioDaAssegnare = 0;
 		int correctAnswerIndex = 0;
         %>
 		<div class="question-box" id="question-box">
@@ -274,7 +275,8 @@ body, html {
             } 
         }
 
-        // evidentemente al primo giro questa condizione risulta vera
+        // PROBLEMA PUNTI IMMERITATI: index e correctIndexAnswer risultano 
+        // uguali al carimento della pagina
         function checkAnswer(button, index, questionIdx, correctIndexAnswer) {
             let correctIndex = correctIndexAnswer; // Adjust this to fetch from DB
             
@@ -283,6 +285,8 @@ body, html {
                 setTimeout(nextQuestion, 1000);
                 console.log(<%= livello %>);
                 
+                // ho risolto così (per ora)
+                // però cosi assegna 20 alla prima risposta giusta
                 <%if( livello != 1)
                 {
                 	System.out.println("livello: " + livello);
@@ -302,6 +306,11 @@ body, html {
             } else {
             	showPopup('popupSconfitta');
                 button.classList.add("wrong");
+                // per ricordarsi che sei uscito
+                <% uscito = true; %>
+                <% System.out.println("uscito quando esci: " + uscito);%>
+                window.location.href = "home.html";
+                localStorage.clear();
             }
             
             
