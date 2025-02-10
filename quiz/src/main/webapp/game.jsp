@@ -326,12 +326,12 @@ body, html {
             if(id == "popupVittoria")
       	  {
                localStorage.clear();
-               window.location.href = "home.html";
+               window.location.href = "classifica";
       	  }
           else if(id == "popupSconfitta")
       	  {
               localStorage.clear();
-              window.location.href = "home.html";
+              window.location.href = "classifica";
      	  }
           else 
           {
