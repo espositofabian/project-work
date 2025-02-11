@@ -87,6 +87,7 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 					<th>Punteggio</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<%
 			    int numero = 1;
@@ -96,14 +97,55 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 											 e.getUsername().equals(((Utente)session.getAttribute("utente")).getUsername());
 				%>
 				<tr class="<%= isUtenteLoggato ? "utente-loggato" : "" %>">
-					<td><%= numero %>° Posizione</td>
-					<td><%=e.getUsername()%></td>
-					<td><%=e.getPunteggio()%></td>
-					<%
-				    numero++;
-					}
-					%>
-				</tr>
+							<td><%=numero%>° Posizione</td>
+							<%
+							int id = e.getId();
+							String fotoProfilo = "";
+
+							switch (id) {
+							case 1:
+								fotoProfilo = "/images/tipo2.jpg";
+								break;
+							case 2:
+								fotoProfilo = "/images/1L.png";
+								break;
+							case 3:
+								fotoProfilo = "/images/2M.png";
+								break;
+							case 4:
+								fotoProfilo = "/images/3A.png";
+								break;
+							case 12:
+								fotoProfilo = "/images/alessio.jpg";
+								break;
+							case 13:
+								fotoProfilo = "/images/guido.jpg";
+								break;
+							case 9:
+								fotoProfilo = "/images/djfalco.jpg";
+								break;
+							case 11:
+								fotoProfilo = "/images/lucian.jpg";
+								break;
+							case 8:
+								fotoProfilo = "/images/Fede.webp";
+								break;
+							case 5:
+								fotoProfilo = "/images/cristina.jpg";
+								break;
+							default:
+								fotoProfilo = "/images/GerryMeme.jpg";
+								break;
+							}
+							%>
+							<td><img src="<%=fotoProfilo%>" alt="<%= e.getUsername() %> Foto" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; margin-right: 10px;">
+							<%=e.getUsername()%></td>
+							<td><%=e.getPunteggio()%></td>
+							<%
+							numero++;
+							}
+							%>
+						</tr>
 			</tbody>
 		</table>
 
