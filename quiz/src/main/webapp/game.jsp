@@ -55,9 +55,9 @@
         <div class="u-video-shading" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));"></div>
       </div>
       <div class="u-clearfix u-sheet u-sheet-1">
-        <img class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-1" src="images/50-50_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1000" onclick="showPopup('popup50'); disableButtons();">
-        <img class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-2" src="images/PAF_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1500" onclick="showPopup('popupPubblico')">
-        <img class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-3" src="images/ATA_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1200" onclick="showPopup('popupCasa')">
+        <img id="imm50" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-1" src="images/50-50_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1000" onclick="showPopup('popup50'); disableButtons();">
+        <img id="immpubb" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-2" src="images/PAF_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1500" onclick="showPopup('popupPubblico')">
+        <img id="immcasa" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-3" src="images/ATA_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1200" onclick="showPopup('popupCasa')">
         <img class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-4" src="images/Ask_The_Host.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1800" onclick="showPopup('popupLuca')">
         <!-- Aggiungi questo codice subito dopo l'apertura del body -->
         <a href="/" class="u-btn u-button-style u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="3500" onclick="localStorage.clear();">ESCI DAL GIOCO<br>
@@ -70,7 +70,7 @@
     <div class="main-content">
       <% 
           int questionIndex = 0;
-      int correctAnswerIndex = 0;
+          int correctAnswerIndex = 0;
           %>
       <div class="question-box" id="question-box">
         <%= domanda.get("q")%>
@@ -100,12 +100,12 @@
             <!-- Popup for Aiuto da casa-->
         <div class="popup" id="popupCasa">
           <%= q.aiutoDaCasa(idDomanda) %>
-          <button class="close-popup" onclick="closePopup('popupCasa', 'casa')">Chiudi</button>
+          <button class="close-popup" onclick="closePopup('popupCasa', 'casa','immcasa')">Chiudi</button>
         </div>
           <!-- Popup for Aiuto 50/50-->
         <div class="popup" id="popup50">
              Hai usato l'aiuto 50/50!
-          <button class="close-popup" onclick="closePopup('popup50', '5050')">Chiudi</button>
+          <button class="close-popup" onclick="closePopup('popup50', '5050', 'imm50')">Chiudi</button>
         </div>
   
         <% questionIndex++; %>
@@ -118,7 +118,7 @@
     <!-- Popup for Aiuto dal pubblico -->
     <div class="popup" id="popupPubblico">
       <%= q.aiutoPubblico(idDomanda) %>
-      <button class="close-popup" onclick="closePopup('popupPubblico', 'pubblico')">Chiudi</button>
+      <button class="close-popup" onclick="closePopup('popupPubblico', 'pubblico','immpubb')">Chiudi</button>
     </div>
     <!-- Popup for Aiuto da Luca -->
     <div class="popup" id="popupLuca">
@@ -256,7 +256,7 @@
             
             <%System.out.println("livello in checkAnswer: " + livello);
             System.out.println("punteggio: " + punteggio);
-          System.out.println("punteggio assegnato " + punteggio * 10);
+            System.out.println("punteggio assegnato " + punteggio * 10);
              du.updatePunteggi(utente.getId(), punteggio * 100);%>
              console.log("<%= argomento%>");
             
@@ -280,7 +280,7 @@
         document.getElementById(id).style.display = 'block';
     }
 
-    function closePopup(id, idBottone) {
+    function closePopup(id, idBottone, idImmagine) {
         document.getElementById(id).style.display = 'none';
         console.log(id);
         
@@ -296,27 +296,29 @@
      }
       else 
       {
-           let button =  document.getElementById(idBottone);
-           button.disabled = true; // Disable the button
-           button.style.backgroundColor = "gray"; // Cambia colore sfondo
-           button.style.color = "white";         // Cambia colore testo
-           button.style.cursor = "not-allowed"; 
+           let immagine =  document.getElementById(idImmagine);
+           immagine.disabled = true; // Disable the button
+           immagine.style.pointerEvents = "none";  // Rende l'immagine non cliccabile
+           immagine.style.opacity = "0.5";        // Cambia l'opacità per sembrare disabilitata
+           immagine.style.filter = "grayscale(100%)";
+
         
-           localStorage.setItem(idBottone, "disabled");
+           localStorage.setItem(idImmagine, "disabled");
           
        }
     }
     
     function restoreButtonState() {
-        let buttons = ["casa", "5050", "pubblico"];
+        let buttons = ["immcasa", "imm50", "immpub"];
 
-        buttons.forEach(buttonId => {
-            if (localStorage.getItem(buttonId) === "disabled") {
-                let button = document.getElementById(buttonId);
-                    button.disabled = true;
-                    button.style.backgroundColor = "gray";
-                    button.style.color = "white";
-                    button.style.cursor = "not-allowed";
+        buttons.forEach(idImmagine => {
+            if (localStorage.getItem(idImmagine) === "disabled") {
+            	let immagine =  document.getElementById(idImmagine);
+                immagine.disabled = true; // Disable the button
+                immagine.style.pointerEvents = "none";  // Rende l'immagine non cliccabile
+                immagine.style.opacity = "0.5";        // Cambia l'opacità per sembrare disabilitata
+                immagine.style.filter = "grayscale(100%)";
+
             }
         });
     }
