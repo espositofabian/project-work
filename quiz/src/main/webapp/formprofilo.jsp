@@ -76,21 +76,21 @@
           </span>
         </h1>
         <div class="wrapper">
-          <% String nome = ((Utente)session.getAttribute("utente")).getUsername();
+          <% int id = ((Utente)session.getAttribute("utente")).getId();
           String fotoProfilo = "";
           
-           switch(nome.toLowerCase())
+           switch(id)
           {
-           case "anna":
+           case 1:
              fotoProfilo = "/images/tipo2.jpg";
              break;
-           case "luca":
+           case 2:
              fotoProfilo = "/images/1L.png";
              break;
-           case "manuel":
+           case 3:
              fotoProfilo = "/images/2M.png";
              break;
-           case "alberto":
+           case 4:
              fotoProfilo = "/images/3A.png";
            default: 
              fotoProfilo = "/images/GerryMeme.jpg";
@@ -169,7 +169,7 @@
         </p>
       </div></footer>
       <script>
-        // Ottieni il valore della fotoProfilo da localStorage
+        // Ottieni il valore della fotoProfilo da sessionStorage
         const fotoProfilo = sessionStorage.getItem('fotoProfilo');
       
         // Se c'è un valore, imposta l'attributo src dell'immagine
