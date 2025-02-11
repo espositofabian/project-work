@@ -76,6 +76,8 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
     <section class="skrollable u-align-center u-clearfix u-container-align-center u-image u-parallax u-shading u-section-1" id="block-4" data-image-width="1920" data-image-height="1176">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-align-center u-hover-feature u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="0"> Chi vuol essere in classifica?</h1>
+		<br><br><br>
+
       <div class="container">
 		<table class="classifica">
 			<thead>
