@@ -2,6 +2,7 @@ package com.generation.quiz;
 
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,10 +13,14 @@ public class Main_test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String[] vettore1 = {"miao","gatto"};
-		String[] vettore2 = new String[2];
+		DaoDomande dd = new DaoDomande();
+		Map<String,String> mappa = new HashMap<String, String>();
+		mappa.put("q", "Qual è la capitale della Polonia?");
+		mappa.put("punti", "1");
+		mappa.put("argomento", "generico");
+		mappa.put("id", "76");
 		
-		vettore1 = vettore2;
+		System.out.println(dd.delete(76));
 		
 		/*
 		DaoUtenti du = new DaoUtenti();
