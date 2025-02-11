@@ -53,8 +53,8 @@
       </div>
       <div class="u-clearfix u-sheet u-sheet-1">
         <img id="imm50" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-1" src="images/50-50_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1000" onclick="showPopup('popup50'); disableButtons();">
-        <img id="immpubb" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-2" src="images/PAF_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1500" onclick="showPopup('popupPubblico')">
-        <img id="immcasa" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-3" src="images/ATA_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1200" onclick="showPopup('popupCasa')">
+        <img id="immcasa" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-2" src="images/PAF_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1500" onclick="showPopup('popupCasa')">
+        <img id="immpubb" class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-3" src="images/ATA_2018.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1200" onclick="showPopup('popupPubblico')">
         <img class="u-dialog-link u-hover-feature u-image u-image-contain u-image-default u-image-4" src="images/Ask_The_Host.webp" alt="" data-image-width="257" data-image-height="161" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1800" onclick="showPopup('popupLuca')">
         <!-- Aggiungi questo codice subito dopo l'apertura del body -->
         <a href="/" class="u-btn u-button-style u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="3500" onclick="localStorage.clear();">ESCI DAL GIOCO<br>
@@ -98,8 +98,8 @@
         %>
             <!-- Popup for Aiuto da casa-->
         <div class="popup" id="popupCasa">
-          <%= q.aiutoDaCasa(idDomanda) %>
-          <button class="close-popup" onclick="closePopup('popupCasa', 'casa','immcasa')">Chiudi</button>
+          <p> La risposta esatta è <%= q.aiutoDaCasa(idDomanda) %></p>
+          <button class="close-popup" onclick="closePopup('popupCasa', 'casa', 'immcasa')">Chiudi</button>
         </div>
           <!-- Popup for Aiuto 50/50-->
         <div class="popup" id="popup50">
@@ -309,7 +309,7 @@
     }
     
     function restoreButtonState() {
-        let buttons = ["immcasa", "imm50", "immpub"];
+        let buttons = ["immcasa", "imm50", "immpubb"];
 
         buttons.forEach(idImmagine => {
             if (localStorage.getItem(idImmagine) === "disabled") {
