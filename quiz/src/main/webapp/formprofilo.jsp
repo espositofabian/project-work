@@ -96,6 +96,9 @@
            case 12:
              fotoProfilo = "/images/alessio.jpg";
              break;
+           case 13:
+             fotoProfilo = "/images/guido.jpg";
+             break;
            default: 
              fotoProfilo = "/images/GerryMeme.jpg";
              break;
