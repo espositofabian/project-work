@@ -98,7 +98,7 @@
         %>
             <!-- Popup for Aiuto da casa-->
         <div class="popup" id="popupCasa">
-         La risposta corretta è: <%= q.aiutoDaCasa(idDomanda) %>
+          <%= q.aiutoDaCasa(idDomanda) %>
           <button class="close-popup" onclick="closePopup('popupCasa', 'casa','immcasa')">Chiudi</button>
         </div>
           <!-- Popup for Aiuto 50/50-->
