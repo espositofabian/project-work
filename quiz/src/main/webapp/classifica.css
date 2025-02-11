@@ -1,162 +1,78 @@
-.container2 {
-    text-align: center;
-    flex-grow: 4;
-    justify-content: space-around;
-    margin: auto;
-    padding: 10px;
-    background: radial-gradient( 100% 100% at 100% 0%, #ae26fcd4 0%, #4056f9d6 100% );
-    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
-}
-button {
-    text-align: center;
-    max-inline-size: 100%;
-    max-width: auto;
-    margin: 6px;
-    font-size: 20px;
-    display: inline-block;
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    will-change: box-shadow,transform;
-    background: radial-gradient( 100% 100% at 100% 0%, #b443f6 0%, #6273f6 100% );
-    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
-    padding: 0 2em;
-    border-radius: 0.3em;
-    color: #fff;
-    height: 2.6em;
-    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-button:hover {
-    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
-    transform: translateY(-0.1em);
-}
-button:active {
-    box-shadow: inset 0px 0.1em 0.6em #66b1ef;
-    transform: translateY(0em);
+ .u-section-1 {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/high-resolution-blue-background-2559-x-1567-0crrdgy81z5uiujw.jpg');
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 5px;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    background: linear-gradient(-45deg, #ff1f7c,#1100ff);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    -webkit-animation: background-animation 10s infinite ease-in-out;
-    animation: background-animation 10s infinite ease-in-out;
-    height: 100vh;
-}
-@keyframes background-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.u-section-1 .u-sheet-1 {
+  min-height: 880px;
 }
 
-.container {
-    background: transparent;
-    margin: auto;
-    margin-top: 10px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
+.u-section-1 .u-text-1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  --animation-custom_in-translate_x: 0px;
+  --animation-custom_in-translate_y: -300px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 1;
+  transition-duration: 0.5s;
+  margin: 119px 2px 0;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
+.u-section-1 .u-text-2 {
+  width: 826px;
+  margin: 121px auto 60px;
 }
 
-.classifica {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+@media (max-width: 1199px) {
+   .u-section-1 {
+    background-position: 50% 50%;
+  }
+
+  .u-section-1 .u-sheet-1 {
+    min-height: 726px;
+  }
 }
 
-.classifica th, .classifica td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 556px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 720px;
+  }
 }
 
-.classifica th {
-    background: radial-gradient( 100% 100% at 100% 0%, #b443f6 0%, #6273f6 100% );
-    color: white;
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 417px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 540px;
+  }
 }
 
-.classifica tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 263px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 340px;
+  }
 }
 
-.classifica tbody tr:hover {
-    background-color: #f2722c;
+.u-section-1 .u-text-1,
+.u-section-1 .u-text-1:before,
+.u-section-1 .u-text-1 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, image-zoom, background-size, background-position;
 }
 
-.home-button-container {
-    text-align: center;
-    margin-top: 20px;
+.u-section-1 .u-text-1.u-text-1.u-text-1:hover {
+  color: #ff9600 !important;
 }
 
-.home-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: radial-gradient(100% 100% at 100% 0%, #b443f6 0%, #6273f6 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 0.3em;
-    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 
-                0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), 
-                inset 0px -0.01em 0px rgb(58 65 111 / 50%);
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.home-button:hover {
-    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 
-                0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), 
-                inset 0px -0.1em 0px #3c4fe0;
-    transform: translateY(-1px);
-}
-
-.home-button:active {
-    box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
-    transform: translateY(0px);
-}
-
-.utente-loggato {
-    background-color: rgba(255, 0, 0, 0.4) !important;
-    animation: glow 1.5s ease-in-out infinite alternate;
-}
-
-.utente-loggato td {
-    color: #ffffff !important;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-@keyframes glow {
-    from {
-        box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.4),
-                    0 0 5px rgba(255, 0, 0, 0.4);
-    }
-    to {
-        box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.6),
-                    0 0 20px rgba(255, 0, 0, 0.6);
-    }
-}
-
-.classifica tbody tr.utente-loggato:nth-child(even),
-.classifica tbody tr.utente-loggato:nth-child(odd) {
-    background-color: rgba(255, 0, 0, 0.4) !important;
-}
-
-.classifica tbody tr.utente-loggato:hover {
-    background-color: rgba(255, 0, 0, 0.5) !important;
+.u-section-1 .u-text-1.u-text-1.u-text-1.hover {
+  color: #ff9600 !important;
 }

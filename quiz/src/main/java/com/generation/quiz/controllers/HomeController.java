@@ -108,5 +108,8 @@ public class HomeController
 		return "classifica.jsp";
 	}
 
-
+	@GetMapping("regolamento")
+	public String regolamento() {
+		return "regolamento.html";
+	}
 }
