@@ -191,3 +191,48 @@
 .btn-logout:hover {
   background: #ff0202;
 }
+
+
+
+/* Hide elements initially */
+.hidden {
+  display: none;
+}
+
+#username, #password {
+  display: none;  /* Start hidden */
+}
+
+#username-text, #password-text {
+  display: inline-block;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.info-box {
+  margin-bottom: 10px;
+}
+
+#username, #password {
+  font-size: 16px;
+  padding: 5px;
+  width: 200px;
+  margin-top: 5px;
+}
+
+#modify-btn, #save-btn {
+  padding: 10px 20px;
+  background-color: #ff0202;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#modify-btn:hover, #save-btn:hover {
+  background-color: #d60202;
+}
+
+.profile-info {
+  margin-bottom: 20px;
+}
