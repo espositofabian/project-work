@@ -83,6 +83,7 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 			<thead>
 				<tr>
 					<th>Posizione</th>
+					<th>Foto</th>
 					<th>Username</th>
 					<th>Punteggio</th>
 				</tr>
@@ -92,7 +93,6 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 				<%
 			    int numero = 1;
 				for (Utente e : utenti) {
-					// Verifichiamo se c'è un utente in sessione prima di fare il confronto
 					boolean isUtenteLoggato = session.getAttribute("utente") != null && 
 											 e.getUsername().equals(((Utente)session.getAttribute("utente")).getUsername());
 				%>
@@ -138,8 +138,8 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 								break;
 							}
 							%>
-							<td><img src="<%=fotoProfilo%>" alt="<%= e.getUsername() %> Foto" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; margin-right: 10px;">
-							<%=e.getUsername()%></td>
+							<td><img src="<%=fotoProfilo%>" alt="<%= e.getUsername() %> Foto" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;"></td>
+							<td><%=e.getUsername()%></td>
 							<td><%=e.getPunteggio()%></td>
 							<%
 							numero++;
