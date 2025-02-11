@@ -156,7 +156,7 @@
               	<%System.out.println("livello in checkAnswer: " + livello);
               	System.out.println("punteggio: " + punteggio);
           		System.out.println("punteggio assegnato " + punteggio * 10);
-               	du.updatePunteggi(utente.getId(), punteggio * 1000);%>
+               	du.updatePunteggi(utente.getId(), punteggio * 100);%>
                	console.log("<%= argomento%>");
                 
                 // Redirect to a new page if the password is correct
