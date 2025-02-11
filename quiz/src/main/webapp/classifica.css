@@ -1,4 +1,4 @@
- .u-section-1 {
+.u-section-1 {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/high-resolution-blue-background-2559-x-1567-0crrdgy81z5uiujw.jpg');
 }
 
@@ -75,4 +75,82 @@
 
 .u-section-1 .u-text-1.u-text-1.u-text-1.hover {
   color: #ff9600 !important;
+}
+
+/* Stile per la tabella della classifica */
+.classifica-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background: transparent;
+    border: 2px solid #002260;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.classifica-table th,
+.classifica-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.classifica-table th {
+    font-size: 1.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ff9600;
+}
+
+.classifica-table tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.classifica-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Stile per il titolo della classifica */
+.classifica-title {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Media query per responsività */
+@media (max-width: 768px) {
+    .classifica-table {
+        margin: 20px;
+        font-size: 0.9em;
+    }
+    
+    .classifica-table th,
+    .classifica-table td {
+        padding: 10px;
+    }
+    
+    .classifica-title {
+        font-size: 2em;
+    }
+}
+
+/* Stile per evidenziare l'utente loggato */
+.classifica-table tr.utente-loggato {
+    background: rgba(255, 150, 0, 0.2);
+    border-left: 4px solid #ff9600;
+    font-weight: bold;
+}
+
+.classifica-table tr.utente-loggato:hover {
+    background: rgba(255, 150, 0, 0.3);
+}
+
+.classifica-table tr.utente-loggato td {
+    color: #ff9600;
 }

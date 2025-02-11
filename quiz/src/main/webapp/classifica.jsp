@@ -79,12 +79,13 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 		<br><br><br>
 
       <div class="container">
-		<table class="classifica">
+		<h1 class="classifica-title">Classifica Giocatori</h1>
+		<table class="classifica-table">
 			<thead>
 				<tr>
 					<th>Posizione</th>
-					<th>Giocatore</th>
-					<th>Punti</th>
+					<th>Username</th>
+					<th>Punteggio</th>
 				</tr>
 			</thead>
 			<tbody>
