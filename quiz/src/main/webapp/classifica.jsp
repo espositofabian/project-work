@@ -79,7 +79,6 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 		<br><br><br>
 
       <div class="container">
-		<h1 class="classifica-title">Classifica Giocatori</h1>
 		<table class="classifica-table">
 			<thead>
 				<tr>
