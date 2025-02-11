@@ -277,7 +277,8 @@ values
 (8,"Vincent","javaaaaaaaaaaaaaaaaaa",5),
 (9,"DJFalco","CostaRica",5),
 (10,"Gulshan","SonoUnIndianoMalefico",5),
-(11,"Lucian","George",50);
+(11,"Lucian","George",50),
+(12,"Alessio","alessioalessio",23000);
 
 -- da qui in poi tutte query utili più o meno, Luca è l'essere perfetto
 select	* from	domande;

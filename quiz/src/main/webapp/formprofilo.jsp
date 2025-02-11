@@ -92,6 +92,10 @@
              break;
            case 4:
              fotoProfilo = "/images/3A.png";
+             break;
+           case 12:
+             fotoProfilo = "/images/alessio.jpg";
+             break;
            default: 
              fotoProfilo = "/images/GerryMeme.jpg";
              break;
