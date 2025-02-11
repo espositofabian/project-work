@@ -61,16 +61,27 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
-          <style class="menu-style">@media (max-width: 939px) {
-                    [data-responsive-from="MD"] .u-nav-container {
-                        display: none;
-                    }
-                    [data-responsive-from="MD"] .menu-collapse {
-                        display: block;
-                    }
-                }</style>
-        </nav>
-        <span class="u-icon u-icon-1" data-href="profilo" title="Profilo"><img id="fotoProfilo" alt="" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;">
+				<style class="menu-style">
+@media ( max-width : 939px) {
+	[data-responsive-from="MD"] .u-nav-container {
+		display: none;
+	}
+	[data-responsive-from="MD"] .menu-collapse {
+		display: block;
+	}
+}
+
+.profile-img-cell {
+	display: flex; /* Abilita il Flexbox */
+	justify-content: center; /* Centra orizzontalmente */
+	align-items: center; /* Centra verticalmente */
+	height: 100px; /* Altezza della cella*/
+	width: 100px; /* Larghezza della cella */
+	padding: 0; /* Rimuove eventuali spazi interni */
+}
+</style>
+			</nav>
+        <span class="u-icon u-icon-1" data-href="profilo" title="Profilo"><img id="fotoProfilo" alt="" style="height: 45px; width: 45px; border-radius: 50%; object-fit: cover;">
         </span>
       </div></header>
     <section class="skrollable u-align-center u-clearfix u-container-align-center u-image u-parallax u-shading u-section-1" id="block-4" data-image-width="1920" data-image-height="1176">
@@ -138,7 +149,7 @@ List<Utente> utenti = (List<Utente>) request.getAttribute("classificautenti");
 								break;
 							}
 							%>
-							<td><img src="<%=fotoProfilo%>" alt="<%= e.getUsername() %> Foto" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;"></td>
+							<td>   <img src="<%=fotoProfilo%>" alt="<%= e.getUsername() %> Foto" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" class="profile-img"></td>
 							<td><%=e.getUsername()%></td>
 							<td><%=e.getPunteggio()%></td>
 							<%
