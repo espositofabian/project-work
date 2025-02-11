@@ -41,8 +41,8 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-custom-color-4 u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-custom-color-3 u-nav-link u-text-active-white u-text-hover-white" href="./" style="padding: 9px 41px;">Home</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-4 u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-custom-color-3 u-nav-link u-text-active-white u-text-hover-white" href="classifica.html" style="padding: 9px 41px;">classifica</a>
-</li><li class="u-nav-item"><a class="u-active-custom-color-4 u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-custom-color-3 u-nav-link u-text-active-white u-text-hover-white" href="regolamento.html" style="padding: 9px 41px;">regolamento</a>
+</li><li class="u-nav-item"><a class="u-active-custom-color-4 u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-custom-color-3 u-nav-link u-text-active-white u-text-hover-white" href="classifica" style="padding: 9px 41px;">classifica</a>
+</li><li class="u-nav-item"><a class="u-active-custom-color-4 u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-custom-color-3 u-nav-link u-text-active-white u-text-hover-white" href="regolamento" style="padding: 9px 41px;">regolamento</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -50,8 +50,8 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="./">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="classifica.html">classifica</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="regolamento.html">regolamento</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="classifica">classifica</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="regolamento">regolamento</a>
 </li></ul>
               </div>
             </div>
