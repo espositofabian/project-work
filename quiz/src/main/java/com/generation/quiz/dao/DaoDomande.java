@@ -40,7 +40,27 @@ public class DaoDomande
 		return db.row(query, id + "");
 	}
 
+	public boolean create(Map<String,String> m){
+		
+		String query = "INSERT INTO domande (q,punti,argomento) values (?,?,?)";
+		
+		return db.update(query, m.get("q"), m.get("punti"), m.get("argomento"));
+	}
+	
+	public boolean update(Map<String,String> m) {
+		
+		String query = "UPDATE domande SET q = ?, punti = ?, argomento = ? where id = ?";
+		
+		return db.update(query, m.get("q"), m.get("punti"), m.get("argomento"), m.get("id"));
+	}
 
+	public boolean delete(int id) {
+		
+		String query = "DELETE FROM domande WHERE id = ?";
+		
+		return db.update(query, id + "");
+	}
+	
 	public String rispostaGiusta(int idDomanda){
 
 		String query = "select risposte.risok\r\n"
