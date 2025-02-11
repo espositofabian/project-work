@@ -29,9 +29,6 @@
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 7.3.1, nicepage.com">
     
-    
-    
-    
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -62,9 +59,11 @@
         <!-- Aggiungi questo codice subito dopo l'apertura del body -->
         <a href="/" class="u-btn u-button-style u-btn-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="3500" onclick="localStorage.clear();">ESCI DAL GIOCO<br>
         </a>
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-5" src="images/Cvem_2018_logo.png" alt="" data-image-width="2000" data-image-height="2000" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="0">
-        <a href="" class="u-btn u-button-style u-btn-2" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="2000">Sei arrivato alla domanda: <%= livello %></a>
-      </div>
+        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-5" src="images/Cvem_2018_logo.png" alt="" data-image-width="500" data-image-height="500" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="0">
+
+
+        <a href="" class="u-btn u-button-style u-btn-2" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="2000">Sei arrivato alla domanda: <%= livello %></a>        </p></p>
+
   
     <!-- Quiz Content -->
     <div class="main-content">
@@ -112,7 +111,8 @@
         <% System.out.println("livello in game: " + livello); %>
       </div>
     </div>
-  
+  </div>
+
     <!-- Question Counter -->
     <!-- <button class="question-counter" id="question-counter">Sei arrivato alla domanda: <%= livello %></button> -->
     <!-- Popup for Aiuto dal pubblico -->
@@ -138,14 +138,14 @@
       
     </section>
     
-  <section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-5" id="popup-2ec3">
+  <!-- <section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-dialog-section-5" id="popup-2ec3">
       <div class="u-border-3 u-border-grey-40 u-container-style u-custom-color-1 u-dialog u-dialog-1">
         <div class="u-container-layout u-container-layout-1">
           <p class="u-text u-text-default u-text-1">LOREM IPSUM DOLOR SIC AMET </p>
           <a href="" class="u-border-2 u-border-grey-40 u-btn u-button-style u-gradient u-text-white u-btn-1">Pulsante</a>
         </div>
         <button class="u-dialog-close-button u-icon u-text-grey-40 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-efe9"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-efe9"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
-      </div>
+      </div> -->
     </section><style>.u-dialog-section-5 .u-dialog-1 {
   width: 800px;
   min-height: 278px;
