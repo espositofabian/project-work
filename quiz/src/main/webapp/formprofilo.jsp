@@ -103,43 +103,59 @@
          sessionStorage.setItem('fotoProfilo', "<%=fotoProfilo%>");
      </script>
         
-     <div class="profile-header">
-         <h1>IL TUO PROFILO</h1>
-         <div class="profile-avatar">
-             <img src="<%=fotoProfilo%>" alt="Immagine Profilo">
-         </div>
-     </div>
-     
-    <form action="modificautente" method="get">
-     <div class="profile-info">
-         <div class="info-box">
-               <label>Username</label>
-               <input type="text" name="user" value="<%= ((Utente)session.getAttribute("utente")).getUsername() %>"><br>
-         </div>
-         
-         <div class="info-box">
-             <label>Password</label>
-             <input type="text" name="pass" value="<%= ((Utente)session.getAttribute("utente")).getPassword() %>"><br>
-         </div>
-             <input type="hidden" name="id" value=" <%= ((Utente)session.getAttribute("utente")).getId() %> ">
-         <div class="info-box">
-             <label>Punteggio Totale</label>
-             <p><%= ((Utente)session.getAttribute("utente")).getPunteggio() %> punti</p>
-         </div>
-         
-         <div class="info-box">
-             <label>Posizione in Classifica</label>
-             <p><%= request.getAttribute("posizione") %>° posto</p>
-         </div>
-     </div>
-     <input type="submit" class="btn btn-logout" value="MODIFICA I TUOI DATI" /></p>
-     <a href="eliminautente?id=<%= ((Utente)session.getAttribute("utente")).getId() %>" class="btn">ELIMINA  IL TUO ACCOUNT</a></p>
-     </form>
-     <div class="profile-actions">
-         <a href="logout" class="btn btn-logout" onclick="sessionStorage.clear();">LOGOUT</a></p>
-     </div>
- </div>
-
+        <div class="profile-header">
+          <h1>IL TUO PROFILO</h1>
+          <div class="profile-avatar">
+              <img src="<%=fotoProfilo%>" alt="Immagine Profilo">
+          </div>
+      </div>
+      
+      <form action="modificautente" method="get">
+          <div class="profile-info">
+              <!-- Username Field -->
+              <div class="info-box" id="username-box">
+                  <label>Username</label>
+                  <span id="username-text"><%= ((Utente)session.getAttribute("utente")).getUsername() %></span>
+                  <input type="text" name="user" id="username" value="<%= ((Utente)session.getAttribute("utente")).getUsername() %>" class="hidden"><br>
+              </div>
+      
+              <!-- Password Field -->
+              <div class="info-box" id="password-box">
+                  <label>Password</label>
+                  <span id="password-text">******</span> <!-- Display "******" for password initially -->
+                  <input type="text" name="pass" id="password" value="<%= ((Utente)session.getAttribute("utente")).getPassword() %>" class="hidden"><br>
+              </div>
+      
+              <!-- Hidden user ID field -->
+              <input type="hidden" name="id" value="<%= ((Utente)session.getAttribute("utente")).getId() %>">
+              
+              <!-- Points and Ranking -->
+              <div class="info-box">
+                  <label>Punteggio Totale</label>
+                  <p><%= ((Utente)session.getAttribute("utente")).getPunteggio() %> punti</p>
+              </div>
+              
+              <div class="info-box">
+                  <label>Posizione in Classifica</label>
+                  <p><%= request.getAttribute("posizione") %>° posto</p>
+              </div>
+          </div>
+      
+          <!-- Modify Button and Save Button -->
+          <div class="info-box">
+              <button type="button" id="modify-btn" class="btn">MODIFICA I TUOI DATI</button>
+              <input type="submit" class="btn btn-logout hidden" value="SALVA" id="save-btn">
+          </div>
+      
+          <!-- Delete Account Link -->
+          <a href="eliminautente?id=<%= ((Utente)session.getAttribute("utente")).getId() %>" class="btn">ELIMINA IL TUO ACCOUNT</a>
+      </form>
+      
+      <!-- Logout -->
+      <div class="profile-actions">
+          <a href="logout" class="btn btn-logout" onclick="sessionStorage.clear();">LOGOUT</a>
+      </div>
+                              
 
 </p></p></p>
 
@@ -163,6 +179,45 @@
           // Se non c'è un valore, imposta un'immagine di default
           document.getElementById('fotoProfilo').src = "images/1144760-cfc3a2d5.png";
         }
+
+        
+        document.getElementById('modify-btn').addEventListener('click', function() {
+    // Toggle visibility of text and input fields
+    var usernameText = document.getElementById('username-text');
+    var passwordText = document.getElementById('password-text');
+    
+    var usernameInput = document.getElementById('username');
+    var passwordInput = document.getElementById('password');
+    
+    // Switch to input fields
+    if (usernameText.style.display === 'none') {
+        // Hide input fields and show text
+        usernameText.style.display = 'inline-block';
+        passwordText.style.display = 'inline-block';
+        
+        usernameInput.style.display = 'none';
+        passwordInput.style.display = 'none';
+
+        // Change button text back to 'MODIFICA I TUOI DATI'
+        document.getElementById('modify-btn').style.display = 'inline-block';
+        document.getElementById('save-btn').style.display = 'none';
+    } else {
+        // Hide text and show input fields
+        usernameText.style.display = 'none';
+        passwordText.style.display = 'none';
+        
+        usernameInput.style.display = 'inline-block';
+        passwordInput.style.display = 'inline-block';
+
+        // Change button text to 'SALVA'
+        document.getElementById('modify-btn').style.display = 'none';
+        document.getElementById('save-btn').style.display = 'inline-block';
+    }
+});
+
+
+
+
       </script>
   
 </body></html>
