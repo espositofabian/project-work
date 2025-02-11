@@ -262,7 +262,7 @@ create table utenti
     password varchar(100),
     punteggio INT DEFAULT 0
 );
-
+truncate table utenti;
 -- insert degli utenti iniziali 
 insert into utenti
 (id,username,password,punteggio)
@@ -270,13 +270,14 @@ values
 (1,"Anna","annaanna",0),
 (2,"Luca","Garmin",100),
 (3,"Manuel","Unity",10),
-(4,"Lucian","George",50),
+(4,"Alberto","albertoalberto",30),
 (5,"Andrea","Macerata",25),
 (6,"Giordano","Zuppli",5),
 (7,"Dylan","SSNapoli1926",300),
 (8,"Vincent","javaaaaaaaaaaaaaaaaaa",5),
 (9,"DJFalco","CostaRica",5),
-(10,"Gulshan","SonoUnIndianoMalefico",5);
+(10,"Gulshan","SonoUnIndianoMalefico",5),
+(11,"Lucian","George",50);
 
 -- da qui in poi tutte query utili più o meno, Luca è l'essere perfetto
 select	* from	domande;
