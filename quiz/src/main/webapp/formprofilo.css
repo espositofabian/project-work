@@ -1,114 +1,193 @@
+.u-section-1 {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/high-resolution-blue-background-2559-x-1567-0crrdgy81z5uiujw.jpg');
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 880px;
+}
+
+.u-section-1 .u-text-1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  transition-duration: 0.5s;
+  --animation-custom_in-translate_x: 0px;
+  --animation-custom_in-translate_y: -300px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 1;
+  margin: 135px auto 0;
+}
+
+.u-section-1 .u-text-2 {
+  width: 826px;
+  margin: 269px auto 60px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 {
+    background-position: 50% 50%;
+  }
+
+  .u-section-1 .u-sheet-1 {
+    min-height: 726px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 556px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 417px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 263px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 340px;
+  }
+}
+
+.u-section-1 .u-text-1,
+.u-section-1 .u-text-1:before,
+.u-section-1 .u-text-1 > .u-container-layout:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, border-top-width, border-left-width, border-right-width, border-bottom-width, custom-border, borders, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, image-zoom, background-size, background-position;
+}
+
+.u-section-1 .u-text-1:hover {
+  color: #ff9600 !important;
+}
+
+.u-section-1 .u-text-1.hover {
+  color: #ff9600 !important;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url(/images/sfondo.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
 
+
+/* Keep your existing styles, modify only the wrapper section */
 .wrapper {
-    width: 420px;
-    background: transparent;
-    border: 2px solid rgba(255, 0, 0, 0.2);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color: #fff;
-    border-radius: 10px;
-    padding: 30px 40px;
+  width: 50%; /* Set wrapper width to 50% of screen width */
+  background: transparent;
+  border: 2px solid rgba(255, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+  margin: 0 auto; /* Center horizontally */
+  position: relative; /* Ensure proper positioning context */
+}
+
+/* Target input inside info-box */
+.info-box input {
+  color: black!Important;
 }
 
 .profile-header {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .profile-header h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .profile-avatar {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid rgba(255, 0, 0, 0.2);
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 0, 0, 0.2);
 }
 
 .profile-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .profile-info {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 .info-box {
-    margin: 20px 0;
-    padding: 15px;
-    border: 1px solid rgba(255, 0, 0, 0.2);
-    border-radius: 10px;
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .info-box label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
-    opacity: 0.8;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  opacity: 0.8;
 }
 
 .info-box p {
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .profile-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .btn {
-    width: 100%;
-    height: 45px;
-    background: #ff0202;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
+  width: 100%;
+  height: 45px;
+  background: #ff0202;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
 }
 
 .btn:hover {
-    background: #d60202;
-    transform: translateY(-2px);
+  background: #d60202;
+  transform: translateY(-2px);
 }
 
 .btn-logout {
-    background: transparent;
-    border: 2px solid #ff0202;
+  background: transparent;
+  border: 2px solid #ff0202;
 }
 
 .btn-logout:hover {
-    background: #ff0202;
+  background: #ff0202;
 }
